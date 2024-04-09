@@ -1,26 +1,28 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
+
+// Import Pages
+import Home from './routes/Home/Home'
+import Setting from './routes/Setting/Setting'
+
+// Import Not Found Page
+import NotFound from './routes/NotFound'
 
 function App() {
 	const [count, setCount] = useState(0)
 
 	return (
-		<>
-			<div className="flex min-h-screen flex-col items-center justify-center text-center">
-				<h1 className="text-4xl font-bold">Hello World App!</h1>
-				<p className="text-lg text-gray-500">
-					Edit <code>App.jsx</code> and save to test HMR updates.
-				</p>
-				<p className="text-lg">
-					<button
-						className="bg-vite rounded-lg px-4 py-2 text-black shadow-md"
-						onClick={() => setCount((count) => count + 1)}
-					>
-						count is: {count}
-					</button>
-				</p>
-			</div>
-		</>
+		<Routes>
+			{/* All main pages */}
+			<Route path="/" element={<Home />} />
+
+			{/* About */}
+			<Route path="/setting" element={<Setting />} />
+
+			{/* Error pages */}
+			<Route path="*" element={<NotFound />} />
+		</Routes>
 	)
 }
 
