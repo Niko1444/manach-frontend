@@ -5,6 +5,7 @@ import './App.css'
 // Import Pages
 import Home from './routes/Home/Home'
 import Setting from './routes/Setting/Setting'
+import Layout from './components/Layout'
 
 // Import Not Found Page
 import NotFound from './routes/NotFound'
@@ -13,16 +14,18 @@ function App() {
 	const [count, setCount] = useState(0)
 
 	return (
-		<Routes>
-			{/* All main pages */}
-			<Route path="/" element={<Home />} />
+		<Layout>
+			<Routes>
+				{/* All main pages */}
+				<Route path="/" element={<Home />} />
 
-			{/* About */}
-			<Route path="/setting" element={<Setting />} />
+				{/* About */}
+				<Route path="/setting" element={<Setting />} />
 
-			{/* Error pages */}
-			<Route path="*" element={<NotFound />} />
-		</Routes>
+				{/* Error pages */}
+				<Route path="*" element={<NotFound />} />
+			</Routes>
+		</Layout>
 	)
 }
 

@@ -30,17 +30,21 @@ const Menu = () => {
 	const location = useLocation()
 
 	return (
-		<div className="flex h-screen w-60 flex-col items-start justify-start bg-gray-200">
+		<div className="bg-green_dark1 flex h-screen w-60 flex-col items-start justify-start">
 			{NavItem.map((item, index) => (
 				<Link
 					key={index}
 					to={item.link}
 					className={`block p-4 ${
 						location.pathname === item.link
-							? 'bg-gray-400 text-white'
-							: 'text-gray-800'
-					} hover:bg-gray-300 hover:text-gray-900`}
-					style={{ width: '100%' }}
+							? 'bg-green_light3 no-hover text-white'
+							: 'text-offwhite'
+					} ${
+						location.pathname === item.link
+							? ''
+							: 'hover:bg-green_light3 hover:text-green_dark1'
+					}`}
+					style={{ width: '100%', transition: 'ease-in-out 0.3s' }}
 				>
 					{item.name}
 				</Link>
