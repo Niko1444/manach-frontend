@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import NeedHelps from './NeedHelps/NeedHelps'
 
 // NavItem
 const NavItem = [
@@ -30,25 +31,28 @@ const Menu = () => {
 	const location = useLocation()
 
 	return (
-		<div className="bg-green_dark1 flex h-screen w-60 flex-col items-start justify-start">
-			{NavItem.map((item, index) => (
-				<Link
-					key={index}
-					to={item.link}
-					className={`block p-4 ${
-						location.pathname === item.link
-							? 'bg-green_light3 no-hover text-white'
-							: 'text-offwhite'
-					} ${
-						location.pathname === item.link
-							? ''
-							: 'hover:bg-green_light3 hover:text-green_dark1'
-					}`}
-					style={{ width: '100%', transition: 'ease-in-out 0.3s' }}
-				>
-					{item.name}
-				</Link>
-			))}
+		<div className="flex h-screen w-[18.75rem] flex-col items-start justify-between bg-green_dark1">
+			<div className="w-full">
+				{NavItem.map((item, index) => (
+					<Link
+						key={index}
+						to={item.link}
+						className={`block p-4 ${
+							location.pathname === item.link
+								? 'no-hover text-white bg-green_light3'
+								: 'text-offwhite'
+						} ${
+							location.pathname === item.link
+								? ''
+								: 'hover:bg-green_light3 hover:text-green_dark1'
+						}`}
+						style={{ width: '100%', transition: 'ease-in-out 0.3s' }}
+					>
+						{item.name}
+					</Link>
+				))}
+			</div>
+			<NeedHelps />
 		</div>
 	)
 }

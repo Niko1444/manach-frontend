@@ -11,6 +11,7 @@ import Layout from './components/Layout'
 import NotFound from './routes/NotFound'
 
 function App() {
+	// eslint-disable-next-line no-unused-vars
 	const [count, setCount] = useState(0)
 
 	return (

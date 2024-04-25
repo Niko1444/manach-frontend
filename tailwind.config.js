@@ -5,7 +5,11 @@ import daisyui from 'daisyui'
 export default {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			boxShadow: {
+				custom: '10px 10px 4px 0px rgba(0, 0, 0, 0.25)',
+			},
+		},
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',
