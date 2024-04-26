@@ -6,9 +6,27 @@ const NeedHelps = () => {
 	const [state, setState] = useState({})
 	return (
 		<div className="w-full p-2">
-			<div className="mx-auto h-[12.0625rem] w-[14.5625rem]">
+			<div className="relative mx-auto h-[12.0625rem] w-[14.5625rem]">
+				{/* background */}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="233"
+					height="193"
+					viewBox="0 0 233 193"
+					fill="green"
+					className={` rounded-[15px] bg-offwhite`}
+				>
+					<path
+						d="M6.52457 -8.02695L39.6418 -9.97005C64.8458 -11.4489 72.6534 23.5386 49.2118 32.9153C40.164 36.5344 34.5225 45.6183 35.2894 55.3328L35.9609 63.8379C37.6975 85.8354 14.3251 100.976 -5.04024 90.3982C-13.9548 85.5289 -19.5 76.1815 -19.5 66.0238V19.5693C-19.5 4.93102 -8.08859 -7.16955 6.52457 -8.02695Z"
+						fill="#93A267"
+					/>
+					<path
+						d="M250.098 148.464L247.261 142.447C238.173 123.165 209.085 131.443 211.51 152.621L212.079 157.589C212.88 164.587 208.147 171.018 201.228 172.334C185.19 175.383 187.416 199 203.741 199H235.551C244.635 199 252 191.635 252 182.551V156.962C252 154.024 251.35 151.122 250.098 148.464Z"
+						fill="#93A267"
+					/>
+				</svg>
 				<NavLink
-					className="hover:shadow-custom relative flex h-full items-center justify-center rounded-[15px] bg-offwhite transition duration-150 ease-in-out"
+					className="absolute top-0 flex h-full w-full items-center justify-center rounded-[15px]  transition duration-150 ease-in-out hover:shadow-[10px_10px_4px_0px_rgba(0,0,0,0.25)]"
 					style={state}
 					onClick={() => {
 						setState({ boxShadow: '10px 10px 4px 0 rgba(0, 0, 0, 0.25) inset' })
@@ -19,27 +37,8 @@ const NeedHelps = () => {
 						}, 200)
 					}}
 				>
-					{/* background */}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="233"
-						height="193"
-						viewBox="0 0 233 193"
-						fill={`var(--Green, #93A267)`}
-						className="rounded-[15px]"
-					>
-						<path
-							d="M6.52457 -8.02695L39.6418 -9.97005C64.8458 -11.4489 72.6534 23.5386 49.2118 32.9153C40.164 36.5344 34.5225 45.6183 35.2894 55.3328L35.9609 63.8379C37.6975 85.8354 14.3251 100.976 -5.04024 90.3982C-13.9548 85.5289 -19.5 76.1815 -19.5 66.0238V19.5693C-19.5 4.93102 -8.08859 -7.16955 6.52457 -8.02695Z"
-							fill="#93A267"
-						/>
-						<path
-							d="M250.098 148.464L247.261 142.447C238.173 123.165 209.085 131.443 211.51 152.621L212.079 157.589C212.88 164.587 208.147 171.018 201.228 172.334C185.19 175.383 187.416 199 203.741 199H235.551C244.635 199 252 191.635 252 182.551V156.962C252 154.024 251.35 151.122 250.098 148.464Z"
-							fill="#93A267"
-						/>
-					</svg>
-
 					{/* content  */}
-					<div className="absolute w-[12.75rem]">
+					<div className="w-[12.75rem]">
 						{/* btn + */}
 						<div className="mx-auto flex h-full items-center justify-center">
 							<svg

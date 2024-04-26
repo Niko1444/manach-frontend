@@ -1,7 +1,13 @@
 // import React from 'react'
 // https://svcy3.myclass.vn/images/adidas-prophere.png
 
+// import { useState } from 'react'
+
 const Explore = () => {
+	// const [state, setState] = useState({
+	// 	fill: 'var(--Offwhite, #FFF)',
+	// 	filter: 'drop-shadow(0px 4px 4px #C2C9AC)',
+	// })
 	return (
 		<div
 			className="h-[19.3125rem] w-[15.5rem]"
@@ -11,7 +17,7 @@ const Explore = () => {
 		>
 			{/* rectagle */}
 			<div
-				className="h-[19.3125rem] w-[15.5rem] flex-shrink-0 items-center "
+				className="h-[19.3125rem] w-[15.5rem] flex-shrink-0 items-center hover:rounded-md hover:shadow-[10px_10px_4px_0px_rgba(0,0,0,0.25)]"
 				style={{
 					fill: 'var(--Offwhite, #FFF)',
 					filter: 'drop-shadow(0px 4px 4px #C2C9AC)',
@@ -29,6 +35,9 @@ const Explore = () => {
 						<path
 							d="M4 10C4 4.47715 8.47715 0 14 0H242C247.523 0 252 4.47715 252 10V299C252 304.523 247.523 309 242 309H14C8.47716 309 4 304.523 4 299V10Z"
 							fill="white"
+							style={{
+								boxShadow: '10px 10px 4px 0px rgba(0,0,0,0.25)',
+							}}
 						/>
 					</g>
 					<defs>
