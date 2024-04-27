@@ -13,7 +13,7 @@ const NeedHelps = () => {
 					width="233"
 					height="193"
 					viewBox="0 0 233 193"
-					fill="green"
+					fill="#93A267"
 					className={` rounded-[15px] bg-offwhite`}
 				>
 					<path
