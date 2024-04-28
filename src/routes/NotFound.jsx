@@ -1,5 +1,5 @@
 import Menu from '../components/Menu'
-import { Sort } from '../components/Sort/Sort'
+import Sort from '../components/Sort/Sort'
 
 function NotFound() {
 	return (

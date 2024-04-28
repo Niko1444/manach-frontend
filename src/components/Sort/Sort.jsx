@@ -28,37 +28,43 @@ const Sort = () => {
     const handleDisable = (disabled) => {
         setIsDisabled(disabled);
     };
+    
 
     return (
         <div
-            className={`w-[155px] h-[31px] relative ${isDisabled ? '#EBF5E1' : ''}`}
+            className={`w-[155px] h-[31px] relative ${isDisabled ? 'opacity-50' : ''}`}
             onClick={handleMouseDown}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{
-                borderRadius: '15px',
-                overflow: 'hidden',
-                backgroundColor: isHovered && !isDisabled ? '#EBF5E1' : '',
-                boxShadow: isPressed && !isDisabled ? '8px 8px 4px rgba(0, 0, 0, 0.3) inset' : 'none',
+                borderRadius: '10px',
+                overflow: 'visible',
+                backgroundColor: isHovered && !isDisabled ? '#EBF5E1' : '#EBF5E1',
+                boxShadow: isHovered && !isDisabled ? '5px 5px 0px rgba(0, 0, 0, 0.25), -1px 4px 2px rgba(0, 0, 0, 0.15)' : (isPressed && !isDisabled ? 'inset 4px 4px 5px rgba(0, 0, 0, 0.25)' : 'none'),
+                filter: isDisabled ? 'blur(2px)' : 'none', // Apply blur effect if disabled
             }}
         >
             {/* Background Element (for hover and pressed effects) */}
             <div
-                className={`bg-${isPressed ? 'stone-700' : 'lime-50'} border-stone-700 h-full w-full rounded-[15px] border`}
+                className={`bg-${isPressed ? '#EBF5E1' : 'stone-700'} w-[155px] h-[31px] bg-lime-50 rounded-[10px]`}
+                
+                
             />
 
             {/* Text Element */}
             <div
-                className="left-[51px] top-0 absolute text-stone-700 text-xl font-semibold font-['Poppins']"
-                style={{ fontSize: '51px', zIndex: 1 }}
+                className="text-red-500 font-semibold font-Poppins absolute left-0 top-0 w-full h-full flex items-center justify-center"
+                style={{ fontSize: '20px', zIndex: 1 }}
+                
             >
-                Log In
+                SORT
             </div>
 
             {/* Disabled overlay (if disabled) */}
             {isDisabled && (
                 <div
-                    className="absolute left-0 top-0 w-full h-full bg-gray-300 opacity-50 rounded-[15px]"
+                    className="absolute left-0 top-0 w-155px h-31px bg-lime-50 rounded-[10px]"
+                    
                     style={{ pointerEvents: 'none' }}
                 />
             )}
