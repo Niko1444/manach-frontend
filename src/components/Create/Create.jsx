@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Sort = () => {
+const Create = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isPressed, setIsPressed] = useState(false);
     const [isDisabled, setIsDisabled] = useState(false);
@@ -28,51 +28,41 @@ const Sort = () => {
     const handleDisable = (disabled) => {
         setIsDisabled(disabled);
     };
-    
 
     return (
         <div
-            className={`w-[155px] h-[31px] relative ${isDisabled ? 'opacity-50' : ''}`}
+            className={`w-[251px] h-[70px] relative ${isDisabled ? 'opacity-50' : ''}`}
             onClick={handleMouseDown}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{
-                borderRadius: '10px',
+                borderRadius: '15px',
                 overflow: 'visible',
-                backgroundColor: isHovered && !isDisabled ? '#EBF5E1' : '#EBF5E1',
-                boxShadow: isHovered && !isDisabled ? '5px 5px 0px rgba(0, 0, 0, 0.25), -1px 4px 2px rgba(0, 0, 0, 0.15)' : (isPressed && !isDisabled ? 'inset 4px 4px 5px rgba(0, 0, 0, 0.25)' : 'none'),
-                filter: isDisabled ? 'blur(2px)' : 'none', // Apply blur effect if disabled
+                backgroundColor: isHovered && !isDisabled ? '#485935' : '#ECF5E1',
+                boxShadow: isPressed && !isDisabled ? '8px 8px 4px rgba(0, 0, 0, 0.3) inset' : 'none',
             }}
         >
             {/* Background Element (for hover and pressed effects) */}
-            <div
-                className={`bg-${isPressed ? '#EBF5E1' : 'stone-700'} w-[155px] h-[31px] bg-lime-50 rounded-[10px]`}
-                
-                
-            />
+            {/* <div
+                className={`bg-${isPressed ? 'white' : 'stone-700'} border-stone-700 h-full w-full rounded-[15px] border`}
+            /> */}
 
             {/* Text Element */}
             <div
-                className="font-bold absolute left-0 top-0 w-full h-full flex items-center justify-center"
-                style={{
-                    color: '#485935',
-                    fontSize: '1.25rem',
-                    fontWeight: 900,
-                }}
+                className="text-stone-700 font-Poppins text-3xl absolute left-0 top-0 w-full h-full flex items-center justify-center"
+                style={{ 
+                    color: isHovered && !isDisabled ? '#FFFFFF' : '#485935',
+                    fontWeight: 700,    
+                    fontSize: '1.875rem', 
+                    zIndex: 1 }}
             >
-                <span
-                style={{
-                    color: '#485935',
-                    fontSize: '1.25rem',
-                    fontWeight: 900,
-                }}>SORT</span>
+                Create
             </div>
 
             {/* Disabled overlay (if disabled) */}
             {isDisabled && (
                 <div
-                    className="absolute left-0 top-0 w-155px h-31px bg-lime-50 rounded-[10px]"
-                    
+                    className="absolute left-0 top-0 w-full h-full bg-gray-300 opacity-50 rounded-[15px]"
                     style={{ pointerEvents: 'none' }}
                 />
             )}
@@ -80,4 +70,4 @@ const Sort = () => {
     );
 };
 
-export default Sort;
+export default Create;
