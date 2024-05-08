@@ -1,7 +1,12 @@
 import React from 'react'
+import AtManach from '../../components/AtManach/AtManach'
+
 
 const AboutUs = () => {
-	return <div>AboutUs</div>
+	return (<div>
+		<AtManach/>
+	</div>)
+	
 }
 
 export default AboutUs
