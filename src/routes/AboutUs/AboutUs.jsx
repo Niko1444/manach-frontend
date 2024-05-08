@@ -1,7 +1,13 @@
-import React from 'react'
+import Carousel from './Carousel'
+import Header from './Header'
 
 const AboutUs = () => {
-	return <div>AboutUs</div>
+	return (
+		<div className="bg-white">
+			<Header />
+			<Carousel />
+		</div>
+	)
 }
 
 export default AboutUs
