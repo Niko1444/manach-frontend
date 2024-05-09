@@ -3,6 +3,7 @@ import React from 'react'
 const WhatSetsUsApart = () => {
 	return (
 		<div>
+            {/*What sets us apart?*/}
 			<div
 				style={{
 					width: '100vw',
@@ -82,6 +83,8 @@ const WhatSetsUsApart = () => {
                     </div>
                 </div>
             </div>
+            
+            {/*What are you craving for?*/}
             <div style={{ marginTop: '86px',paddingLeft: '51.625rem',}}>
                 <div
                 style={{
@@ -113,7 +116,7 @@ const WhatSetsUsApart = () => {
                 >   
                     Visit our store
                 </div>
-                    <div
+                <div
                     style={{
                         width: '531px',
                         height: '164px',
@@ -127,26 +130,26 @@ const WhatSetsUsApart = () => {
                     }}
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </div>
-                    <div style={{ marginLeft: '12rem', paddingTop: '120px', }}>
-                        <button
-                            style={{
-                                width: '186px',
-                                height: '38px',
-                                backgroundColor: '#93A267',      
-                                fontColor: '#48593',
-                                fontFamily: 'Poppins',
-                                fontSize: '20px',
-                                fontWeight: '500',
-                                border: 'none',
-                                borderRadius: '8px',
-                                cursor: 'pointer',
-                            }}
-                        >
-                            VISIT STORE
-                        </button>
-                    </div>
-                    <div className='m-auto h-fit w-full'>
+                </div>
+                <div style={{ marginLeft: '12rem', paddingTop: '120px', }}>
+                    <button
+                        style={{
+                            width: '186px',
+                            height: '38px',
+                            backgroundColor: '#93A267',      
+                            fontColor: '#48593',
+                            fontFamily: 'Poppins',
+                            fontSize: '20px',
+                            fontWeight: '500',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        VISIT STORE
+                    </button>
+                </div>
+                <div className='m-auto h-fit w-full'>
                     <img src="/src/assets/pic_4.png" 
                         alt="" 
                         style={{
