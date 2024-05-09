@@ -54,11 +54,11 @@ const Review = () => {
             <div className="left-[326px] top-[56px]"
             style={{
                 color: 'var(--Green-dark1, #485935)',
-                fontFamily: Poppins,
+                fontFamily: 'Poppins',
                 fontSize: '22px',
-                fontStyle: normal,
-                fontWeight: 500,
-                lineHeight: normal,
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: 'normal',
             }}>
                 Cavendish Banana
                 </div>
@@ -89,11 +89,11 @@ const Review = () => {
             <div className="left-[484px] top-[86px]"
             style={{
                 color: 'var(--Green-dark1, #485935)',
-                fontFamily: Poppins,
+                fontFamily: 'Poppins',
                 fontSize: '18px',
-                fontStyle: normal,
-                fontWeight: 300,
-                lineHeight: normal,
+                fontStyle: 'normal',
+                fontWeight: '300',
+                lineHeight: 'normal',
             }}>
                 (24000+ Reviews)
                 </div>
@@ -101,12 +101,12 @@ const Review = () => {
             <div className="w-[379px] left-[326px] top-[128px]"
             style={{
                 color: '#000',
-                textAlign: justify,
-                fontFamily: Poppins,
+                textAlign: 'justify',
+                fontFamily: 'Poppins',
                 fontSize: '16px',
-                fontStyle: normal,
-                fontWeight: 300,
-                lineHeight: normal,
+                fontStyle: 'normal',
+                fontWeight: '300',
+                lineHeight: 'normal',
             }}>
                 Cavendish bananas are the fruits of one of a number of banana cultivars belonging to the Cavendish subgroup of the AAA banana cultivar group.
                 </div>
@@ -114,11 +114,11 @@ const Review = () => {
             <div className="left-[326px] top-[245px]"
             style={{
                 color: 'var(--Green-dark1, #485935)',
-                fontFamily: Poppins,
+                fontFamily: 'Poppins',
                 fontSize: '18px',
-                fontStyle: normal,
-                fontWeight: 700,
-                lineHeight: normal,
+                fontStyle: 'normal',
+                fontWeight: '700',
+                lineHeight: 'normal',
             }}>
                 Price: 
                 </div>
@@ -126,11 +126,11 @@ const Review = () => {
             <div className="left-[413px] top-[245px]"
             style={{
                 color: 'var(--Green-dark1, #485935)',
-                fontFamily: Poppins,
+                fontFamily: 'Poppins',
                 fontSize: '18px',
-                fontStyle: normal,
-                fontWeight: 700,
-                lineHeight: normal,
+                fontStyle: 'normal',
+                fontWeight: '700',
+                lineHeight: 'normal',
             }}>
                 $5/kg
                 </div>
@@ -167,11 +167,11 @@ const Review = () => {
             <div className="w-[142px] h-12 rounded-[15px] border border-stone-500"
             style={{
                 color: 'var(--Green-dark1, #485935)',
-                fontFamily: Poppins,
+                fontFamily: 'Poppins',
                 fontSize: '20px',
-                fontStyle: normal,
-                fontWeight: 500,
-                lineHeight: normal,
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: 'normal',
             }}>
                 Add to cart
                 </div>
@@ -184,7 +184,7 @@ const Review = () => {
                 />
             )}
         </div>
-    );
+    )
 };
 
 export default Review;
