@@ -1,9 +1,6 @@
-
-import React from 'react'
-
 import Footer from './Footer'
 
-import AtManach from '../../components/AtManach/AtManach'
+import AtManach from './AtManach'
 import Carousel from './Carousel'
 import Header from './Header'
 import WhatSetsUsApart from '../../components/WhatSetsUs/WhatSetsUsApart'
@@ -13,9 +10,9 @@ const AboutUs = () => {
 		<div className="bg-white">
 			<Header />
 			<Carousel />
-      <AtManach/>
-      <WhatSetsUsApart/>
-      <Footer/>	
+			<AtManach />
+			<WhatSetsUsApart />
+			<Footer />
 		</div>
 	)
 }
