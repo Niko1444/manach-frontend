@@ -1,8 +1,6 @@
 // Path: src/routes/Client/Home/HelloWorld.jsx
 import { useState } from 'react'
 
-import Explore from '../../components/Exphore/Explore'
-
 function HelloWorld() {
 	const [count, setCount] = useState(0)
 
@@ -21,8 +19,6 @@ function HelloWorld() {
 						count is: {count}
 					</button>
 				</p>
-
-				<Explore />
 			</div>
 		</>
 	)
