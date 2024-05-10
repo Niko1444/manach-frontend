@@ -1,6 +1,9 @@
 // Path: src/routes/Client/Home/HelloWorld.jsx
 import { useState } from 'react'
-import Explore from '../../components/Exphore/Explore'
+
+
+import LogIn from '../../components/LogIn/LogIn'
+
 
 function HelloWorld() {
 	const [count, setCount] = useState(0)
@@ -8,6 +11,7 @@ function HelloWorld() {
 	return (
 		<>
 			<div className="justify-centerflex flex h-full w-3/4 flex-grow flex-col items-center justify-center">
+				
 				<h1 className="text-4xl font-bold">Hello World App!</h1>
 				<p className="text-lg text-gray-500">
 					Edit <code>App.jsx</code> and save to test HMR updates.
@@ -21,7 +25,7 @@ function HelloWorld() {
 					</button>
 				</p>
 
-				<Explore />
+				
 			</div>
 		</>
 	)
