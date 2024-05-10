@@ -83,7 +83,12 @@ const Header = () => {
 							/>
 						</div>
 
-						<span className="mx-4 text-[3rem] font-extrabold text-[white]">
+						<span
+							className="mx-4 text-[3rem] font-extrabold text-[white]"
+							style={{
+								textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+							}}
+						>
 							Manach
 						</span>
 					</div>
