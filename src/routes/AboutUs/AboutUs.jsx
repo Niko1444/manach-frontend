@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Footer from './Footer'
 
 import AtManach from '../../components/AtManach/AtManach'
 import Carousel from './Carousel'
@@ -11,9 +12,9 @@ const AboutUs = () => {
 			<Header />
 			<Carousel />
       <AtManach/>
+      <Footer/>	
 		</div>
 	)
-
 }
 
 export default AboutUs
