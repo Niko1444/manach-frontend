@@ -49,7 +49,7 @@ const Create = () => {
 
             {/* Text Element */}
             <div
-                className="text-stone-700 font-Poppins text-3xl absolute left-0 top-0 w-full h-full flex items-center justify-center"
+                className="text-stone-700 font-Poppins absolute left-0 top-0 w-full h-full flex items-center justify-center"
                 style={{ 
                     color: isHovered && !isDisabled ? '#FFFFFF' : '#485935',
                     fontWeight: 700,    
