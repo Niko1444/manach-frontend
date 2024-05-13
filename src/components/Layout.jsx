@@ -12,8 +12,8 @@ function Layout({ children }) {
 
 	// Render div with flex properties only if it's not the "/about-us" page
 	const renderFlexDiv = !isAboutUsPage ? (
-		<div className="flex flex-row items-center justify-center">
-			{renderMenu && <Menu />}
+		<div className="flex flex-row">
+			{renderMenu && <Menu/>}
 			{children}
 		</div>
 	) : (

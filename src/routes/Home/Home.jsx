@@ -1,7 +1,8 @@
+import Embracing from '../../components/EmbracingFood/Embracing'
 import HelloWorld from './HelloWorld'
 
 function Home() {
-	return <HelloWorld />
+	return <HelloWorld/>
 }
 
 export default Home
