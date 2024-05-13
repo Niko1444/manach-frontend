@@ -7,8 +7,6 @@ function HelloWorld() {
 	return (
 		<>
 			<div className="flex h-full flex-grow flex-col items-center justify-center ">
-				<Embracing/>
-				<Together/>
 			</div>
 		</>
 	)
