@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-//import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const SearchBar = () => {
     const [state, setState] = useState({})
     return (
         <div className="fixed top-0 right-0 p-2">
             <div className="relative my-auto h-[2.5625rem] w-[19.4375rem] bg-lime-50">
-                {/*<NavLink
-                    className="h-full w-full items-center justify-center rounded-[15px]  transition duration-150 ease-in-out hover:shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                <NavLink
+                    className="h-full w-full items-center justify-center rounded-[15px]  transition duration-150 ease-in-out hover:shadow-[4px 4px 4px 0px rgba(0,0,0,0.25)]"
                     style={state}
                     onClick={() => {
                         setState({ boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset' })
@@ -15,9 +15,9 @@ const SearchBar = () => {
                         // After 1 second, reset the box shadow to none
                         setTimeout(() => {
                             setState({ boxShadow: '' })
-                        }, 1000)
+                        }, 200)
                     }}
-                >*/}
+                >
                     <div style={{ position: 'relative' }}>
                         <input
                             type="text"
@@ -56,7 +56,7 @@ const SearchBar = () => {
                             />
                         </svg>
                     </div>
-                {/*</NavLink>*/}
+                </NavLink>
             </div>
         </div>
     )
