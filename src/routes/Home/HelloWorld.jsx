@@ -1,9 +1,10 @@
 // Path: src/routes/Client/Home/HelloWorld.jsx
 import { useState } from 'react'
+import Embracing from '../../components/EmbracingFood/Embracing'
+import Together from '../../components/Together/Together'
+
 
 function HelloWorld() {
-	const [count, setCount] = useState(0)
-
 	return (
 		<>
 			<div className="justify-centerflex flex h-full w-3/4 flex-grow flex-col items-center justify-center">

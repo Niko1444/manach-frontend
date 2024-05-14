@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom'
 
 const Header = () => {
 	return (
-		<div className="container mx-auto ">
+		<div className="mx-auto w-full">
 			<div
-				className=""
 				style={{
 					height: '9.25rem',
+					width: '100%',
 					background: 'var(--Green-dark1, #485935)',
 				}}
 			>
@@ -102,8 +102,8 @@ const Header = () => {
 							textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
 						}}
 					>
-						<NavLink>Sign up</NavLink>
-						<NavLink>Log In</NavLink>
+						<NavLink to={'/auth/signup'}>Sign up</NavLink>
+						<NavLink to={'/auth/welcome'}>Log In</NavLink>
 						<NavLink>Our Store</NavLink>
 						<NavLink>Contact Us</NavLink>
 					</div>

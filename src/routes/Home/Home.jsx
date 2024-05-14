@@ -1,14 +1,19 @@
+import Embracing from '../../components/EmbracingFood/Embracing'
 import HelloWorld from './HelloWorld'
+
 import Footer from './Footer'
 import HowToUse from './HowToUse'
 
+import Introduction from '../../components/Introduction/Introduction'
 
 function Home() {
 	return (
-	<div>
-		<HowToUse/>
-		<Footer/>
-	</div>
+		<div>
+			<HelloWorld />
+      <Introduction />
+      <HowToUse/>
+		  <Footer/>
+		</div>
 	)
 }
 
