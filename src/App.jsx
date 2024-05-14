@@ -21,7 +21,7 @@ function App() {
 
 	return (
 		<Layout>
-			<Routes>
+			<Routes>	
 				<Route path="about-us" element={<AboutUs />} />
 
 				{/* All main pages */}
