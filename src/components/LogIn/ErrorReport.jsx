@@ -1,4 +1,5 @@
 import React from 'react'
+import YesPleasecheck from '../YesPleasecheck'
 
 const ErrorReport = () => {
 	return (
@@ -86,6 +87,9 @@ const ErrorReport = () => {
 				}}
 			>
 				Have you noticed a problem with this page and want to report an error?
+			</div>
+			<div>
+				<YesPleasecheck/>
 			</div>
 		</div>
 	)
