@@ -1,23 +1,27 @@
 import { useLocation } from 'react-router-dom'
 import Menu from './Menu'
 
+const notMenu = [
+	'/auth/login',
+	'/auth/signup',
+	'/auth',
+	'/auth/welcome',
+	'/about-us',
+]
+
 function Layout({ children }) {
 	const location = useLocation()
 
-	// Check if the current route path is "/about-us"
-	const isAboutUsPage = location.pathname === '/about-us'
+	const isAuthPage = notMenu.includes(location.pathname)
+	const renderMenu = !isAuthPage
 
-	// Render Menu only if it's not the "/about-us" page
-	const renderMenu = !isAboutUsPage
-
-	// Render div with flex properties only if it's not the "/about-us" page
-	const renderFlexDiv = !isAboutUsPage ? (
-		<div className="flex flex-row items-center justify-start">
+	const renderFlexDiv = !isAuthPage ? (
+		<div className="flex flex-row items-center">
 			{renderMenu && <Menu />}
 			{children}
 		</div>
 	) : (
-		// Render only children without flex properties for "/about-us" page
+		// Chỉ render children mà không có thuộc tính flex cho trang xác thực và "/about-us"
 		children
 	)
 
