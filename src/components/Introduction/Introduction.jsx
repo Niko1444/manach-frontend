@@ -2,10 +2,11 @@ import React from 'react'
 
 const Introduction = () => {
     return (
-        <div className='relative'>
-            <div className='h-full w-full inset-0 bg-cover bg-center'>
+        <div className='relative top-0'>
+            <div className='m-auto h-full w-full'>
                 <img src="src/assets/fruits.png" 
-                alt=""               
+                alt=""
+                style={{ width: '100%', height: 'auto', marginTop: '80px', }}               
                 />
             </div>
             <div className='absolute'
@@ -19,7 +20,7 @@ const Introduction = () => {
                     backgroundColor: '#FFF',
                     width: '738px',
                     height: '571px',
-                    border: '1px solid black',
+                    border: '0px solid black',
                     borderRadius: '8px',
                     boxShadow: '0px 0px 2px 0px rgba(23, 26, 31, 0.12), 0px 4px 9px 0px rgba(23, 26, 31, 0.11)',
                 }}
@@ -49,7 +50,6 @@ const Introduction = () => {
                         fontSize: '18px',
                         fontWeight: '400',
                         lineHeight: '28px',
-                        wordWrap: 'break-word',
                     }}
                 >
                 At Manach, we believe everyone should indulge in fresh fruits. 
@@ -82,7 +82,6 @@ const Introduction = () => {
                         fontSize: '18px',
                         fontWeight: '400',
                         lineHeight: '28px',
-                        wordWrap: 'break-word',
                     }}
                 >
                 Manach is your premier online destination for clean, fresh fruits sourced from a variety of local and international suppliers, 
@@ -91,7 +90,7 @@ const Introduction = () => {
                 Our diverse selection of clean fruits guarantees both quality and affordability, making healthy eating accessible to all. 
                 Join us in our mission to promote wellness and support local communities through every delicious bite of our handpicked fruits.
                 </div>
-                <div style={{justifyContent: 'center', alignItems: 'center',}}>
+                <div>
 					<button
 						style={{
 							width: '219px',
