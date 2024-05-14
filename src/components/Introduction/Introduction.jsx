@@ -67,7 +67,7 @@ const Introduction = () => {
                         fontWeight: '700',
                         lineHeight: '36px',
                         wordWrap: 'break-word',
-                        marginInlineStart: '36px',
+                        marginLeft: '-475px',
                         marginTop: '16px',
                     }}
                 >
@@ -91,17 +91,16 @@ const Introduction = () => {
                 Our diverse selection of clean fruits guarantees both quality and affordability, making healthy eating accessible to all. 
                 Join us in our mission to promote wellness and support local communities through every delicious bite of our handpicked fruits.
                 </div>
-                <div style={{display: 'inline-flex', padding: '12px 47px', justifyContent: 'center', alignItems: 'center',}}>
+                <div style={{justifyContent: 'center', alignItems: 'center',}}>
 					<button
 						style={{
 							width: '219px',
 							height: '52px',
-							backgroundColor: '#48593',
-							fontColor: '#FFF',
+							backgroundColor: '#485935',
+							color: '#FFF',
 							fontFamily: 'Inter',
-							fontSize: '18x',
+							fontSize: '20px',
 							fontWeight: '400',
-                            lineHeight: '28px',
 							border: 'none',
 							borderRadius: '26px',
 							cursor: 'pointer',
