@@ -33,7 +33,7 @@ const Menu = () => {
 	const location = useLocation()
 
 	return (
-		<div className="flex h-screen w-[18.75rem] flex-col items-start justify-between bg-green_dark1">
+		<div className="sticky flex h-screen w-full flex-col items-start justify-between bg-green_dark1">
 			<div className="w-full">
 				{NavItem.map((item, index) => (
 					<Link

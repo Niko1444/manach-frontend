@@ -16,12 +16,11 @@ function Layout({ children }) {
 	const renderMenu = !isAuthPage
 
 	const renderFlexDiv = !isAuthPage ? (
-		<div className="flex flex-row items-center">
-			{renderMenu && <Menu />}
-			{children}
+		<div className="flex">
+			<div className="fixed w-[20%]">{renderMenu && <Menu />}</div>
+			<div className="ml-[20%] w-[80%]">{children}</div>
 		</div>
 	) : (
-		// Chỉ render children mà không có thuộc tính flex cho trang xác thực và "/about-us"
 		children
 	)
 
