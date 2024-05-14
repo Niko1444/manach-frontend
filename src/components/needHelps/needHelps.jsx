@@ -154,7 +154,7 @@ const NeedHelps = () => {
 								fontSize: '0.75rem',
 								fontStyle: 'normal',
 								fontWeight: 500,
-								lineHseight: 'normal',
+								lineHeight: 'normal',
 							}}
 						>
 							If you have any complaints click here and let us know.
