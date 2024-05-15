@@ -1,5 +1,3 @@
-import Menu from '../../components/Menu'
-
 function Setting() {
 	return (
 		<>
