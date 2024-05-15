@@ -9,23 +9,23 @@ import NeedHelps from './needHelps/needHelps'
 const NavItem = [
 	{
 		name: 'Home',
-		link: '/',
+		link: '/customer/home',
 	},
 	{
 		name: 'Store',
-		link: '/store',
+		link: '/customer/store',
 	},
 	{
-		name: 'Warehouse',
-		link: '/contact',
+		name: 'Order',
+		link: '/customer/order',
+	},
+	{
+		name: 'Checkout',
+		link: '/customer/check-out',
 	},
 	{
 		name: 'Setting',
-		link: '/setting',
-	},
-	{
-		name: 'Logout',
-		link: '/logout',
+		link: '/customer/setting',
 	},
 ]
 
@@ -33,7 +33,7 @@ const Menu = () => {
 	const location = useLocation()
 
 	return (
-		<div className="flex h-screen w-[18.75rem] flex-col items-start justify-between bg-green_dark1">
+		<div className="sticky flex h-screen w-full flex-col items-start justify-between bg-green_dark1">
 			<div className="w-full">
 				{NavItem.map((item, index) => (
 					<Link
