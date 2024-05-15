@@ -9,23 +9,23 @@ import NeedHelps from './needHelps/needHelps'
 const NavItem = [
 	{
 		name: 'Home',
-		link: '/',
+		link: '/customer/home',
 	},
 	{
 		name: 'Store',
-		link: '/store',
+		link: '/customer/store',
 	},
 	{
-		name: 'Warehouse',
-		link: '/contact',
+		name: 'Order',
+		link: '/customer/order',
+	},
+	{
+		name: 'Checkout',
+		link: '/customer/check-out',
 	},
 	{
 		name: 'Setting',
-		link: '/setting',
-	},
-	{
-		name: 'Logout',
-		link: '/logout',
+		link: '/customer/setting',
 	},
 ]
 

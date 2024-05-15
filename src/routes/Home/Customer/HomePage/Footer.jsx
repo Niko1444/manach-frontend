@@ -35,7 +35,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-twitter"
+									className="fab fa-twitter"
 									style={{ fontSize: '1.25rem', color: '#2EBAE8' }}
 								></i>
 							</div>
@@ -51,7 +51,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-facebook"
+									className="fab fa-facebook"
 									style={{ fontSize: '1.25rem', color: '#2E6FE8' }}
 								></i>
 							</div>
@@ -67,7 +67,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-linkedin"
+									className="fab fa-linkedin"
 									style={{ fontSize: '1.25rem', color: '#5880DE' }}
 								></i>
 							</div>
@@ -83,7 +83,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-youtube"
+									className="fab fa-youtube"
 									style={{ fontSize: '1.25rem', color: '#E82E2E' }}
 								></i>
 							</div>

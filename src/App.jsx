@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
 // Import Pages
-import Home from './routes/Home/Home'
+import Home from './routes/Home/Customer/HomePage/Home'
 import Setting from './routes/Setting/Setting'
 import Layout from './components/Layout'
 import AboutUs from './routes/AboutUs/AboutUs'
@@ -14,6 +14,11 @@ import AuthTemplate from './routes/Auth/AuthTemplate'
 import Welcome from './routes/Auth/Welcome'
 import Login from './routes/Auth/Login'
 import Signup from './routes/Auth/Signup'
+import CusStore from './routes/Home/Customer/Store/CusStore'
+import CusOrder from './routes/Home/Customer/Order/CusOrder'
+import CustomerTemplate from './routes/Home/Customer/CustomerTemplate'
+import CusCheckOut from './routes/Home/Customer/CheckOut/CusCheckOut'
+import CusSetting from './routes/Home/Customer/Setting.jsx/CusSetting'
 
 function App() {
 	// eslint-disable-next-line no-unused-vars
@@ -21,11 +26,17 @@ function App() {
 
 	return (
 		<Layout>
-			<Routes>	
+			<Routes>
 				<Route path="about-us" element={<AboutUs />} />
 
 				{/* All main pages */}
-				<Route path="/" element={<Home />} />
+				<Route path="customer" element={<CustomerTemplate />}>
+					<Route path="home" element={<Home />} />
+					<Route path="store" element={<CusStore />} />
+					<Route path="order" element={<CusOrder />} />
+					<Route path="check-out" element={<CusCheckOut />} />
+					<Route path="setting" element={<CusSetting />} />
+				</Route>
 
 				{/* Auth */}
 				<Route path="auth" element={<AuthTemplate />}>

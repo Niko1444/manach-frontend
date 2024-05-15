@@ -1,6 +1,3 @@
-// src/App.js
-import image from '../../assets/nexttogrid.jpeg'
-
 function App() {
 	const containerStyle = {
 		display: 'flex',
@@ -75,11 +72,7 @@ function App() {
 				</div>
 			</div>
 			<div style={imageContainerStyle}>
-				<img
-					src={image} // Use your local image here
-					alt="image"
-					style={imageStyle}
-				/>
+				<img src="/src/assets/nexttogrid.jpeg" alt="image" style={imageStyle} />
 			</div>
 		</div>
 	)

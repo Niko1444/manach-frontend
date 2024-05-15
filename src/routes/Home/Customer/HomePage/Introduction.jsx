@@ -1,11 +1,9 @@
-import React from 'react'
-
 const Introduction = () => {
 	return (
 		<div className="relative top-0 h-[60rem] w-full">
 			<div className="h-auto w-full">
 				<img
-					src="src/assets/fruits.png"
+					src="/src/assets/fruits.png"
 					alt="Fruits"
 					style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
 				/>

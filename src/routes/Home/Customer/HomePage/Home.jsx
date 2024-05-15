@@ -1,6 +1,6 @@
-import Embracing from '../../components/EmbracingFood/Embracing'
-import Introduction from '../../components/Introduction/Introduction'
-import Together from '../../components/Together/Together'
+import Embracing from './Embracing'
+import Introduction from './Introduction'
+import Together from './Together'
 import Footer from './Footer'
 import HowToUse from './HowToUse'
 
