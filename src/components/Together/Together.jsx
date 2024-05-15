@@ -9,6 +9,7 @@ const Together = () => {
 					position: 'relative',
 					background: '#485935',
 					borderRadius: 8,
+					marginTop:'100px'
 				}}
 			>
 				<div style={{ display: 'grid' }}>
