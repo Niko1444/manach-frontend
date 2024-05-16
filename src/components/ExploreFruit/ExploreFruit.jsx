@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 
-const Explore = () => {
+const ExploreFruit = () => {
 	const [state, setState] = useState({})
 	return (
 		<div
@@ -107,7 +107,7 @@ const Explore = () => {
 							>
 								<div className="my-auto h-fit w-full">
 									<img
-										src="https://svcy3.myclass.vn/images/adidas-prophere.png"
+										src="https://s3-alpha-sig.figma.com/img/bcf8/6f6c/46b4a663fdbe4eec96cdff77383e62f7?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PyzFfQk1~10CJGcEDk1zIK-~BMpRMI6VtMt81Y5kFSRR34~eHiQg9gRkPn5Ej8suhaTkTTqNtflcl-aKFpVU-lrmk137ymS2Jb7r8hyL3ZRVfrYt88plqTFrW3RlCyMG1tZvpZkEpgv~GI5US2BdSjRU0rdo3Tj8uOMdRUWTN4OiBCOaGavvhbwiI~vy0xx-dhCoL-U07L42~Ef1nI8Ir7AX2Mn-IGptHcGILhznwquSJl8bV6iT9FVIUsxDOUrOzniEjRlEgYAlj4hxM4Zj3AZxr1dl9Y3Y9Pj5DkiPWdSlnL5j-9vpSjJ9PwC6KoQcbRUqYU5kZATEgSoJURVnYQ__"
 										alt=""
 										style={{
 											background: 'lightgray 50% / cover no-repeat',
@@ -152,4 +152,4 @@ const Explore = () => {
 	)
 }
 
-export default Explore
+export default ExploreFruit

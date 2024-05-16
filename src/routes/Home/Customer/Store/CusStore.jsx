@@ -1,5 +1,14 @@
+import TopFruit from './TopFruit'
+
 const CusStore = () => {
-	return <div>CusStore</div>
+	return (
+		<div>
+			<div>
+				<TopFruit />
+
+			</div>
+		</div>
+	)
 }
 
 export default CusStore
