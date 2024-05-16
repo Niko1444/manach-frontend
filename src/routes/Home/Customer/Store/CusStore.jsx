@@ -1,5 +1,9 @@
+
 const CusStore = () => {
-	return <div>CusStore</div>
+	return (
+	<div>
+		</div>
+	)
 }
 
 export default CusStore
