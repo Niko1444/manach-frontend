@@ -1,7 +1,11 @@
 
 const CusStore = () => {
 	return (
-	<div>
+		<div>
+			<div>
+				<TopFruit />
+
+			</div>
 		</div>
 	)
 }

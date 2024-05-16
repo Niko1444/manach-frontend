@@ -1,5 +1,10 @@
+
+
+
 const CusSetting = () => {
-	return <div>CusSetting</div>
+	return <div>
+		
+	</div>
 }
 
 export default CusSetting
