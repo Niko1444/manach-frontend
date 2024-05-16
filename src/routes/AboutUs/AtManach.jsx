@@ -1,13 +1,10 @@
-import React from 'react'
-import LogIn from '../LogIn/LogIn'
-import Explore from '../ExploreFruit/ExploreFruit'
+import Explore from '../../components/ExploreFruit/ExploreFruit'
 
 const AtManach = () => {
 	return (
-		<div>
+		<div className="mt-[14.1rem]">
 			<div
 				style={{
-					width: '100vw',
 					height: '100%',
 					backgroundColor: '#485935',
 					display: 'flex',
