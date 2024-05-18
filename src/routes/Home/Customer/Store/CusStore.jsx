@@ -1,11 +1,11 @@
+import BananaPage from './BananaPage'
 import TopFruit from './TopFruit'
 
 const CusStore = () => {
 	return (
 		<div>
-			<div>
-				<TopFruit />
-
+			<div>	
+				<TopFruit/>
 			</div>
 		</div>
 	)

@@ -3,15 +3,10 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import TopFruitBanana from './TopFruitBanana'
-import TopFruitMango from './TopFruitMango'
-import TopFruitPineapple from './TopFruitPineapple'
-import TopFruitCoconut from './TopFruitCoconut'
-import TopFruitPapaya from './TopFruitPapaya'
-import TopFruitDurian from './TopFruitDurian'
-import TopFruitBerries from './TopFruitBerries'
+import Review from '../../../../components/Review/Review'
 
-const TopFruit = () => {
+
+const BananaPage = () => {
 	return (
 		<div>
 			<div className="flex">
@@ -25,7 +20,7 @@ const TopFruit = () => {
 							wordWrap: 'break-word',
 						}}
 					>
-						Top Fruits
+						Banana
 					</div>
 					<div
 						style={{
@@ -36,28 +31,23 @@ const TopFruit = () => {
 							wordWrap: 'break-word',
 						}}
 					>
-						From top brands
+						From store
 					</div>
 				</div>
 				<SearchBar />
 			</div>
-			<div className="flex">
-				<div className="ml-[55px]">
-					<TopFruitBanana />
-					<TopFruitMango />
-					<TopFruitPineapple />
-					<TopFruitCoconut />
-					<TopFruitPapaya />
-					<TopFruitDurian />
-					<TopFruitBerries />
-				</div>
+			<div className='flex'>
+                <div className='ml-[55px]'>
+                    <Review/>
+                
+                </div>
 
-				<div className="ml-[80px]">
+				<div className='ml-[80px]'>
 					<div className="mt-4 flex justify-end">
 						<div className="w-full max-w-64 space-y-4">
 							<ExploreFruit />
 							<ExploreSupplier />
-							<Daily />
+							<Daily/>
 						</div>
 					</div>
 				</div>
@@ -66,4 +56,4 @@ const TopFruit = () => {
 	)
 }
 
-export default TopFruit
+export default BananaPage

@@ -20,6 +20,8 @@ import CustomerTemplate from './routes/Home/Customer/CustomerTemplate'
 import CusCheckOut from './routes/Home/Customer/CheckOut/CusCheckOut'
 import CusSetting from './routes/Home/Customer/Setting.jsx/CusSetting'
 
+
+
 function App() {
 	// eslint-disable-next-line no-unused-vars
 	const [count, setCount] = useState(0)
@@ -32,7 +34,7 @@ function App() {
 				{/* All main pages */}
 				<Route path="customer" element={<CustomerTemplate />}>
 					<Route path="home" element={<Home />} />
-					<Route path="store" element={<CusStore />} />
+					<Route path="store" element={<CusStore />}/>
 					<Route path="order" element={<CusOrder />} />
 					<Route path="check-out" element={<CusCheckOut />} />
 					<Route path="setting" element={<CusSetting />} />
@@ -50,6 +52,8 @@ function App() {
 
 				{/* Error pages */}
 				<Route path="*" element={<NotFound />} />
+			
+
 			</Routes>
 		</Layout>
 	)
