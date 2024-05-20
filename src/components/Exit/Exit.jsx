@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 
-const AddToCart = () => {
+const Exit = () => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [isPressed, setIsPressed] = useState(false)
 	const [isDisabled, setIsDisabled] = useState(false)
@@ -38,9 +38,9 @@ const AddToCart = () => {
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			style={{
-				borderRadius: '10px',
+				borderRadius: '15px',
 				overflow: 'visible',
-				backgroundColor: isHovered && !isDisabled ? '#CADBB7' : '#485935',
+				backgroundColor: isHovered && !isDisabled ? '#485935' : '#C2C9AC',
 				boxShadow:
 					isPressed && !isDisabled
 						? '4px 4px 4px rgba(0, 0, 0, 0.25)'
@@ -55,13 +55,13 @@ const AddToCart = () => {
 					fontSize: '18px',
 				}}
 			>
-				Add to cart
+				Exit
 			</div>
 
 			{/* Disabled overlay (if disabled) */}
 			{isDisabled && (
 				<div
-					className="bg-gray-300 absolute left-0 top-0 h-full w-full rounded-[10px] opacity-50"
+					className="bg-gray-300 absolute left-0 top-0 h-full w-full rounded-[15px] opacity-50"
 					style={{ pointerEvents: 'none' }}
 				/>
 			)}
@@ -69,4 +69,4 @@ const AddToCart = () => {
 	)
 }
 
-export default AddToCart
+export default Exit

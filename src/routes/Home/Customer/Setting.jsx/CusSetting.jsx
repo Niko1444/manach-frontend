@@ -1,5 +1,13 @@
+
+import SearchBar from "../../../../components/SearchBar/SearchBar"
+import ProfileSetting from "./ProfileSetting"
+
+
+
 const CusSetting = () => {
-	return <div>CusSetting</div>
+	return <div>	
+		<ProfileSetting/>		
+	</div>
 }
 
 export default CusSetting
