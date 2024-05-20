@@ -1,14 +1,21 @@
-import BananaStore from './BananaStore'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import TopFruit from './TopFruit';
 
 const CusStore = () => {
-	return (
-		<div>
-			<div>
-				<BananaStore />
+    const navigate = useNavigate();
 
-			</div>
-		</div>
-	)
-}
+    const handleTopFruitClick = () => {
+        navigate('/banana-store');
+    };
 
-export default CusStore
+    return (
+        <div>
+            <div>
+                <TopFruit onClick={handleTopFruitClick} />
+            </div>
+        </div>
+    );
+};
+
+export default CusStore;

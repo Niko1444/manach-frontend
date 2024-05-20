@@ -1,9 +1,12 @@
 
+import SearchBar from "../../../../components/SearchBar/SearchBar"
+import ProfileSetting from "./ProfileSetting"
+
 
 
 const CusSetting = () => {
-	return <div>
-		
+	return <div>	
+		<ProfileSetting/>		
 	</div>
 }
 

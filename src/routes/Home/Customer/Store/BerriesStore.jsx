@@ -20,7 +20,7 @@ const BerriesStore = () => {
 							wordWrap: 'break-word',
 						}}
 					>
-						Banana
+						Berries
 					</div>
 					<div
 						style={{
