@@ -1,11 +1,9 @@
-import React from 'react';
-
 const Introduction = () => {
 	return (
-		<div className="relative top-0 w-full">
-			<div className="w-full h-auto">
+		<div className="relative top-0 h-[60rem] w-full">
+			<div className="h-auto w-full">
 				<img
-					src="src/assets/fruits.png"
+					src="/src/assets/fruits.png"
 					alt="Fruits"
 					style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
 				/>
@@ -26,7 +24,8 @@ const Introduction = () => {
 					height: '571px',
 					border: '0px solid black',
 					borderRadius: '8px',
-					boxShadow: '0px 0px 2px 0px rgba(23, 26, 31, 0.12), 0px 4px 9px 0px rgba(23, 26, 31, 0.11)',
+					boxShadow:
+						'0px 0px 2px 0px rgba(23, 26, 31, 0.12), 0px 4px 9px 0px rgba(23, 26, 31, 0.11)',
 				}}
 			>
 				<div
@@ -98,6 +97,7 @@ const Introduction = () => {
 				</div>
 				<div style={{ marginTop: '16px' }}>
 					<button
+						className="mb-12"
 						style={{
 							width: '219px',
 							height: '52px',
@@ -116,7 +116,7 @@ const Introduction = () => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Introduction;
+export default Introduction

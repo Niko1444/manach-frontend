@@ -1,8 +1,6 @@
-import React from 'react'
-
 const Footer = () => {
 	return (
-		<div style={styles.footer}>
+		<div style={styles.footer} className="mx-auto bg-green_dark2">
 			<div className="mx-[125px]">
 				<div className="container mx-auto flex justify-between">
 					<div className="space-y-4">
@@ -37,7 +35,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-twitter"
+									className="fab fa-twitter"
 									style={{ fontSize: '1.25rem', color: '#2EBAE8' }}
 								></i>
 							</div>
@@ -53,7 +51,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-facebook"
+									className="fab fa-facebook"
 									style={{ fontSize: '1.25rem', color: '#2E6FE8' }}
 								></i>
 							</div>
@@ -69,7 +67,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-linkedin"
+									className="fab fa-linkedin"
 									style={{ fontSize: '1.25rem', color: '#5880DE' }}
 								></i>
 							</div>
@@ -85,7 +83,7 @@ const Footer = () => {
 								}}
 							>
 								<i
-									class="fab fa-youtube"
+									className="fab fa-youtube"
 									style={{ fontSize: '1.25rem', color: '#E82E2E' }}
 								></i>
 							</div>
@@ -93,16 +91,12 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-
-
-            
 		</div>
 	)
 }
 
 const styles = {
 	footer: {
-		backgroundColor: '#485935',
 		color: '#ECF5E1',
 		padding: '60px',
 		textAlign: 'left',
