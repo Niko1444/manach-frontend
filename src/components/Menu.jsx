@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom'
 import NeedHelps from './needHelps/needHelps'
 
 // NavItem
-const NavItem = [
+const NavItemCustomer = [
 	{
 		name: 'Home',
 		link: '/customer/home',
@@ -27,6 +27,36 @@ const NavItem = [
 		name: 'Setting',
 		link: '/customer/setting',
 	},
+	{
+		name: 'Logout',
+		link: '/customer/logout',
+	},
+]
+const NavItemAdminn = [
+	{
+		name: 'Home',
+		link: '/admin/home',
+	},
+	{
+		name: 'Store',
+		link: '/admin/store',
+	},
+	{
+		name: 'Warehouse',
+		link: '/admin/warehouse',
+	},
+	{
+		name: 'Dashboard',
+		link: '/admin/dashboard',
+	},
+	{
+		name: 'Setting',
+		link: '/admin/setting',
+	},
+	{
+		name: 'Logout',
+		link: '/admin/logout',
+	},
 ]
 
 const Menu = () => {
@@ -35,7 +65,7 @@ const Menu = () => {
 	return (
 		<div className="sticky flex h-screen w-full flex-col items-start justify-between bg-green_dark1">
 			<div className="w-full">
-				{NavItem.map((item, index) => (
+				{NavItemAdminn.map((item, index) => (
 					<Link
 						key={index}
 						to={item.link}
