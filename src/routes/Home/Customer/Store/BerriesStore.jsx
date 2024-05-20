@@ -3,16 +3,10 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import TopFruitBanana from './TopFruitBanana'
-import TopFruitMango from './TopFruitMango'
-import TopFruitPineapple from './TopFruitPineapple'
-import TopFruitCoconut from './TopFruitCoconut'
-import TopFruitPapaya from './TopFruitPapaya'
-import TopFruitDurian from './TopFruitDurian'
-import TopFruitBerries from './TopFruitBerries'
+import Review from '../../../../components/Review/Review'
 
 
-const TopFruit = () => {
+const BerriesStore = () => {
 	return (
 		<div>
 			<div className="flex">
@@ -44,13 +38,10 @@ const TopFruit = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-                    <TopFruitBanana/>
-                    <TopFruitMango/>
-                    <TopFruitPineapple/>
-                    <TopFruitCoconut/>
-                    <TopFruitPapaya/>
-                    <TopFruitDurian/>
-                    <TopFruitBerries/>
+                    <Review/>
+                    <Review/>
+					<Review/>
+					<Review/>
                 
                 </div>
 
@@ -68,4 +59,4 @@ const TopFruit = () => {
 	)
 }
 
-export default TopFruit
+export default BerriesStore

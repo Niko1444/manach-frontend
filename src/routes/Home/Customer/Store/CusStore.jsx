@@ -1,9 +1,10 @@
+import BananaStore from './BananaStore'
 
 const CusStore = () => {
 	return (
 		<div>
 			<div>
-				<TopFruit />
+				<BananaStore />
 
 			</div>
 		</div>

@@ -6,7 +6,7 @@ import UnRipe from '../StateRipe/UnRipe.jsx'
 
 const Review = () => {
 	return (
-		<div>
+		<div className='mb-[20px]'>
 			<div
 				style={{
 					width: '733px',
@@ -14,6 +14,7 @@ const Review = () => {
 					display: 'grid',
 					gridTemplateColumns: '326px 1fr',
 					background: '#FFF',
+					borderRadius: '10px',
 					boxShadow: '0px 15px 40px 0px #C2C9AC',
 				}}
 			>
@@ -21,7 +22,7 @@ const Review = () => {
 					<img src={banana} alt="" />
 				</div>
 				<div className="mt-[56px]">
-					<div>Cavendish Banana</div>
+					<div style={{ color: '#485935', fontSize: '22px', fontWeight: '500' }}>Cavendish Banana</div>
 					<div className="mb-[19px] flex">
 						<i
 							class="fa fa-star"
