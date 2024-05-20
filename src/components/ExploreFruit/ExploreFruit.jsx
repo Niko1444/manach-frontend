@@ -1,5 +1,3 @@
-// import React from 'react'
-// https://svcy3.myclass.vn/images/adidas-prophere.png
 
 import { useState } from 'react'
 

@@ -15,6 +15,7 @@ const TopFruitMango = () => {
 				justifyContent: 'flex-start',
 				gap: '10px',
 				display: 'inline-flex',
+				cursor: 'pointer',
 			}}
 		>
 			<img

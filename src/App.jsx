@@ -20,7 +20,7 @@ import CustomerTemplate from './routes/Home/Customer/CustomerTemplate'
 import CusCheckOut from './routes/Home/Customer/CheckOut/CusCheckOut'
 import CusSetting from './routes/Home/Customer/Setting.jsx/CusSetting'
 import BananaStore from './routes/Home/Customer/Store/BananaStore';
-
+import MangoStore from './routes/Home/Customer/Store/MangoStore';
 
 
 function App() {
@@ -51,6 +51,7 @@ function App() {
 				{/* About */}
 				<Route path="/setting" element={<Setting />} />
 				<Route path="/banana-store" element={<BananaStore />} />
+				<Route path="/mango-store" element={<MangoStore />} />
 
 				{/* Error pages */}
 				<Route path="*" element={<NotFound />} />

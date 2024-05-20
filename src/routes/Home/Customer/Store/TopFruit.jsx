@@ -20,27 +20,22 @@ const TopFruit = () => {
     };
 
     const handleMangoClick = () => {
-        // navigate to Mango store or perform another action
+        navigate('/mango-store');
     };
 
     const handlePineappleClick = () => {
-        // navigate to Pineapple store or perform another action
     };
 
     const handleCoconutClick = () => {
-        // navigate to Coconut store or perform another action
     };
 
     const handlePapayaClick = () => {
-        // navigate to Papaya store or perform another action
     };
 
     const handleDurianClick = () => {
-        // navigate to Durian store or perform another action
     };
 
     const handleBerriesClick = () => {
-        // navigate to Berries store or perform another action
     };
 
     return (
@@ -56,7 +51,7 @@ const TopFruit = () => {
                             wordWrap: 'break-word',
                         }}
                     >
-                        Banana
+                        Top Fruits
                     </div>
                     <div
                         style={{
@@ -67,7 +62,7 @@ const TopFruit = () => {
                             wordWrap: 'break-word',
                         }}
                     >
-                        From store
+                        From top brands
                     </div>
                 </div>
                 <SearchBar />

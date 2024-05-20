@@ -6,7 +6,7 @@ import Daily from '../../../../components/DailyDeals/DailyDeals'
 import Review from '../../../../components/Review/Review'
 
 
-const BerriesStore = () => {
+const MangoStore = () => {
 	return (
 		<div>
 			<div className="flex">
@@ -20,7 +20,7 @@ const BerriesStore = () => {
 							wordWrap: 'break-word',
 						}}
 					>
-						Berries
+						Mango
 					</div>
 					<div
 						style={{
@@ -59,4 +59,4 @@ const BerriesStore = () => {
 	)
 }
 
-export default BerriesStore
+export default MangoStore
