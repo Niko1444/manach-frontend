@@ -6,26 +6,56 @@ import { Link, useLocation } from 'react-router-dom'
 import NeedHelps from './needHelps/needHelps'
 
 // NavItem
-const NavItem = [
+const NavItemCustomer = [
 	{
 		name: 'Home',
-		link: '/',
+		link: '/customer/home',
 	},
 	{
 		name: 'Store',
-		link: '/store',
+		link: '/customer/store',
 	},
 	{
-		name: 'Warehouse',
-		link: '/contact',
+		name: 'Order',
+		link: '/customer/order',
+	},
+	{
+		name: 'Checkout',
+		link: '/customer/check-out',
 	},
 	{
 		name: 'Setting',
-		link: '/setting',
+		link: '/customer/setting',
 	},
 	{
 		name: 'Logout',
-		link: '/logout',
+		link: '/customer/logout',
+	},
+]
+const NavItemAdminn = [
+	{
+		name: 'Home',
+		link: '/admin/home',
+	},
+	{
+		name: 'Store',
+		link: '/admin/store',
+	},
+	{
+		name: 'Warehouse',
+		link: '/admin/warehouse',
+	},
+	{
+		name: 'Dashboard',
+		link: '/admin/dashboard',
+	},
+	{
+		name: 'Setting',
+		link: '/admin/setting',
+	},
+	{
+		name: 'Logout',
+		link: '/admin/logout',
 	},
 ]
 
@@ -33,9 +63,9 @@ const Menu = () => {
 	const location = useLocation()
 
 	return (
-		<div className="flex h-screen w-[18.75rem] flex-col items-start justify-between bg-green_dark1">
+		<div className="sticky flex h-screen w-full flex-col items-start justify-between bg-green_dark1">
 			<div className="w-full">
-				{NavItem.map((item, index) => (
+				{NavItemAdminn.map((item, index) => (
 					<Link
 						key={index}
 						to={item.link}

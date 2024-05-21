@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 
-const Explore = () => {
+const ExploreSupplier = () => {
 	const [state, setState] = useState({})
 	return (
 		<div
@@ -92,7 +92,7 @@ const Explore = () => {
 								lineHeight: 'normal',
 							}}
 						>
-							Explore popular fruits
+							Explore new Suppliers
 						</div>
 
 						{/* image  */}
@@ -107,7 +107,7 @@ const Explore = () => {
 							>
 								<div className="my-auto h-fit w-full">
 									<img
-										src="https://svcy3.myclass.vn/images/adidas-prophere.png"
+								src='https://s3-alpha-sig.figma.com/img/0b06/35c9/8600481e828a840058b9c62166c65490?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=q52PvEXcH07YzTxc0VX~Mg9Btgit4vsGaYVRAfmYLZMhMrju1wCrEJ6dvWEv0DDK4gMgv4-nETpaF1kUzSuaRJ7V5CP6U9xLtV1NUwdH5rVJld2oPZ3dWuT9TbpsEn8u-z2dHjy5RBb80rnh2bjUwuKm1KhwgZea6uiDtEPMtXzu6qhnbjB1a5CYD7e-GDwSnrPfGi8qAmxz~QE6U2T~qbtowuCZ9NalszHD0cAdNaeTiGQYda2TZuoDYUBl33fzjWEc~EDUBGEbtlvmAW5ubR6w-cwqKnAZM1L2-ECSOYvG2XtVj4P8nxS4BoJFUbmfUCf48lIQsRZ6QoR6c9XY9A__'
 										alt=""
 										style={{
 											background: 'lightgray 50% / cover no-repeat',
@@ -152,4 +152,4 @@ const Explore = () => {
 	)
 }
 
-export default Explore
+export default ExploreSupplier

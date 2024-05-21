@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const LogIn = () => {
+const LogInBtn = () => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [isPressed, setIsPressed] = useState(false)
 	const [isDisabled, setIsDisabled] = useState(false)
+
+	const navigate = useNavigate()
 
 	const handleMouseEnter = () => {
 		if (!isPressed && !isDisabled) {
@@ -23,22 +27,23 @@ const LogIn = () => {
 				setIsPressed(false)
 			}, 1000)
 		}
+		navigate('/auth/login')
 	}
 
-	const handleDisable = (disabled) => {
-		setIsDisabled(disabled)
-	}
+	// const handleDisable = (disabled) => {
+	// 	setIsDisabled(disabled)
+	// }
 
 	return (
 		<div
-			className={`relative h-[100px] w-60 ${isDisabled ? 'opacity-50' : ''}`}
+			className={`relative h-[100px] w-60 cursor-pointer ${isDisabled ? 'opacity-50' : ''}`}
 			onClick={handleMouseDown}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			style={{
 				borderRadius: '15px',
 				overflow: 'hidden',
-				backgroundColor: isHovered && !isDisabled ? '#485935' : '',
+				backgroundColor: isHovered && !isDisabled ? '#FFFFFF' : '#FFFFFF',
 				boxShadow:
 					isPressed && !isDisabled
 						? '8px 8px 4px rgba(0, 0, 0, 0.3) inset'
@@ -69,4 +74,4 @@ const LogIn = () => {
 	)
 }
 
-export default LogIn
+export default LogInBtn
