@@ -40,7 +40,7 @@ function App() {
 	return (
 		<Layout>
 			<Routes>
-				<Route path="about-us" element={<AboutUs />} />
+				<Route index path="about-us" element={<AboutUs />} />
 
 				{/* All main pages */}
 				<Route path="customer" element={<CustomerTemplate />}>
