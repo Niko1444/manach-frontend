@@ -42,7 +42,14 @@ const TopFruit = () => {
 				<SearchBar />
 			</div>
 			<div className="flex">
-				<div className="ml-[55px]">
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns: 'repeat(2, 1fr)',
+						gap: '10px',
+						margin:'0 0 0 20px'
+					}}
+				>
 					<TopFruitBanana />
 					<TopFruitMango />
 					<TopFruitPineapple />
@@ -54,7 +61,7 @@ const TopFruit = () => {
 
 				<div className="ml-[80px]">
 					<div className="mt-4 flex justify-end">
-						<div className="w-full max-w-64 space-y-4">
+						<div className="w-[100%] max-w-64 space-y-4">
 							<ExploreFruit />
 							<ExploreSupplier />
 							<Daily />
