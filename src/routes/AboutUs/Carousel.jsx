@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 const Carousel = () => {
 	return (
 		<div className="relative mt-[20px] w-full">
