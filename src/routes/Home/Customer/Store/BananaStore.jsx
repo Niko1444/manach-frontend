@@ -6,7 +6,7 @@ import Daily from '../../../../components/DailyDeals/DailyDeals'
 import Review from '../../../../components/Review/Review'
 
 
-const BananaPage = () => {
+const BananaStore = () => {
 	return (
 		<div>
 			<div className="flex">
@@ -39,6 +39,9 @@ const BananaPage = () => {
 			<div className='flex'>
                 <div className='ml-[55px]'>
                     <Review/>
+                    <Review/>
+					<Review/>
+					<Review/>
                 
                 </div>
 
@@ -56,4 +59,4 @@ const BananaPage = () => {
 	)
 }
 
-export default BananaPage
+export default BananaStore
