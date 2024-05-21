@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
 
-const AddToCart = () => {
+const BuyNow = () => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [isPressed, setIsPressed] = useState(false)
 	const [isDisabled, setIsDisabled] = useState(false)
@@ -55,7 +55,7 @@ const AddToCart = () => {
 					fontSize: '18px',
 				}}
 			>
-				Add to cart
+				Buy Now
 			</div>
 
 			{/* Disabled overlay (if disabled) */}
@@ -69,4 +69,4 @@ const AddToCart = () => {
 	)
 }
 
-export default AddToCart
+export default BuyNow

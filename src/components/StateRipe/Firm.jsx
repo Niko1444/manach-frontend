@@ -1,13 +1,10 @@
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
-const LogInBtn = () => {
+const Firm = () => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [isPressed, setIsPressed] = useState(false)
 	const [isDisabled, setIsDisabled] = useState(false)
-
-	const navigate = useNavigate()
 
 	const handleMouseEnter = () => {
 		if (!isPressed && !isDisabled) {
@@ -25,42 +22,38 @@ const LogInBtn = () => {
 			setIsPressed(true)
 			setTimeout(() => {
 				setIsPressed(false)
-			}, 1000)
+			}, 200)
 		}
-		navigate('/auth/login')
 	}
 
-	// const handleDisable = (disabled) => {
-	// 	setIsDisabled(disabled)
-	// }
+	// eslint-disable-next-line no-unused-vars
+	const handleDisable = (disabled) => {
+		setIsDisabled(disabled)
+	}
 
 	return (
 		<div
-			className={`relative h-[100px] w-60 cursor-pointer ${isDisabled ? 'opacity-50' : ''}`}
+			className={`relative h-[48px] w-[48px] ${isDisabled ? 'opacity-50' : ''}`}
 			onClick={handleMouseDown}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			style={{
 				borderRadius: '15px',
-				overflow: 'hidden',
-				backgroundColor: isHovered && !isDisabled ? '#FFFFFF' : '#FFFFFF',
+				overflow: 'visible',
+				backgroundColor: isHovered && !isDisabled ? '#FFD60033' : '#FFD600',
 				boxShadow:
-					isPressed && !isDisabled
-						? '8px 8px 4px rgba(0, 0, 0, 0.3) inset'
-						: 'none',
+					isPressed && !isDisabled ? '4px 4px 4px rgba(0, 0, 0, 0.25)' : 'none',
 			}}
 		>
-			{/* Background Element (for hover and pressed effects) */}
 			<div
-				className={`bg-${isPressed ? 'white' : 'stone-700'} border-stone-700 h-full w-full rounded-[15px] border`}
-			/>
-
-			{/* Text Element */}
-			<div
-				className="text-stone-700 font-Poppins absolute left-0 top-0 flex h-full w-full items-center justify-center"
-				style={{ fontSize: '40px', zIndex: 1 }}
+				className="absolute left-0 top-0 flex h-full w-full items-center justify-center"
+				style={{
+					color: isHovered && !isDisabled ? '#485935' : '#FFFFF',
+					fontSize: '12px',
+					fontWeight: '500',
+				}}
 			>
-				Log In
+				Firm
 			</div>
 
 			{/* Disabled overlay (if disabled) */}
@@ -74,4 +67,4 @@ const LogInBtn = () => {
 	)
 }
 
-export default LogInBtn
+export default Firm
