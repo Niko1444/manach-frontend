@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import durian from '../../../../assets/monthong durian 1.png'
 import strawberry from '../../../../assets/strawberry.png'
 import raspberry from '../../../../assets/raspberry.png'
 import coconut from '../../../../assets/coconut.png'
 
-
 const ReOrder = () => {
+    const [showProductList, setShowProductList] = useState(false)
+
     const viewOrderStyle = {
         width: '976px',
         height: '141px',
@@ -13,10 +14,11 @@ const ReOrder = () => {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: '20px'
     }
 
     const producListStyle = {
-        marignBottom: '30px'
+        color: '#485935', fontSize: '36px', fontWeight: 700, marginBottom: '30px'
     }
 
     const tableStyle = {
@@ -45,17 +47,35 @@ const ReOrder = () => {
         borderLeft: '1.5px solid #CADBB7',
     }
 
-  return (
-    <div>
-        <div style={viewOrderStyle}>
-                        <div className='ml-[35px]' style={{ fontSize: '20px', fontWeight: 400 }}>No orders have been placed yet.</div>
-                        <div className='ml-[440px] flex justify-center items-center font-semibold rounded-[18px]' style={{ width: '150px', height: '50px', opacity: 0.3, color: '#000', background: '#485935', fontSize: '20px' }}>View order</div>
-                    </div>
+    const handleViewOrderClick = () => {
+        setShowProductList(prevState => !prevState)
+    }
 
+    return (
+        <div>
+            <div style={viewOrderStyle}>
+                <div className='ml-[35px]' style={{ fontSize: '20px', fontWeight: 400 }}>No orders have been placed yet.</div>
+                <div
+                    className='ml-[440px] flex justify-center items-center font-semibold rounded-[18px]'
+                    style={{
+                        width: '150px',
+                        height: '50px',
+                        //opacity: 0.3,
+                        color: '#fff',
+                        background: showProductList ? '#9C9C9C' : '#485935',
+                        fontSize: '20px',
+                        cursor: 'pointer'
+                    }}
+                    onClick={handleViewOrderClick}
+                >
+                    {showProductList ? 'Hide order' : 'View order'}
+                </div>
+            </div>
+
+            {showProductList && (
+                <>
                     <div style={producListStyle}>
-                        <div style={{ color: '#485935', fontSize: '36px', fontWeight: 700 }}>
-                            Product List <br /> Increasing order
-                        </div>
+                        Product List <br /> Increasing order
                     </div>
 
                     <table style={tableStyle}>
@@ -120,8 +140,10 @@ const ReOrder = () => {
                             </tr>
                         </tbody>
                     </table>
-    </div>
-  )
+                </>
+            )}
+        </div>
+    )
 }
 
 export default ReOrder
