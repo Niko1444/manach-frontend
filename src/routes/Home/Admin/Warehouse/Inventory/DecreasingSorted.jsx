@@ -2,113 +2,15 @@ import SearchBar from '../../../../../components/SearchBar/SearchBar'
 import Sort from '../../../../../components/Sort/Sort'
 import PieChart from './PieChart'
 import TableProductList from './TableProductList'
+import ChoosingSort from './ChoosingSort'
+import React, { useState } from 'react'
+import InventorySort from '../../../../../components/InventorySort/InventorySort'
+
 
 const DecreasingSorted = () => {
 	return (
-		<div >
-			<div
-				style={{
-					display: 'flex',
-				}}
-			>
-				<div
-					style={{
-						color: '#485935',
-						fontSize: 26,
-						fontFamily: 'Poppins',
-						fontWeight: '800',
-						wordWrap: 'break-word',
-						margin: '63px 0 0 50px',
-						width: '75%',
-					}}
-				>
-					Warehouse Management
-				</div>
-				<SearchBar />
-			</div>
-
-			<div
-				style={{
-					display: 'flex',
-					width: '100',
-					margin: '60px 0 0 60px',
-					gap: '50px',
-				}}
-			>
-				<div
-					style={{
-						width: '210px',
-						height: '60px',
-						color: 'white',
-						fontSize: 20,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						background: ' #485935',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '15px',
-					}}
-				>
-					Inventory
-				</div>
-				<div
-					style={{
-						width: '210px',
-						height: '60px',
-						color: '#485935',
-						fontSize: 20,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						border: '1px solid #485935',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '15px',
-					}}
-				>
-					Re-order
-				</div>
-				<div
-					style={{
-						width: '210px',
-						height: '60px',
-						color: '#485935',
-						fontSize: 20,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						border: '1px solid #485935',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '15px',
-					}}
-				>
-					Stock adjustment
-				</div>
-				<div
-					style={{
-						width: '210px',
-						height: '60px',
-						color: '#485935',
-						fontSize: 20,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						border: '1px solid #485935',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '15px',
-					}}
-				>
-					Order History
-				</div>
-			</div>
-			<div style={{ display: 'flex', margin: '30px 0 0 0' }}>
+		<div>
+			<div style={{ display: 'flex', margin: '30px' }}>
 				<div
 					style={{
 						width: '30%',
@@ -118,7 +20,7 @@ const DecreasingSorted = () => {
 						fontFamily: 'Poppins',
 						fontWeight: '600',
 						wordWrap: 'break-word',
-						margin: '20px 0 0 50px',
+						margin: '20px 0 0 28px',
 					}}
 				>
 					Stock Level
@@ -228,20 +130,20 @@ const DecreasingSorted = () => {
 					</div>
 				</div>
 			</div>
-            <div
-					style={{
-						width: '75%',
-						height: '100%',
-						color: '#485935',
-						fontSize: 36,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						margin: '0 0 50px 50px',
-					}}
-				>
-					Product List
-				</div>
+			<div
+				style={{
+					width: '75%',
+					height: '100%',
+					color: '#485935',
+					fontSize: 36,
+					fontFamily: 'Poppins',
+					fontWeight: '600',
+					wordWrap: 'break-word',
+					margin: '0 0 50px 50px',
+				}}
+			>
+				Product List
+			</div>
 
 			<div style={{ display: 'flex' }}>
 				<div
@@ -258,8 +160,8 @@ const DecreasingSorted = () => {
 				>
 					Decreasing Sorted
 				</div>
-				<div style={{ margin: '30px 0 0 0' }}>
-					<Sort />
+				<div style={{ margin: '60px 0 0 0' }}>
+					<InventorySort />
 				</div>
 			</div>
 

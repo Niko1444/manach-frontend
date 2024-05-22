@@ -1,14 +1,14 @@
+import InventorySort from '../../../../../components/InventorySort/InventorySort'
 import SearchBar from '../../../../../components/SearchBar/SearchBar'
 import Sort from '../../../../../components/Sort/Sort'
 import PieChart from './PieChart'
 import TableProductList from './TableProductList'
-import ChoosingSort from './ChoosingSort'
 import React, { useState } from 'react'
 
 const Inventory = () => {
 	return (
 		<div>
-			<div style={{ display: 'flex', margin: '30px 0 0 0' }}>
+			<div style={{ display: 'flex', margin: '30px' }}>
 				<div
 					style={{
 						width: '30%',
@@ -18,7 +18,7 @@ const Inventory = () => {
 						fontFamily: 'Poppins',
 						fontWeight: '600',
 						wordWrap: 'break-word',
-						margin: '20px 0 0 50px',
+						margin: '20px 0 0 28px',
 					}}
 				>
 					Stock Level
@@ -144,8 +144,8 @@ const Inventory = () => {
 				>
 					Product List
 				</div>
-				<div style={{ margin: '30px 0 0 0' }}>
-					<Sort />
+				<div style={{ margin: '60px 0 0 0' }}>
+				 <InventorySort />
 				</div>
 			</div>
 
