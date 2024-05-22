@@ -27,7 +27,7 @@ const Warehouse = () => {
         marginBottom: '40px',
     }
 
-    const infoBoxStyle = {
+    const infoBoxStyle = isActive => ({
         width: '208px',
         height: '60px',
         display: 'flex',
@@ -35,12 +35,12 @@ const Warehouse = () => {
         alignItems: 'center',
         border: '1px solid #485935',
         borderRadius: '18px',
-        backgroundColor: 'white',
-        color: '#485935',
+        backgroundColor: isActive ? '#485935' : 'white',
+        color: isActive ? 'white' : '#485935',
         fontSize: '20px',
         fontWeight: '600',
         cursor: 'pointer',
-    }
+    })
 
     const titleStyle = {
         fontSize: '22px',
@@ -51,18 +51,16 @@ const Warehouse = () => {
         display: 'flex',
         flexDirection: 'column',
         marginLeft: '50px',
-        overflowX: 'hidden', // Ensures horizontal scroll bar is hidden
-        width: 'calc(100% - 50px)' // Ensure it fits within the parent container
+        overflowX: 'hidden', 
+        width: 'calc(100% - 50px)' 
     }
 
     const renderContent = () => {
         switch (activeTab) {
             case 'Inventory':
-                return <div style={contentStyle}>Inventory Content</div>
+                return <div style={contentStyle}></div>
             case 'Re-order':
-                return <div style={contentStyle}>
-					<ReOrder/>
-                </div>
+                return <div style={contentStyle}><ReOrder/></div>
             case 'Stock adjustment':
                 return <div style={contentStyle}>Stock adjustment Content</div>
             case 'Order history':
@@ -84,16 +82,16 @@ const Warehouse = () => {
             </div>
 
             <div style={infoBoxContainerStyle}>
-                <div style={infoBoxStyle} onClick={() => setActiveTab('Inventory')}>
+                <div style={infoBoxStyle(activeTab === 'Inventory')} onClick={() => setActiveTab('Inventory')}>
                     <div style={titleStyle}>Inventory</div>
                 </div>
-                <div style={infoBoxStyle} onClick={() => setActiveTab('Re-order')}>
+                <div style={infoBoxStyle(activeTab === 'Re-order')} onClick={() => setActiveTab('Re-order')}>
                     <div style={titleStyle}>Re-order</div>
                 </div>
-                <div style={infoBoxStyle} onClick={() => setActiveTab('Stock adjustment')}>
+                <div style={infoBoxStyle(activeTab === 'Stock adjustment')} onClick={() => setActiveTab('Stock adjustment')}>
                     <div style={titleStyle}>Stock adjustment</div>
                 </div>
-                <div style={infoBoxStyle} onClick={() => setActiveTab('Order history')}>
+                <div style={infoBoxStyle(activeTab === 'Order history')} onClick={() => setActiveTab('Order history')}>
                     <div style={titleStyle}>Order history</div>
                 </div>
             </div>
