@@ -73,12 +73,7 @@ const Warehouse = () => {
     return (
         <div style={{ overflowX: 'hidden' }}>
             <div style={headerContainerStyle}>
-                <div style={{ color: '#485935', fontSize: '26px', fontWeight: 900 }}>
-                    Warehouse Management
-                </div>
-                <div style={{ color: '#93A267', fontSize: '18px', fontStyle: 'italic', fontWeight: 400 }}>
-                    From top brands
-                </div>
+                Warehouse Management
             </div>
 
             <div style={infoBoxContainerStyle}>
