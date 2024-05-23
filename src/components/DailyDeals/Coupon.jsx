@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Coupon = () => {
+const Coupon = ({ onClose }) => {
 	return (
 		<div>
 			<div
@@ -336,8 +336,10 @@ const Coupon = () => {
 						style={{
 							position: 'relative',
                             marginLeft:'60%',
-                            marginTop:'20%'
+                            marginTop:'20%',
+							cursor: 'pointer',
 						}}
+						onClick={onClose}
 					>
 						<div
 							style={{
@@ -351,8 +353,10 @@ const Coupon = () => {
 								cursor: 'pointer',
                                 color:'white',
                                 fontSize:21,
-                                fontFamily: 'Poppins'
+                                fontFamily: 'Poppins',
+								cursor: 'pointer',
 							}}
+							onClick={onClose}
 						>
 							Back
 						</div>

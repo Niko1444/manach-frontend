@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-const TopFruitExplore = () => {
+const TopFruitExplore = ({ onClose }) => {
 	return (
+		
 		<div>
 			<div
 				style={{
@@ -187,7 +188,9 @@ const TopFruitExplore = () => {
 							position: 'absolute',
 							borderRadius: 15,
 							border: '1px #485935 solid',
+							cursor: 'pointer',
 						}}
+						onClick={onClose}
 					/>
 					<div
 						style={{
@@ -202,14 +205,16 @@ const TopFruitExplore = () => {
 							fontFamily: 'Poppins',
 							fontWeight: '300',
 							wordWrap: 'break-word',
+							cursor: 'pointer',
 						}}
+						onClick={onClose}
 					>
 						Back
 					</div>
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default TopFruitExplore
+export default TopFruitExplore;

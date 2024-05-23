@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const SearchBar = () => {
 	const [state, setState] = useState({})
 	return (
-		<div className="p-2">
+		<div className="p-2 flex justify-center items-start">
 			<div className="bg-lime-50 relative my-auto h-[2.5625rem] w-[19.4375rem]">
 				<NavLink
 					className="hover:shadow-[4px 4px 4px 0px rgba(0,0,0,0.25)] h-full w-full items-center justify-center rounded-[15px] transition duration-150 ease-in-out"
@@ -32,9 +32,7 @@ const SearchBar = () => {
 								fontWeight: '250',
 								lineHeight: 'normal',
 								padding: '5px',
-								position: 'absolute',
-								top: '53px',
-								right: '55px',
+								position: 'relative', // changed from 'absolute' to 'relative'
 								borderRadius: '15px',
 								border: 'none',
 							}}
@@ -47,8 +45,9 @@ const SearchBar = () => {
 							fill="none"
 							style={{
 								position: 'absolute',
-								top: '59px',
-								right: '64px',
+								top: '55%', // Adjusted to center vertically within the relative container
+								right: '35px', // Adjusted the right position for better alignment
+								transform: 'translateY(-50%)', // Centering the icon vertically
 							}}
 						>
 							<path
