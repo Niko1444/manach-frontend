@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import durian from '../../../../assets/monthong durian 1.png'
-import strawberry from '../../../../assets/strawberry.png'
-import raspberry from '../../../../assets/raspberry.png'
-import coconut from '../../../../assets/coconut.png'
+import durian from '../../../../../assets/monthong durian 1.png'
+import strawberry from '../../../../../assets/strawberry.png'
+import raspberry from '../../../../../assets/raspberry.png'
+import coconut from '../../../../../assets/coconut.png'
 
 const ReOrder = () => {
     const [showProductList, setShowProductList] = useState(false)
@@ -14,10 +14,11 @@ const ReOrder = () => {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        marginTop: '40px'
     }
 
-    const producListStyle = {
+    const productListStyle = {
         color: '#485935', fontSize: '36px', fontWeight: 700, marginBottom: '30px'
     }
 
@@ -54,13 +55,14 @@ const ReOrder = () => {
     return (
         <div>
             <div style={viewOrderStyle}>
-                <div className='ml-[35px]' style={{ fontSize: '20px', fontWeight: 400 }}>No orders have been placed yet.</div>
+                <div className='ml-[35px]' style={{ fontSize: '20px', fontWeight: 400 }}>
+                    {showProductList ? '4 orders have been placed.' : 'No orders have been placed yet.'}
+                </div>
                 <div
                     className='ml-[440px] flex justify-center items-center font-semibold rounded-[18px]'
                     style={{
                         width: '150px',
                         height: '50px',
-                        //opacity: 0.3,
                         color: '#fff',
                         background: showProductList ? '#9C9C9C' : '#485935',
                         fontSize: '20px',
@@ -74,7 +76,7 @@ const ReOrder = () => {
 
             {showProductList && (
                 <>
-                    <div style={producListStyle}>
+                    <div style={productListStyle}>
                         Product List <br /> Increasing order
                     </div>
 
@@ -105,7 +107,7 @@ const ReOrder = () => {
                                 </td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>0</td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>Out of stock</td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$123</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}><button className='w-[135px] h-[40px] bg-green rounded-[20px]'>Re-order</button></td>
                             </tr>
                             <tr>
                                 <td style={tdStyle}><img src={strawberry} style={{ maxWidth: '100%' }} /></td>
@@ -116,7 +118,7 @@ const ReOrder = () => {
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>
                                     Out of stock
                                 </td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$420</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}><button className='w-[135px] h-[40px] bg-green rounded-[20px]'>Re-order</button></td>
                             </tr>
                             <tr>
                                 <td style={tdStyle}><img src={raspberry} style={{ maxWidth: '100%' }} /></td>
@@ -127,7 +129,7 @@ const ReOrder = () => {
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>
                                     Out of stock
                                 </td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$1450</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}><button className='w-[135px] h-[40px] bg-green rounded-[20px]'>Re-order</button></td>
                             </tr>
                             <tr>
                                 <td style={tdStyle}><img src={coconut} style={{ maxWidth: '100%' }} /></td>
@@ -136,7 +138,7 @@ const ReOrder = () => {
                                 </td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>0</td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>Out of stock</td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$250</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}><button className='w-[135px] h-[40px] bg-green rounded-[20px]'>Re-order</button></td>
                             </tr>
                         </tbody>
                     </table>

@@ -4,25 +4,23 @@ import Inventory from './Inventory/Inventory'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
 
 const Warehouse = () => {
-	const [activeTab, setActiveTab] = useState('')
+    const [activeTab, setActiveTab] = useState()
 
-	const headerContainerStyle = {
-		color: '#485935',
-		fontSize: 26,
-		fontFamily: 'Poppins',
-		fontWeight: '800',
-		wordWrap: 'break-word',
-		margin: '63px 0 0 50px',
-		width: '96%',
-	}
-
-	const infoBoxContainerStyle = {
-		display: 'flex',
-		width: '100%',
-		margin: '60px 0 0 60px',
-		gap: '50px',
-		marginBottom: '40px',
-	}
+    const headerContainerStyle = {
+        color: '#485935',
+        fontSize: 26,
+        fontFamily: 'Poppins',
+        fontWeight: '800',
+        wordWrap: 'break-word',
+        margin: '63px 0 0 50px',
+        width: '75%',
+    }
+    const infoBoxContainerStyle = {
+        display: 'flex',
+        width: '100%',
+        margin: '60px 0 0 60px',
+        gap: '50px',
+    }
 
 	const infoBoxStyle = (isActive) => ({
 		width: '208px',
@@ -52,6 +50,7 @@ const Warehouse = () => {
 		width: 'calc(100% - 50px)',
 	}
 
+  {/*<<<<<<< bao
 	const renderContent = () => {
 		switch (activeTab) {
 			case 'Inventory':
@@ -99,6 +98,28 @@ const Warehouse = () => {
 					<SearchBar />
 				</div>
 			</div>
+=======*/}
+    const renderContent = () => {
+        switch (activeTab) {
+            case 'Inventory':
+                return <div style={contentStyle}></div>
+            case 'Re-order':
+                return <div style={contentStyle}><ReOrder/></div>
+            case 'Stock adjustment':
+                return <div style={contentStyle}>Stock adjustment Content</div>
+            case 'Order history':
+                return <div style={contentStyle}><OrderHistory/></div>
+            default:
+                return null
+        }
+    }
+
+    return (
+        <div style={{ overflowX: 'hidden' }}>
+            <div style={headerContainerStyle}>
+                Warehouse Management
+            </div>
+//>>>>>>> hoang
 
 			<div style={infoBoxContainerStyle}>
 				<div
