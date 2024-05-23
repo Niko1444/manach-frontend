@@ -5,6 +5,8 @@ import TableProductList from './TableProductList'
 import ChoosingSort from './ChoosingSort'
 import React, { useState } from 'react'
 import InventorySort from '../../../../../components/InventorySort/InventorySort'
+import TableIncreasingList from './TableSortByFruit'
+import TableIncreasingSorted from './TableIncreasingSorted'
 
 
 const IncreasingSorted = () => {
@@ -28,7 +30,7 @@ const IncreasingSorted = () => {
 			
 
 			<div>
-				<TableProductList />
+				<TableIncreasingSorted/>
 			</div>
 		</div>
 	)

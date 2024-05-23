@@ -19,7 +19,7 @@ const Inventory = () => {
             case 'Fruit':
                 return <SortedByFruit />;
             case 'None':
-                return <TableProductList />;
+                return <TableProductList/>;
             default:
                 return <TableProductList />;
         }

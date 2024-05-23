@@ -5,6 +5,7 @@ import TableProductList from './TableProductList'
 import ChoosingSort from './ChoosingSort'
 import React, { useState } from 'react'
 import InventorySort from '../../../../../components/InventorySort/InventorySort'
+import TableSortByFruit from './TableSortByFruit'
 
 
 const SortedByFruit = () => {
@@ -28,7 +29,7 @@ const SortedByFruit = () => {
 			
 
 			<div>
-				<TableProductList />
+				<TableSortByFruit/>
 			</div>
 		</div>
 	)
