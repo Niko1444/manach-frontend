@@ -2,15 +2,9 @@ import React, { useState } from 'react'
 import ReOrder from './ReOrder'
 import Inventory from './Inventory/Inventory'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
-import IncreasingSorted from './Inventory/IncreasingSorted'
-import DecreasingSorted from './Inventory/DecreasingSorted'
-import SortedByFruit from './Inventory/SortByFruit'
-import InventorySort from '../../../../components/InventorySort/InventorySort'
 
 const Warehouse = () => {
-	const [activeTab, setActiveTab] = useState()
-
-	
+	const [activeTab, setActiveTab] = useState('')
 
 	const headerContainerStyle = {
 		color: '#485935',
@@ -21,6 +15,7 @@ const Warehouse = () => {
 		margin: '63px 0 0 50px',
 		width: '96%',
 	}
+
 	const infoBoxContainerStyle = {
 		display: 'flex',
 		width: '100%',
