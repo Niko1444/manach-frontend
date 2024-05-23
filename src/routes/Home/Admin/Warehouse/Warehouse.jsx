@@ -7,6 +7,7 @@
 import React, { useState } from 'react'
 import ReOrder from './ReOrder/ReOrder'
 import OrderHistory from './OrderHistory/OrderHistory'
+import StockAdjustment from './StockAdjustment/StockAdjustment'
 
 const Warehouse = () => {
     const [activeTab, setActiveTab] = useState()
@@ -62,7 +63,7 @@ const Warehouse = () => {
             case 'Re-order':
                 return <div style={contentStyle}><ReOrder/></div>
             case 'Stock adjustment':
-                return <div style={contentStyle}>Stock adjustment Content</div>
+                return <div style={contentStyle}><StockAdjustment/></div>
             case 'Order history':
                 return <div style={contentStyle}><OrderHistory/></div>
             default:
