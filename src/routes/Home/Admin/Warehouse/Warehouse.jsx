@@ -5,10 +5,11 @@
 //import SortingByFruit from './Inventory/SortByFruit'
 
 import React, { useState } from 'react'
-import ReOrder from './ReOrder'
+import ReOrder from './ReOrder/ReOrder'
+import OrderHistory from './OrderHistory/OrderHistory'
 
 const Warehouse = () => {
-    const [activeTab, setActiveTab] = useState('Inventory')
+    const [activeTab, setActiveTab] = useState()
 
     const headerContainerStyle = {
         color: '#485935',
@@ -24,7 +25,6 @@ const Warehouse = () => {
         width: '100%',
         margin: '60px 0 0 60px',
         gap: '50px',
-        marginBottom: '40px',
     }
 
     const infoBoxStyle = isActive => ({
@@ -64,7 +64,7 @@ const Warehouse = () => {
             case 'Stock adjustment':
                 return <div style={contentStyle}>Stock adjustment Content</div>
             case 'Order history':
-                return <div style={contentStyle}>Order history Content</div>
+                return <div style={contentStyle}><OrderHistory/></div>
             default:
                 return null
         }

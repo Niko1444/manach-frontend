@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import durian from '../../../../assets/monthong durian 1.png'
-import strawberry from '../../../../assets/strawberry.png'
-import raspberry from '../../../../assets/raspberry.png'
-import coconut from '../../../../assets/coconut.png'
+import durian from '../../../../../assets/monthong durian 1.png'
+import strawberry from '../../../../../assets/strawberry.png'
+import raspberry from '../../../../../assets/raspberry.png'
+import coconut from '../../../../../assets/coconut.png'
 
 const ReOrder = () => {
     const [showProductList, setShowProductList] = useState(false)
@@ -14,7 +14,8 @@ const ReOrder = () => {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        marginTop: '40px'
     }
 
     const producListStyle = {
@@ -60,7 +61,6 @@ const ReOrder = () => {
                     style={{
                         width: '150px',
                         height: '50px',
-                        //opacity: 0.3,
                         color: '#fff',
                         background: showProductList ? '#9C9C9C' : '#485935',
                         fontSize: '20px',
@@ -105,7 +105,7 @@ const ReOrder = () => {
                                 </td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>0</td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>Out of stock</td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$123</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}>Re-order</td>
                             </tr>
                             <tr>
                                 <td style={tdStyle}><img src={strawberry} style={{ maxWidth: '100%' }} /></td>
@@ -116,7 +116,7 @@ const ReOrder = () => {
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>
                                     Out of stock
                                 </td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$420</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}>Re-order</td>
                             </tr>
                             <tr>
                                 <td style={tdStyle}><img src={raspberry} style={{ maxWidth: '100%' }} /></td>
@@ -127,7 +127,7 @@ const ReOrder = () => {
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>
                                     Out of stock
                                 </td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$1450</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}>Re-order</td>
                             </tr>
                             <tr>
                                 <td style={tdStyle}><img src={coconut} style={{ maxWidth: '100%' }} /></td>
@@ -136,7 +136,7 @@ const ReOrder = () => {
                                 </td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>0</td>
                                 <td style={{ ...tdStyle, ...innerBorderStyle }}>Out of stock</td>
-                                <td style={{ ...tdStyle, ...innerBorderStyle }}>$250</td>
+                                <td style={{ ...tdStyle, ...innerBorderStyle }}>Re-order</td>
                             </tr>
                         </tbody>
                     </table>
