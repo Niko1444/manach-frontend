@@ -1,5 +1,7 @@
 const AStore = () => {
-	return <div>AStore</div>
+	return <div>
+		
+	</div>
 }
 
 export default AStore
