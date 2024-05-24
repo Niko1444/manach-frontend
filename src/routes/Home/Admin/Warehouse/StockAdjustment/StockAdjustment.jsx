@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
+import Modal from 'react-modal'
 import durian from '../../../../../assets/monthong durian 1.png'
 import strawberry from '../../../../../assets/strawberry.png'
 import raspberry from '../../../../../assets/raspberry.png'
 import coconut from '../../../../../assets/coconut.png'
 import AddToShelf from '../../../../../components/AddToShelf/AddToShelf'
+import Group from '../../../../../assets/Group.svg'
+import Group2 from '../../../../../assets/Group2.svg'
+import Vector from '../../../../../assets/Vector.svg'
+import Vector2 from '../../../../../assets/Vector2.svg'
+import Group3 from '../../../../../assets/Group3.svg'
+Modal.setAppElement('#root') // Add this line for accessibility
 
 const StockAdjustment = () => {
 	const [showProductList, setShowProductList] = useState(true)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const tableStyle = {
 		width: 'auto',
@@ -33,6 +41,14 @@ const StockAdjustment = () => {
 
 	const innerBorderStyle = {
 		borderLeft: '1.5px solid #CADBB7',
+	}
+
+	const openModal = () => {
+		setIsModalOpen(true)
+	}
+
+	const closeModal = () => {
+		setIsModalOpen(false)
 	}
 
 	return (
@@ -137,7 +153,6 @@ const StockAdjustment = () => {
 				</div>
 			</div>
 
-			{/* You can open the modal using document.getElementById('ID').showModal() method */}
 			<div className="my-8 mr-24 flex items-center justify-between">
 				<div
 					className="text-stone-700 text-4xl h-[65px] w-[273px] font-['Poppins']"
@@ -145,10 +160,14 @@ const StockAdjustment = () => {
 				>
 					Shelf-display
 				</div>
-				<button className="rounded-2xl bg-green_dark1 px-6 py-4 text-[1.5rem] font-semibold text-offwhite">
+				<button
+					className="rounded-2xl bg-green_dark1 px-6 py-4 text-[1.5rem] font-semibold text-offwhite"
+					onClick={openModal}
+				>
 					Add item (s) to shelf
 				</button>
 			</div>
+
 			{showProductList && (
 				<table style={tableStyle}>
 					<thead>
@@ -221,6 +240,78 @@ const StockAdjustment = () => {
 					</tbody>
 				</table>
 			)}
+
+			<Modal
+				isOpen={isModalOpen}
+				onRequestClose={closeModal}
+				contentLabel="Add Items to Shelf"
+				style={{
+					overlay: {
+						backgroundColor: 'rgba(0, 0, 0, 0.75)',
+					},
+					content: {
+						backgroundColor: '#485935',
+						top: '50%',
+						left: '50%',
+						right: 'auto',
+						bottom: 'auto',
+						marginRight: '-50%',
+						transform: 'translate(-50%, -50%)',
+						padding: '20px',
+						borderRadius: '20px',
+                        border: '0px',
+						width: '60%',
+						height: '60%',
+						textAlign: 'center',
+					},
+				}}
+			>
+				<button
+					className="left-align flex rounded-2xl border border-offwhite bg-green_dark1 px-6 py-3 text-[1rem] font-semibold text-offwhite"
+					onClick={closeModal}
+				>
+					Close
+				</button>
+				<h2
+					className="my-4"
+					style={{ color: '#FFF', fontSize: '24px', fontWeight: 700 }}
+				>
+					Order Fruits
+				</h2>
+				<p
+					className="my-8"
+					style={{ color: '#FFF', fontSize: '18px', marginBottom: '20px' }}
+				>
+					Enter the fruit's quantity that you choose to order.
+				</p>
+				<input
+					type="text"
+					className="bg-white my-10 h-[4.5rem] w-[8.5rem] rounded-[15px] text-center"
+					placeholder="kilogram"
+				/>
+				<button
+					className="flex items-align rounded-2xl border border-offwhite bg-green_dark1 px-6 py-3 text-[1rem] font-semibold text-offwhite "
+					style={{ display: 'flex', justifyContent: 'flex-end' }}
+					onClick={closeModal}
+				>
+					Confirm order
+				</button>
+				<div className="w-[11rem] fixed top-[21.5rem]">
+					<img src={Group} alt="" />
+				</div>
+                <div className="w-[5rem] fixed top-[18rem] left-[10rem]">
+					<img src={Group2} alt="" />
+				</div>
+                <div className="w-[4.5rem] fixed top-[2rem] left-[50rem]">
+					<img src={Vector} alt="" />
+				</div>
+                <div className="w-[2rem] fixed top-[5rem] left-[51.5rem]">
+					<img src={Vector2} alt="" />
+				</div>
+                <div className="w-[5rem] fixed top-[10rem] left-[46rem]">
+					<img src={Group3} alt="" />
+				</div>
+			</Modal>
 		</div>
 	)
 }
