@@ -53,8 +53,8 @@ const TopFruitBanana = () => {
 			</div>
 			<div
 				style={{
-					color: '#63724D',
-					fontSize: 16,
+					color: '#93A267',
+					fontSize: 14,
 					fontFamily: 'Poppins',
 					fontWeight: '400',
 					wordWrap: 'break-word',
