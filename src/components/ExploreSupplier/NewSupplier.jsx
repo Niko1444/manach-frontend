@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewSupplier = () => {
+const NewSupplier = ({ onClose }) => {
 	return (
 		<div>
 			<div
@@ -203,7 +203,9 @@ const NewSupplier = () => {
 								position: 'absolute',
 								borderRadius: 15,
 								border: '1px #485935 solid',
+								cursor: 'pointer',
 							}}
+							onClick={onClose}
 						/>
 						<div
 							style={{
@@ -218,7 +220,9 @@ const NewSupplier = () => {
 								fontFamily: 'Poppins',
 								fontWeight: '300',
 								wordWrap: 'break-word',
+								cursor: 'pointer',
 							}}
+							onClick={onClose}
 						>
 							Back
 						</div>
