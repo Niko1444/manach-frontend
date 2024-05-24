@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import ReOrder from './ReOrder/ReOrder'
 import OrderHistory from './OrderHistory/OrderHistory'
+
+import StockAdjustment from './StockAdjustment/StockAdjustment'
+
 import Inventory from './Inventory/Inventory'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
+
 
 const Warehouse = () => {
 	const [activeTab, setActiveTab] = useState('')
@@ -52,6 +56,8 @@ const Warehouse = () => {
 		width: 'calc(100% - 50px)',
 	}
 
+
+
 	const renderContent = () => {
 		switch (activeTab) {
 			case 'Inventory':
@@ -74,6 +80,7 @@ const Warehouse = () => {
 				return null
 		}
 	}
+
 
 	return (
 		<div style={{ overflowX: 'hidden' }}>
