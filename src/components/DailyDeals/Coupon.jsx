@@ -2,7 +2,20 @@ import React from 'react'
 
 const Coupon = ({ onClose }) => {
 	return (
-		<div>
+		<div
+			style={{
+				position: 'fixed',
+				top: 0,
+				left: 0,
+				width: '100%',
+				height: '100%',
+				backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				zIndex: 1000, 
+			}}
+		>
 			<div
 				style={{
 					width: '900px',
@@ -335,8 +348,8 @@ const Coupon = ({ onClose }) => {
 					<div
 						style={{
 							position: 'relative',
-                            marginLeft:'60%',
-                            marginTop:'20%',
+							marginLeft: '60%',
+							marginTop: '20%',
 							cursor: 'pointer',
 						}}
 						onClick={onClose}
@@ -351,9 +364,9 @@ const Coupon = ({ onClose }) => {
 								justifyContent: 'center',
 								alignItems: 'center',
 								cursor: 'pointer',
-                                color:'white',
-                                fontSize:21,
-                                fontFamily: 'Poppins',
+								color: 'white',
+								fontSize: 21,
+								fontFamily: 'Poppins',
 								cursor: 'pointer',
 							}}
 							onClick={onClose}
