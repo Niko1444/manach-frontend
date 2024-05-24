@@ -3,7 +3,7 @@
 import daisyui from 'daisyui'
 
 export default {
-	content: ['./src/**/*.{js,jsx,ts,tsx}'],
+	content: ['./src/**/*.{js,jsx,ts,tsx}', 'index.html'],
 	theme: {
 		extend: {},
 		colors: {
@@ -20,6 +20,7 @@ export default {
 			grey: '#757575',
 			grey_dark1: '#9C9C9C',
 			grey_dark2: '#7C7C7C',
+			redpink_dark: '#F07167',
 		},
 		fontSize: {
 			h1: '1.875rem', // 30px
