@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Table from './Table'
 
 const AStore = () => {
+
 	const [addPro, setAddPro] = useState(false)
 	const [type, setType] = useState('all')
 
@@ -252,6 +253,11 @@ const AStore = () => {
 			</div>
 		</div>
 	)
+
+	return <div>
+		
+	</div>
+
 }
 
 export default AStore
