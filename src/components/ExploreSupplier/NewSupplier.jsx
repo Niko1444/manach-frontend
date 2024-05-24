@@ -1,8 +1,19 @@
 import React from 'react'
 
-const NewSupplier = () => {
+const NewSupplier = ({ onClose }) => {
 	return (
-		<div>
+		<div style={{
+			position: 'fixed',
+			top: 0,
+			left: 0,
+			width: '100%',
+			height: '100%',
+			backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			zIndex: 1000, 
+		}}>
 			<div
 				style={{
 					width: '700px',
@@ -203,7 +214,9 @@ const NewSupplier = () => {
 								position: 'absolute',
 								borderRadius: 15,
 								border: '1px #485935 solid',
+								cursor: 'pointer',
 							}}
+							onClick={onClose}
 						/>
 						<div
 							style={{
@@ -218,7 +231,9 @@ const NewSupplier = () => {
 								fontFamily: 'Poppins',
 								fontWeight: '300',
 								wordWrap: 'break-word',
+								cursor: 'pointer',
 							}}
+							onClick={onClose}
 						>
 							Back
 						</div>

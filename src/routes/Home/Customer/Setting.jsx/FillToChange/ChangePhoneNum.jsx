@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChangePhoneNum = () => {
+const ChangePhoneNum = ({onClose}) => {
 	return (
 		<div>
 			<div
@@ -109,6 +109,7 @@ const ChangePhoneNum = () => {
                         alignItems:'center',
                         borderRadius:'15px'
 					}}
+					onClick={onClose}
 				>
 					Back
 				</div>

@@ -1,8 +1,19 @@
 import React from 'react'
 
-const Coupon = () => {
+const Coupon = ({ onClose }) => {
 	return (
-		<div>
+		<div style={{
+			position: 'fixed',
+			top: 0,
+			left: 0,
+			width: '100%',
+			height: '100%',
+			backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			zIndex: 1000, 
+		}}>
 			<div
 				style={{
 					width: '900px',
@@ -336,8 +347,10 @@ const Coupon = () => {
 						style={{
 							position: 'relative',
                             marginLeft:'60%',
-                            marginTop:'20%'
+                            marginTop:'20%',
+							cursor: 'pointer',
 						}}
+						onClick={onClose}
 					>
 						<div
 							style={{
@@ -351,8 +364,10 @@ const Coupon = () => {
 								cursor: 'pointer',
                                 color:'white',
                                 fontSize:21,
-                                fontFamily: 'Poppins'
+                                fontFamily: 'Poppins',
+								cursor: 'pointer',
 							}}
+							onClick={onClose}
 						>
 							Back
 						</div>
