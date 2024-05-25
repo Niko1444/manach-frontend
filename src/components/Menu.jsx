@@ -4,7 +4,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import NeedHelps from './needHelps/needHelps'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { logOutAction } from '../redux/userReducer/userReducer'
 
 // NavItem
 const NavItemCustomer = [
@@ -75,6 +76,7 @@ const NavItemAdminn = [
 const Menu = () => {
 	const [menu, setMenu] = useState([])
 	const location = useLocation()
+	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const inforUser = 1
 	const { roleName } = useSelector((state) => state.userReducer)
@@ -91,6 +93,7 @@ const Menu = () => {
 		// For example: dispatch(logoutAction())
 
 		// Navigate to "About Us" page after logout
+		dispatch(logOutAction())
 		navigate('/about-us')
 	}
 

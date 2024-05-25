@@ -11,7 +11,16 @@ const initialState = {
 const userReducer = createSlice({
 	name: 'userReducer',
 	initialState,
-	reducers: {},
+	reducers: {
+		logOutAction: (state, action) => {
+			state.userId = null
+			state.roleName = null
+			state.roleId = null
+
+			localStorage.removeItem('token')
+			userLocal.delete()
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(userThunk.fulfilled, (state, action) => {
 			console.log('builder.addCase ~ action:', action.payload.user_id)
@@ -22,6 +31,6 @@ const userReducer = createSlice({
 	},
 })
 
-export const {} = userReducer.actions
+export const { logOutAction } = userReducer.actions
 
 export default userReducer.reducer

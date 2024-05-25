@@ -9,7 +9,33 @@ const BestSelling = ({ bestSellingProducts }) => {
 					Best-selling Products
 				</div>
 				<div className="space-y-4 text-green_dark1">
-					<div className="flex space-x-2 rounded-xl bg-green_light2 p-2">
+					{bestSellingProducts?.map((item) => {
+						return (
+							<div
+								key={item?.product_id}
+								className="flex space-x-2 rounded-xl bg-green_light2 p-2"
+							>
+								<div className="w-[25%]">
+									<img
+										// src={`${item?.product.product_img}`}
+										src="/src/assets/banana.png"
+										className="h-[2.25rem] w-[2.3125rem]"
+										alt=""
+									/>
+								</div>
+								<div className="w-[75%] text-[0.625rem]">
+									<span className="font-semibold">
+										{item?.product.product_name}
+									</span>
+									<div className="flex items-center justify-between">
+										<span>Order: +{item?.total_orders}</span>
+										<span>Stock: 2</span>
+									</div>
+								</div>
+							</div>
+						)
+					})}
+					{/* <div className="flex space-x-2 rounded-xl bg-green_light2 p-2">
 						<div className="w-[25%]">
 							<img
 								src="/src/assets/strawberry.png"
@@ -52,7 +78,7 @@ const BestSelling = ({ bestSellingProducts }) => {
 								<span>Stock: 12</span>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
