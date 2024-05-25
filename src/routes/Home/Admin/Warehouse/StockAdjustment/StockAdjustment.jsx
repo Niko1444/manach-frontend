@@ -259,7 +259,7 @@ const StockAdjustment = () => {
 						transform: 'translate(-50%, -50%)',
 						padding: '20px',
 						borderRadius: '20px',
-                        border: '0px',
+						border: '0px',
 						width: '60%',
 						height: '60%',
 						textAlign: 'center',
@@ -290,25 +290,25 @@ const StockAdjustment = () => {
 					placeholder="kilogram"
 				/>
 				<button
-					className="flex items-end rounded-2xl border border-offwhite bg-green_dark1 px-6 py-3 text-[1rem] font-semibold text-offwhite "
-					style={{ display: 'flex', justifyContent: 'flex-end' }}
+					className="rounded-2xl border border-offwhite bg-offwhite px-4 py-3 text-[1rem] font-semibold text-green_dark1 "
+					style={{ display: 'flex', marginLeft: 'auto', marginTop: '6%'}}
 					onClick={closeModal}
 				>
 					Confirm order
 				</button>
-				<div className="w-[11rem] fixed top-[21.5rem] left-[0rem]">
+				<div className="fixed left-[0rem] top-[21.5rem] w-[11rem]">
 					<img src={Group} alt="" />
 				</div>
-                <div className="w-[5rem] fixed top-[18rem] left-[10rem]">
+				<div className="fixed left-[10rem] top-[18rem] w-[5rem]">
 					<img src={Group2} alt="" />
 				</div>
-                <div className="w-[4.5rem] fixed top-[2rem] left-[50rem]">
+				<div className="fixed left-[50rem] top-[2rem] w-[4.5rem]">
 					<img src={Vector} alt="" />
 				</div>
-                <div className="w-[2rem] fixed top-[5rem] left-[51.5rem]">
+				<div className="fixed left-[51.5rem] top-[5rem] w-[2rem]">
 					<img src={Vector2} alt="" />
 				</div>
-                <div className="w-[5rem] fixed top-[10rem] left-[46rem]">
+				<div className="fixed left-[46rem] top-[10rem] w-[5rem]">
 					<img src={Group3} alt="" />
 				</div>
 			</Modal>
