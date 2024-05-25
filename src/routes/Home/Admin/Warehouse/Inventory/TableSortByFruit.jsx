@@ -69,7 +69,8 @@ const TableSortByFruit = () => {
 								borderRight: '1px solid #485935',
 							}}
 						>
-							<img src="https://s3-alpha-sig.figma.com/img/aea6/9e6d/d66f9691e82cae98df7f353bc35373e9?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZXmuGoy9u2bD65mic3km--LhQ7Ac9S4NcVIwNbYhz2Yt6830gos-qwBo1pppZVmNBhtD9KSixVDiLl6dRTqHCouspH4e8LKFwHSWRPbxaOWUChEo5qa1cnfokvkdUWCtgyBszVK32BoKe3YmNFYtl~F~Aa5WGik3S4QdkqztRy2s2jh1sxo0zCpqR~zU-sBpOKRm2EGBUHUm1oLkMQcUw6DmW-yZqO1R20p4JmSJEEnsRGs~NNQp8rvA77DLietI175xViSaKt5SDcbUtaEJkLuJ4JGhYvnAti4x-y1WzRqwMVdfh~WuOszmqKw6w5hztFVGdYXCImt5mABD8TWlZw__" />
+							<img src="https://s3-alpha-sig.figma.com/img/aea6/9e6d/d66f9691e82cae98df7f353bc35373e9?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZXmuGoy9u2bD65mic3km--LhQ7Ac9S4NcVIwNbYhz2Yt6830gos-qwBo1pppZVmNBhtD9KSixVDiLl6dRTqHCouspH4e8LKFwHSWRPbxaOWUChEo5qa1cnfokvkdUWCtgyBszVK32BoKe3YmNFYtl~F~Aa5WGik3S4QdkqztRy2s2jh1sxo0zCpqR~zU-sBpOKRm2EGBUHUm1oLkMQcUw6DmW-yZqO1R20p4JmSJEEnsRGs~NNQp8rvA77DLietI175xViSaKt5SDcbUtaEJkLuJ4JGhYvnAti4x-y1WzRqwMVdfh~WuOszmqKw6w5hztFVGdYXCImt5mABD8TWlZw__"
+							style={{height:'70px'}} />
 						</td>
 						<td
 							style={{
@@ -122,7 +123,7 @@ const TableSortByFruit = () => {
 								borderRight: '1px solid #485935',
 							}}
 						>
-							<img src="https://s3-alpha-sig.figma.com/img/d788/ffc9/9f98dc9396793baa8448cebdd6613ce8?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=br4SuqN7qHONR78PecURjm5laRdVQoFD0Dy70agebgdUNBBeYiekfXBE0ASBnf~X4auz4Ucb252KtYmqu9YgLfIhrEw0l3oUSySlDgbiyRO85C5JSS7bsw5QSzuu-n0PTPnmw~sPkMSC~B82ZPuacA4k4zZtwqV73g6R1u~masKAcB87ztVU4amEapfhqlo7ZFQPYKggTxz32mjwI~0Suq0dS6vNSHZkQz5WyIIYsjBo0XIflmj-BbXRKkDDbitjo09YYegcSEA1nFPveD6AT~OilqRjG~hzwa41n5SeN0FV-tTFfGPiaX48P4wp4wGGn7qjix8x~dLG5ZKo87lbOg__" />
+							<img src="https://s3-alpha-sig.figma.com/img/d788/ffc9/9f98dc9396793baa8448cebdd6613ce8?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=br4SuqN7qHONR78PecURjm5laRdVQoFD0Dy70agebgdUNBBeYiekfXBE0ASBnf~X4auz4Ucb252KtYmqu9YgLfIhrEw0l3oUSySlDgbiyRO85C5JSS7bsw5QSzuu-n0PTPnmw~sPkMSC~B82ZPuacA4k4zZtwqV73g6R1u~masKAcB87ztVU4amEapfhqlo7ZFQPYKggTxz32mjwI~0Suq0dS6vNSHZkQz5WyIIYsjBo0XIflmj-BbXRKkDDbitjo09YYegcSEA1nFPveD6AT~OilqRjG~hzwa41n5SeN0FV-tTFfGPiaX48P4wp4wGGn7qjix8x~dLG5ZKo87lbOg__"style={{height:'70px'}} />
 						</td>
 						<td
 							style={{
@@ -175,7 +176,7 @@ const TableSortByFruit = () => {
 								borderRight: '1px solid #485935',
 							}}
 						>
-							<img src="https://s3-alpha-sig.figma.com/img/c7bf/8801/bab3a9090cba9428a115cf9befd306cd?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=np7R~VhJUuoaWxMX8Cegx6Q311YK1i0yRv~TO9fUUvM~OnocoYUCZ~eS9RFR~cZMZCKyHdZK3bSQUzDrLSZjthyttpO6jIhlIRz3PJQ0Y28PfwykxFFJ2Sdnc4L26~RnLVfbjAn38nDiAcs588Dv-6tRshga89zPjY0hafkMqbFtiS1lY2CcB9xNslizGQ-VIMuHqaHpIQ1jNNrfxP9PdlCh6QzZSFE~NoONCnGW2p0wQqTOJ7xulQOaw17NPi9u07FGC3YTkCjvBJa1NTKcfz4sVI8a0DWX0ptB-1Tnwr4yyjxEDrpZJhPKSMq9WInMXWe5Zai2Y-ewaN47gFC7VQ__" />
+							<img src="https://s3-alpha-sig.figma.com/img/c7bf/8801/bab3a9090cba9428a115cf9befd306cd?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=np7R~VhJUuoaWxMX8Cegx6Q311YK1i0yRv~TO9fUUvM~OnocoYUCZ~eS9RFR~cZMZCKyHdZK3bSQUzDrLSZjthyttpO6jIhlIRz3PJQ0Y28PfwykxFFJ2Sdnc4L26~RnLVfbjAn38nDiAcs588Dv-6tRshga89zPjY0hafkMqbFtiS1lY2CcB9xNslizGQ-VIMuHqaHpIQ1jNNrfxP9PdlCh6QzZSFE~NoONCnGW2p0wQqTOJ7xulQOaw17NPi9u07FGC3YTkCjvBJa1NTKcfz4sVI8a0DWX0ptB-1Tnwr4yyjxEDrpZJhPKSMq9WInMXWe5Zai2Y-ewaN47gFC7VQ__" style={{height:'70px'}}/>
 						</td>
 						<td
 							style={{
@@ -228,7 +229,7 @@ const TableSortByFruit = () => {
 								borderRight: '1px solid #485935',
 							}}
 						>
-							<img src="https://s3-alpha-sig.figma.com/img/d197/ec36/b2180696785f241f77278ceab35ded9a?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=b2s04xla3VPyPrCq8qVUVjot0fuiqeurbLbNyM9bdXQBTUwvxbHOBw-MSuEdpTbyiordNRVaXV-4rwFvGu063ocaJEQEjBFxNdnGMwhPm27sm0bBLCDpPJYMKjeLlE0MOoW6OFJAoevzO7eroG4lEAwWSB4-geIouPNpu219eyq8dvd~pMD9iFe3B6uvY-KcKZqDoRghBYSeN2MvmIn5dqcP3RIOLJ6ZFmjCPcYWJPmGla0bGo1XN~uQLT1MWuT7GOFrtqD9Sy0c0Of2mhIsn8YadlVDYi1z5VBUImSIOmrwEcXCtnK3tuWaUrVHYIzhiRr--1kegUXuGaoUVeKBbQ__" />
+							<img src="https://s3-alpha-sig.figma.com/img/d197/ec36/b2180696785f241f77278ceab35ded9a?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=b2s04xla3VPyPrCq8qVUVjot0fuiqeurbLbNyM9bdXQBTUwvxbHOBw-MSuEdpTbyiordNRVaXV-4rwFvGu063ocaJEQEjBFxNdnGMwhPm27sm0bBLCDpPJYMKjeLlE0MOoW6OFJAoevzO7eroG4lEAwWSB4-geIouPNpu219eyq8dvd~pMD9iFe3B6uvY-KcKZqDoRghBYSeN2MvmIn5dqcP3RIOLJ6ZFmjCPcYWJPmGla0bGo1XN~uQLT1MWuT7GOFrtqD9Sy0c0Of2mhIsn8YadlVDYi1z5VBUImSIOmrwEcXCtnK3tuWaUrVHYIzhiRr--1kegUXuGaoUVeKBbQ__" style={{height:'70px'}}/>
 						</td>
 						<td
 							style={{
