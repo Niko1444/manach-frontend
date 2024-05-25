@@ -290,13 +290,13 @@ const StockAdjustment = () => {
 					placeholder="kilogram"
 				/>
 				<button
-					className="flex items-align rounded-2xl border border-offwhite bg-green_dark1 px-6 py-3 text-[1rem] font-semibold text-offwhite "
+					className="flex items-end rounded-2xl border border-offwhite bg-green_dark1 px-6 py-3 text-[1rem] font-semibold text-offwhite "
 					style={{ display: 'flex', justifyContent: 'flex-end' }}
 					onClick={closeModal}
 				>
 					Confirm order
 				</button>
-				<div className="w-[11rem] fixed top-[21.5rem]">
+				<div className="w-[11rem] fixed top-[21.5rem] left-[0rem]">
 					<img src={Group} alt="" />
 				</div>
                 <div className="w-[5rem] fixed top-[18rem] left-[10rem]">
