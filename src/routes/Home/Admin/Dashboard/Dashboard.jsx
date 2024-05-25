@@ -59,7 +59,10 @@ const Dashboard = () => {
 
 			<div className="flex space-x-8">
 				<div className="w-[35%]">
-					<WarehouseAct warehouseActivities={data?.warehouseActivities} />
+					<WarehouseAct
+						incoming={data?.warehouseActivities.incoming}
+						outgoing={data?.warehouseActivities.outgoing}
+					/>
 				</div>
 				<div className="w-[65%]">
 					<WeeklyRevenue weeklyRevenue={data?.weeklyRevenue} />
@@ -67,10 +70,10 @@ const Dashboard = () => {
 			</div>
 			<div className="flex space-x-8">
 				<div className="w-[25%]">
-					<NewCus />
+					<NewCus customers={data?.customers} />
 				</div>
 				<div className="w-[75%]">
-					<Cupon customers={data?.customers} />
+					<Cupon />
 				</div>
 			</div>
 		</div>

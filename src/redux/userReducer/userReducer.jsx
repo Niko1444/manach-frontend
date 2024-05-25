@@ -23,10 +23,10 @@ const userReducer = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(userThunk.fulfilled, (state, action) => {
-			console.log('builder.addCase ~ action:', action.payload.user_id)
 			userLocal.setId(action.payload.user_id)
 			state.userId = action.payload.user_id
 			userLocal.setRoleName(action.payload.role_id)
+			state.roleName = userLocal.getRoleName()
 		})
 	},
 })

@@ -9,6 +9,7 @@ import {
 	LinearScale,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
+import PropTypes from 'prop-types'
 
 ChartJS.register(
 	ArcElement,
@@ -19,7 +20,8 @@ ChartJS.register(
 	LinearScale,
 )
 
-const OrderChart = () => {
+const OrderChart = ({ weeklyOrders }) => {
+	console.log('OrderChart ~ weeklyOrders:', weeklyOrders)
 	const chartRef = useRef(null)
 
 	useEffect(() => {
@@ -36,21 +38,21 @@ const OrderChart = () => {
 				<i className="fa fa-circle rounded-full border border-green_dark1 text-[0.8rem] text-offwhite"></i>
 			</div>
 			<div className="p-4 text-green_dark1">
-				<span className="text-[1.125rem] font-bold">Order</span>
+				<span className="text-[1.125rem] font-bold">Weekly Order</span>
 			</div>
 
 			<div className="h-[14rem] px-8">
 				<Bar
 					ref={chartRef}
 					data={{
-						labels: ['Pending', 'In Progress', 'Completed'],
+						labels: weeklyOrders?.map((item) => item.date),
 						datasets: [
 							{
 								label: 'Orders',
-								data: [300, 200, 100],
+								data: weeklyOrders?.map((item) => item.totalOrders),
 								backgroundColor: ['#FFD600', '#A0D900', '#D9D9D9'],
 								borderRadius: 5,
-								barThickness: 88,
+								barThickness: 30,
 							},
 						],
 					}}
@@ -88,7 +90,7 @@ const OrderChart = () => {
 					<div className="flex space-x-4">
 						<i className="fa fa-box text-[3rem]"></i>
 						<div>
-							<span className="text-redpink_dark1">25 Order</span>
+							<span className="text-redpink_dark1">12 Order</span>
 							<div>Total packaged orders</div>
 						</div>
 					</div>
@@ -97,5 +99,12 @@ const OrderChart = () => {
 		</div>
 	)
 }
-
+OrderChart.propTypes = {
+	weeklyOrders: PropTypes.arrayOf(
+		PropTypes.shape({
+			date: PropTypes.string.isRequired,
+			totalOrders: PropTypes.number.isRequired,
+		}),
+	).isRequired,
+}
 export default OrderChart
