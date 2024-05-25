@@ -1,35 +1,43 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { useEffect } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import NeedHelps from './needHelps/needHelps'
+import { useDispatch, useSelector } from 'react-redux'
+import { logOutAction } from '../redux/userReducer/userReducer'
 
 // NavItem
 const NavItemCustomer = [
 	{
 		name: 'Home',
 		link: '/customer/home',
+		icon: 'home',
 	},
 	{
 		name: 'Store',
 		link: '/customer/store',
+		icon: 'shopping-cart',
 	},
 	{
 		name: 'Order',
 		link: '/customer/order',
+		icon: 'clipboard-list',
 	},
 	{
 		name: 'Checkout',
 		link: '/customer/check-out',
+		icon: 'cash-register',
 	},
 	{
 		name: 'Setting',
 		link: '/customer/setting',
+		icon: 'cog',
 	},
 	{
 		name: 'Logout',
-		link: '/customer/logout',
+		link: '/about-us',
+		icon: 'sign-out-alt',
 	},
 ]
 const NavItemAdminn = [
@@ -60,14 +68,34 @@ const NavItemAdminn = [
 	},
 	{
 		name: 'Logout',
-		link: '/admin/logout',
+		link: '/about-us',
 		icon: 'sign-out-alt',
 	},
 ]
 
 const Menu = () => {
+	const [menu, setMenu] = useState([])
 	const location = useLocation()
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const inforUser = 1
+	const { roleName } = useSelector((state) => state.userReducer)
+	useEffect(() => {
+		if (roleName === 'admin') {
+			setMenu(NavItemAdminn)
+		} else {
+			setMenu(NavItemCustomer)
+		}
+	}, [])
+
+	const handleLogoutClick = () => {
+		// Perform logout operations here
+		// For example: dispatch(logoutAction())
+
+		// Navigate to "About Us" page after logout
+		dispatch(logOutAction())
+		navigate('/about-us')
+	}
 
 	return (
 		<div className="sticky flex h-screen w-full flex-col items-start justify-between bg-green_dark1">
@@ -92,30 +120,51 @@ const Menu = () => {
 					/>
 					<div className="h-fit text-offwhite opacity-70">
 						<div className="text-[1.25rem]">Nhat Minh</div>
-						<span className="text-[0.7rem]">Administrator</span>
+						<span className="text-[0.7rem]">{roleName}</span>
 					</div>
 				</div>
 			) : null}
 			<div className="w-full">
-				{NavItemAdminn.map((item, index) => (
-					<Link
-						key={index}
-						to={item.link}
-						className={`block space-x-4 p-4 ${
-							location.pathname === item.link
-								? 'no-hover text-white bg-green_light3'
-								: 'text-offwhite'
-						} ${
-							location.pathname === item.link
-								? ''
-								: 'hover:bg-green_light3 hover:text-green_dark1'
-						}`}
-						style={{ width: '100%', transition: 'ease-in-out 0.3s' }}
-					>
-						<i className={`fa fa-${item.icon} mr-4`}></i>
-						{item.name}
-					</Link>
-				))}
+				{menu.map((item, index) =>
+					item.name === 'Logout' ? (
+						<Link
+							key={index}
+							to={item.link}
+							onClick={handleLogoutClick}
+							className={`block w-full space-x-4 p-4 ${
+								location.pathname === item.link
+									? 'no-hover text-white bg-green_light3'
+									: 'text-offwhite'
+							} ${
+								location.pathname === item.link
+									? ''
+									: 'hover:bg-green_light3 hover:text-green_dark1'
+							}`}
+							style={{ transition: 'ease-in-out 0.3s' }}
+						>
+							<i className={`fa fa-${item.icon} mr-4`}></i>
+							{item.name}
+						</Link>
+					) : (
+						<Link
+							key={index}
+							to={item.link}
+							className={`block w-full space-x-4 p-4 ${
+								location.pathname === item.link
+									? 'no-hover text-white bg-green_light3'
+									: 'text-offwhite'
+							} ${
+								location.pathname === item.link
+									? ''
+									: 'hover:bg-green_light3 hover:text-green_dark1'
+							}`}
+							style={{ transition: 'ease-in-out 0.3s' }}
+						>
+							<i className={`fa fa-${item.icon} mr-4`}></i>
+							{item.name}
+						</Link>
+					),
+				)}
 			</div>
 			<NeedHelps />
 		</div>

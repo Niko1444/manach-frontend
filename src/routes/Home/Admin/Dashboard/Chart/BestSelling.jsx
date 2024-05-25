@@ -1,4 +1,4 @@
-const BestSelling = () => {
+const BestSelling = ({ bestSellingProducts }) => {
 	return (
 		<div className="relative rounded-xl border p-2">
 			<div className="absolute leading-3">
@@ -9,19 +9,45 @@ const BestSelling = () => {
 					Best-selling Products
 				</div>
 				<div className="space-y-4 text-green_dark1">
-					<div className="flex space-x-2 rounded-xl bg-green_light2 p-2">
+					{bestSellingProducts?.map((item) => {
+						return (
+							<div
+								key={item?.product_id}
+								className="flex space-x-2 rounded-xl bg-green_light2 p-2"
+							>
+								<div className="w-[25%]">
+									<img
+										// src={`${item?.product.product_img}`}
+										src="/src/assets/banana.png"
+										className="h-[2.25rem] w-[2.3125rem]"
+										alt=""
+									/>
+								</div>
+								<div className="w-[75%] text-[0.625rem]">
+									<span className="font-semibold">
+										{item?.product.product_name}
+									</span>
+									<div className="flex items-center justify-between">
+										<span>Order: +{item?.total_orders}</span>
+										<span>Stock: 2</span>
+									</div>
+								</div>
+							</div>
+						)
+					})}
+					{/* <div className="flex space-x-2 rounded-xl bg-green_light2 p-2">
 						<div className="w-[25%]">
 							<img
-								src="/src/assets/banana.png"
+								src="/src/assets/strawberry.png"
 								className="h-[2.25rem] w-[2.3125rem]"
 								alt=""
 							/>
 						</div>
 						<div className="w-[75%] text-[0.625rem]">
-							<span className="font-semibold">Cavendish Banana</span>
+							<span className="font-semibold">Strawberry</span>
 							<div className="flex items-center justify-between">
-								<span>Order: +1399</span>
-								<span>Stock: 7</span>
+								<span>Order: +1234</span>
+								<span>Stock: 2</span>
 							</div>
 						</div>
 					</div>
@@ -41,18 +67,18 @@ const BestSelling = () => {
 					</div>
 					<div className="flex space-x-2 rounded-xl bg-green_light2 p-2">
 						<img
-							src="/src/assets/banana.png"
+							src="/src/assets/coconut.png"
 							className="h-[2.25rem] w-[2.3125rem]"
 							alt=""
 						/>
 						<div className="w-[75%] text-[0.625rem]">
-							<span className="font-semibold">Cavendish Banana</span>
+							<span className="font-semibold">Coconut</span>
 							<div className="flex items-center justify-between">
-								<span>Order: +1399</span>
-								<span>Stock: 7</span>
+								<span>Order: +51232</span>
+								<span>Stock: 12</span>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

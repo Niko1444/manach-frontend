@@ -26,8 +26,13 @@ const CusCheckOut = () => {
 			return (
 				<tr key={index} className="border-b-[1px] border-green">
 					<td className="py-4 pl-4 text-left">
-						<div>{item.name}</div>
-						<span>({item.status})</span>
+						<div className="flex space-x-4">
+							<img src={`${item.img}`} className="h-[3rem] w-[3rem]" alt="" />
+							<div>
+								<div>{item.name}</div>
+								<span>({item.status})</span>
+							</div>
+						</div>
 					</td>
 					<td>
 						<div className="flex justify-center space-x-4">
@@ -46,6 +51,24 @@ const CusCheckOut = () => {
 					<td>$ {item.price}</td>
 					<td>${item.quantity * item.price}</td>
 				</tr>
+			)
+		})
+	}
+	const calTotalCost = () => {
+		let sum = 0
+		for (let i = 0; i < data.length; i++) {
+			sum += data[i].price * data[i].quantity
+		}
+		return sum
+	}
+	const showListCart = () => {
+		return data.map((item) => {
+			return (
+				<div key={item.id} className="my-8 flex justify-between">
+					<div>Item {item.id}</div>
+					<div>${item.price}</div>
+					<div>{item.quantity}</div>
+				</div>
 			)
 		})
 	}
@@ -117,52 +140,20 @@ const CusCheckOut = () => {
 					<div className="m-4 text-green_dark1">
 						<div className="text-[1.5rem] font-semibold">Order Summary</div>
 						<hr />
-						<div className="my-8 flex justify-between">
-							<div>Item 11</div>
-							<div>$198</div>
-						</div>
-
 						<div>
-							<label htmlFor="">Shipping</label>
-							<div className="dropdown dropdown-end rounded-xl bg-offwhite">
-								<div
-									role="button"
-									className="btn m-1 mx-2 w-full py-4 text-green"
-									onClick={() => setAct(!act)}
-								>
-									Click
-								</div>
-								<ul
-									className={`dropdown-content menu bg-base-100 z-[1] w-full p-2 shadow ${act ? 'block' : 'hidden'} }`}
-								>
-									<li>
-										<a>Item 1</a>
-									</li>
-									<li>
-										<a>Item 2</a>
-									</li>
-								</ul>
+							<div className="my-8 flex justify-between">
+								<div>Item</div>
+								<div>Price</div>
+								<div>Quantity</div>
 							</div>
+							{showListCart()}
 						</div>
 
-						<div className="mt-8 space-y-4">
-							<label className="input input-bordered rounded-xl">
-								<span>Promote Code</span>
-								<input
-									type="text"
-									className="w-full  rounded-lg py-4 text-green placeholder-green"
-									placeholder=" Enter Code"
-								/>
-							</label>
-							<button className="rounded-lg border border-green_dark1 px-4 py-2 hover:bg-green_dark1 hover:text-offwhite">
-								<span className="text-[1.25rem] font-bold ">Apply</span>
-							</button>
-						</div>
 						<hr className="my-4" />
 
 						<div className="flex justify-between">
 							<div>Total Cost</div>
-							<span>$198</span>
+							<span>${calTotalCost()}</span>
 						</div>
 
 						<div className="mt-4 text-center">
@@ -179,92 +170,49 @@ const CusCheckOut = () => {
 
 const data = [
 	{
-		img: 'fetch img',
+		id: 1123,
+		img: '/src/assets/banana.png',
 		name: 'banana',
-		status: 'firm',
-		quantity: 2,
+		status: 'unfirm',
+		quantity: 4,
 		price: 5,
 		instock: 12,
 	},
 	{
-		img: 'fetch img',
-		name: 'banana',
+		id: 1423,
+		img: '/src/assets/coconut.png',
+		name: 'coconut',
 		status: 'firm',
-		quantity: 2,
-		price: 5,
+		quantity: 7,
+		price: 7,
+		instock: 15,
+	},
+	{
+		id: 1231,
+		img: '/src/assets/strawberry.png',
+		name: 'strawberry',
+		status: 'firm',
+		quantity: 12,
+		price: 9,
+		instock: 27,
+	},
+	{
+		id: 4122,
+		img: '/src/assets/raspberry.png',
+		name: 'raspberry',
+		status: 'firm',
+		quantity: 4,
+		price: 11,
 		instock: 12,
 	},
 	{
-		img: 'fetch img',
-		name: 'banana',
+		id: 3123,
+		img: '/src/assets/saurieng.png',
+		name: 'durian',
 		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
-	},
-	{
-		img: 'fetch img',
-		name: 'banana',
-		status: 'firm',
-		quantity: 2,
-		price: 5,
-		instock: 12,
+		quantity: 1,
+		price: 3,
+		instock: 11,
 	},
 ]
 // const data = []
