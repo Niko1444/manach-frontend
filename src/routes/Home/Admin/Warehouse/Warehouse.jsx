@@ -73,7 +73,7 @@ const Warehouse = () => {
 					</div>
 				)
 			case 'Stock adjustment':
-				return <div style={contentStyle}>Stock adjustment Content</div>
+				return <div style={contentStyle}><StockAdjustment/></div>
 			case 'Order history':
 				return (<div style={contentStyle}><OrderHistory /></div>)
 			default:
