@@ -11,20 +11,7 @@ import TableSortByFruit from './TableSortByFruit'
 const SortedByFruit = () => {
 	return (
 		<div>	
-				<div
-					style={{
-						width: '75%',
-						height: '100%',
-						color: '#485935',
-						fontSize: 36,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						margin: '0 0 50px 50px',
-					}}
-				>
-					Sorted By Fruit
-				</div>
+				
 				
 			
 
