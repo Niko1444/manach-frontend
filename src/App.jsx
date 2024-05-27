@@ -31,11 +31,7 @@ import Dashboard from './routes/Home/Admin/Dashboard/Dashboard'
 import ASetting from './routes/Home/Admin/Setting/ASetting'
 import Warehouse from './routes/Home/Admin/Warehouse/Warehouse'
 import AStore from './routes/Home/Admin/Store/AStore'
-import PineappleStore from './routes/Home/Customer/Store/PineappleStore'
-import CoconutStore from './routes/Home/Customer/Store/CoconutStore'
-import PapayaStore from './routes/Home/Customer/Store/PapayaStore'
-import DurianStore from './routes/Home/Customer/Store/DurianStore'
-import BerriesStore from './routes/Home/Customer/Store/BerriesStore'
+// import Loading from './components/Loading'
 
 function App() {
 	// eslint-disable-next-line no-unused-vars
@@ -74,21 +70,16 @@ function App() {
 						<Route path="signup" element={<Signup />} />
 					</Route>
 
-				{/* About */}
-				<Route path="/setting" element={<Setting />} />
-				<Route path="/banana-store" element={<BananaStore />} />
-				<Route path="/mango-store" element={<MangoStore />} />
-				<Route path='/pineapple-store' element={<PineappleStore/>}/>
-				<Route path='/coconut-store' element={<CoconutStore/>}/>
-				<Route path='/papaya-store' element={<PapayaStore/>}/>
-				<Route path='/durian-store' element={<DurianStore/>}/>
-				<Route path='/berries-store' element={<BerriesStore/>}/>
-				{/* Error pages */}
-				<Route path="*" element={<NotFound />} />
-			
+					{/* About */}
+					<Route path="/setting" element={<Setting />} />
+					<Route path="/banana-store" element={<BananaStore />} />
+					<Route path="/mango-store" element={<MangoStore />} />
 
-			</Routes>
-		</Layout>
+					{/* Error pages */}
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</Layout>
+		</>
 	)
 }
 
