@@ -6,8 +6,14 @@ export const userService = {
 		return http.post(url, data)
 	},
 
-	getInfor: (data, roleName) => {
-		let url = `/${roleName}/${data}`
+	getInfor: (data) => {
+		let url = `/user/${data}`
 		return http.get(url)
+	},
+	editProfile: (id, infor) => {
+		let url = `/user/${id}/edit`
+		console.log('infor:', infor)
+		console.log('url:', url)
+		return http.put(url, infor)
 	},
 }

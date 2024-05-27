@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { userThunk } from './userThunk'
+import { editProfile, getInfor, userThunk } from './userThunk'
 import { userLocal } from '../../service/userLocal'
 
 const initialState = {
 	userId: userLocal.getUserId(),
 	roleId: 2,
 	roleName: userLocal.getRoleName(),
+	inforUser: [],
 }
 
 const userReducer = createSlice({
@@ -22,12 +23,23 @@ const userReducer = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(userThunk.fulfilled, (state, action) => {
-			userLocal.setId(action.payload.user_id)
-			state.userId = action.payload.user_id
-			userLocal.setRoleName(action.payload.role_id)
-			state.roleName = userLocal.getRoleName()
-		})
+		builder
+			.addCase(userThunk.fulfilled, (state, action) => {
+				userLocal.setId(action.payload.user_id)
+				state.userId = action.payload.user_id
+				userLocal.setRoleName(action.payload.role_id)
+				state.roleName = userLocal.getRoleName()
+			})
+			.addCase(getInfor.fulfilled, (state, action) => {
+				let data = action.payload.data.content
+				userLocal.setInfor(data)
+				state.inforUser = data
+			})
+			.addCase(editProfile.fulfilled, (state, action) => {
+				console.log('.addCase ~ action:', action.payload.data.content)
+				const data = action.payload.data.content
+				state.inforUser = data
+			})
 	},
 })
 

@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
 const CusCheckOut = () => {
-	const [act, setAct] = useState(false)
-
 	const handleChangeQuantity = () => {
 		return (
 			<div role="alert" className="alert alert-error">
