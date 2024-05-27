@@ -1,81 +1,83 @@
 import React from 'react';
 
 const NewSupplier = ({ onClose }) => {
-	return (
-		<div style={{
-			position: 'fixed',
-			top: 0,
-			left: 0,
-			width: '100%',
-			height: '100%',
-			backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-			display: 'flex',
-			justifyContent: 'center',
-			alignItems: 'center',
-			zIndex: 1000, 
-		}}>
-			<div
-				style={{
-					width: '700px',
-					height: '680px',
-					background: 'white',
-					borderRadius: 15,
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					padding: '30px',
-				}}
-			>
-				<div
-					style={{
-						color: '#485935',
-						fontSize: 26,
-						fontFamily: 'Poppins',
-						fontWeight: '600',
-						wordWrap: 'break-word',
-						width: '100%',
-					}}
-				>
-					New Suppliers
-					<hr
-						style={{
-							borderTop: '3px solid black',
-							width: '90%',
-							marginTop: '10px',
-						}}
-					/>
-				</div>
-				<div>
-					<div className="flex">
-						<img
-							style={{
-								width: '30%',
-								height: '30%',
-								borderRadius: '15px',
-								marginTop: '20px',
-							}}
-							src="https://s3-alpha-sig.figma.com/img/4202/ded0/a007c2739494b431bf23cf8c599f6029?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BIzQk1Dm2GepOEO6Q-8ekzxzGgSOflYmBQbd43CqExOoLr1nwyPtvRs6vJ47YZ8T8DQ1uxxd-wU~x~CCXFenJ~svOrxkP0tJKegobHVpBEeeNWACcMU08PzMi~x7cgJPcZnT~KyOXEb7fH6xCxcIYB8v5GYuo5ht50WtTt3eUJio2D2LFIq9ILDbI2s9y-NQDIcOMX3XzVroqpzqiFrWoQDNnr2rmoJOdSjN3Iq1wgYACjtb2no184Q7K3MYDjSfFQWvzHlG50fpT2HXMbBVXaTrx-gEFcgseB8TcZUbwnXFOS4XHRT4RBJ9CcQB05i1hTdDvBwDOcZMJMYffzURUg__"
-						/>
-						<div
-							style={{
-								width: '70%',
-								height: '70%',
-								marginLeft: '30px',
-								marginTop: '20px',
-							}}
-						>
-							<div
-								style={{
-									color: '#485935',
-									fontSize: 26,
-									fontFamily: 'Poppins',
-									fontWeight: '600',
-									wordWrap: 'break-word',
-									width: '100%',
-								}}
-							>
-								Fresh Box
-							</div>
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1000, 
+      }}
+    >
+      <div
+        style={{
+          width: '700px',
+          height: '680px',
+          background: 'white',
+          borderRadius: 15,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '30px',
+        }}
+      >
+        <div
+          style={{
+            color: '#485935',
+            fontSize: 26,
+            fontFamily: 'Poppins',
+            fontWeight: '600',
+            wordWrap: 'break-word',
+            width: '100%',
+          }}
+        >
+          New Suppliers
+          <hr
+            style={{
+              borderTop: '3px solid black',
+              width: '90%',
+              marginTop: '10px',
+            }}
+          />
+        </div>
+        <div>
+          <div className="flex">
+            <img
+              style={{
+                width: '30%',
+                height: '30%',
+                borderRadius: '15px',
+                marginTop: '20px',
+              }}
+              src="https://s3-alpha-sig.figma.com/img/4202/ded0/a007c2739494b431bf23cf8c599f6029?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BIzQk1Dm2GepOEO6Q-8ekzxzGgSOflYmBQbd43CqExOoLr1nwyPtvRs6vJ47YZ8T8DQ1uxxd-wU~x~CCXFenJ~svOrxkP0tJKegobHVpBEeeNWACcMU08PzMi~x7cgJPcZnT~KyOXEb7fH6xCxcIYB8v5GYuo5ht50WtTt3eUJio2D2LFIq9ILDbI2s9y-NQDIcOMX3XzVroqpzqiFrWoQDNnr2rmoJOdSjN3Iq1wgYACjtb2no184Q7K3MYDjSfFQWvzHlG50fpT2HXMbBVXaTrx-gEFcgseB8TcZUbwnXFOS4XHRT4RBJ9CcQB05i1hTdDvBwDOcZMJMYffzURUg__"
+            />
+            <div
+              style={{
+                width: '70%',
+                height: '70%',
+                marginLeft: '30px',
+                marginTop: '20px',
+              }}
+            >
+              <div
+                style={{
+                  color: '#485935',
+                  fontSize: 26,
+                  fontFamily: 'Poppins',
+                  fontWeight: '600',
+                  wordWrap: 'break-word',
+                  width: '100%',
+                }}
+              >
+                Fresh Box
+              </div>
 
               <div
                 style={{

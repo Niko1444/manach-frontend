@@ -50,7 +50,7 @@ const AddToCart = ({ productId }) => {
 
   return (
     <div
-      className={`relative h-[108px] w-[135px] ${isDisabled ? 'opacity-50' : ''}`}
+      className={`relative h-[40px] w-[135px] ${isDisabled ? 'opacity-50' : ''}`}
       onClick={handleMouseDown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

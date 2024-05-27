@@ -16,26 +16,31 @@ const TopFruit = () => {
     const navigate = useNavigate();
 
     const handleBananaClick = () => {
-        navigate('/banana-store');
+        navigate('/customer/store/banana-store');
     };
 
     const handleMangoClick = () => {
-        navigate('/mango-store');
+        navigate('/customer/store/mango-store');
     };
 
     const handlePineappleClick = () => {
+        navigate('/customer/store/pineapple-store');
     };
 
     const handleCoconutClick = () => {
+        navigate('/customer/store/coconut-store');
     };
 
     const handlePapayaClick = () => {
+        navigate('/customer/store/papaya-store');
     };
 
     const handleDurianClick = () => {
+        navigate('/customer/store/durian-store')
     };
 
     const handleBerriesClick = () => {
+        navigate('/customer/store/berries-store')
     };
 
     return (

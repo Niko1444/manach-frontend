@@ -3,10 +3,10 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import ReviewMango from '../../../../components/Review/ReviewMango'
+import ReviewCoconut from '../../../../components/Review/ReviewCoconut'
 
 
-const MangoStore = () => {
+const CoconutStore = () => {
 	return (
 		<div>
 			<div className="flex">
@@ -20,7 +20,7 @@ const MangoStore = () => {
 							wordWrap: 'break-word',
 						}}
 					>
-						Mango
+						Coconut
 					</div>
 					<div
 						style={{
@@ -38,8 +38,7 @@ const MangoStore = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-                    <ReviewMango/>
-                
+                    <ReviewCoconut/>
                 </div>
 
 				<div className='ml-[80px]'>
@@ -56,4 +55,4 @@ const MangoStore = () => {
 	)
 }
 
-export default MangoStore
+export default CoconutStore
