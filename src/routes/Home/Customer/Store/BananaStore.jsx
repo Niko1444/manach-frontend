@@ -3,7 +3,7 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import Review from '../../../../components/Review/Review'
+import ReviewBanana from '../../../../components/Review/ReviewBanana'
 
 
 const BananaStore = () => {
@@ -38,10 +38,8 @@ const BananaStore = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-                    <Review/>
-                    <Review/>
-					<Review/>
-					<Review/>
+					<ReviewBanana/>
+                    
                 
                 </div>
 

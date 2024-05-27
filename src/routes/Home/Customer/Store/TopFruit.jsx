@@ -24,18 +24,23 @@ const TopFruit = () => {
     };
 
     const handlePineappleClick = () => {
+        navigate('/pineapple-store');
     };
 
     const handleCoconutClick = () => {
+        navigate('/coconut-store');
     };
 
     const handlePapayaClick = () => {
+        navigate('/papaya-store');
     };
 
     const handleDurianClick = () => {
+        navigate('/durian-store')
     };
 
     const handleBerriesClick = () => {
+        navigate('/berries-store')
     };
 
     return (

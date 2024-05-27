@@ -20,7 +20,15 @@ export default {
 			grey: '#757575',
 			grey_dark1: '#9C9C9C',
 			grey_dark2: '#7C7C7C',
+			redpink: '#F0716780',
 			redpink_dark: '#F07167',
+			redpink_light1: '#F0716766',
+			redpink_light2: '#F0716733',
+			redpink_dark1: '#F07167',
+			yellow_light1: '#FFD60033',
+			yellow_dark1: '#FFD600',
+			green_bright1: '#A0D900',
+			green_bright2: '#A0D90033',
 		},
 		fontSize: {
 			h1: '1.875rem', // 30px
