@@ -9,6 +9,7 @@ import {
 	Tooltip,
 	Legend,
 } from 'chart.js'
+import PropTypes from 'prop-types'
 
 // Register Chart.js components
 ChartJS.register(
@@ -21,7 +22,7 @@ ChartJS.register(
 	Legend,
 )
 
-const WeeklyRevenue = () => {
+const WeeklyRevenue = ({ weeklyRevenue }) => {
 	return (
 		<div className="relative h-full rounded-xl border p-2">
 			<div className="absolute leading-3">
@@ -50,19 +51,11 @@ const WeeklyRevenue = () => {
 			<div className="px-8">
 				<Line
 					data={{
-						labels: [
-							'Monday',
-							'Tuesday',
-							'Wednesday',
-							'Thursday',
-							'Friday',
-							'Saturday',
-							'Sunday',
-						],
+						labels: weeklyRevenue?.map((item) => item.date),
 						datasets: [
 							{
 								label: 'Weekly Revenue',
-								data: [100, 200, 300, 400, 500, 600, 700], // Example data, replace with actual data
+								data: weeklyRevenue?.map((item) => item.totalRevenue), // Example data, replace with actual data
 								borderColor: '#485935',
 								backgroundColor: 'rgba(72, 89, 53, 0.2)',
 								fill: true,
@@ -85,6 +78,14 @@ const WeeklyRevenue = () => {
 			</div>
 		</div>
 	)
+}
+WeeklyRevenue.propTypes = {
+	weeklyRevenue: PropTypes.arrayOf(
+		PropTypes.shape({
+			date: PropTypes.string.isRequired,
+			totalRevenue: PropTypes.number.isRequired,
+		}),
+	).isRequired,
 }
 
 export default WeeklyRevenue

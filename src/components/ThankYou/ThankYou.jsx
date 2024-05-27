@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ThankYou = () => {
+const ThankYou = ({ handleClose }) => {
 	return (
 		<div
 			style={{
@@ -19,16 +19,17 @@ const ThankYou = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: '20px', 
-					left: '20px', 
+					top: '20px',
+					left: '20px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
 					width: 103,
 					height: 52.27,
 					borderRadius: 15,
-					border: '1px solid #485935', 
+					border: '1px solid #485935',
 				}}
+				onClick={handleClose}
 			>
 				<div
 					style={{
@@ -38,6 +39,7 @@ const ThankYou = () => {
 						fontFamily: 'Poppins',
 						fontWeight: '300',
 						wordWrap: 'break-word',
+						cursor: 'pointer',
 					}}
 				>
 					Back

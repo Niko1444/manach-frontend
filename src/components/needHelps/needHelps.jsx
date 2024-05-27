@@ -1,9 +1,25 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
+import ErrorReport from '../LogIn/ErrorReport'
+import YesPleasecheck from '../LogIn/YesPleasecheck'
 
 const NeedHelps = () => {
 	const [state, setState] = useState({})
+	const dialogRef = useRef(null)
+
+	const handleClick = () => {
+		dialogRef.current.showModal()
+		setState({ boxShadow: '10px 10px 4px 0 rgba(0, 0, 0, 0.25) inset' })
+		setTimeout(() => {
+			setState({ boxShadow: '' })
+		}, 200)
+	}
+
+	const handleClose = () => {
+		dialogRef.current.close()
+	}
+
 	return (
 		<div className="w-full p-2">
 			<div className="relative mx-auto h-[12.0625rem] w-[14.5625rem]">
@@ -14,7 +30,7 @@ const NeedHelps = () => {
 					height="193"
 					viewBox="0 0 233 193"
 					fill="#93A267"
-					className={` rounded-[15px] bg-offwhite`}
+					className={`rounded-[15px] bg-offwhite`}
 				>
 					<path
 						d="M6.52457 -8.02695L39.6418 -9.97005C64.8458 -11.4489 72.6534 23.5386 49.2118 32.9153C40.164 36.5344 34.5225 45.6183 35.2894 55.3328L35.9609 63.8379C37.6975 85.8354 14.3251 100.976 -5.04024 90.3982C-13.9548 85.5289 -19.5 76.1815 -19.5 66.0238V19.5693C-19.5 4.93102 -8.08859 -7.16955 6.52457 -8.02695Z"
@@ -26,18 +42,11 @@ const NeedHelps = () => {
 					/>
 				</svg>
 				<NavLink
-					className="absolute top-0 flex h-full w-full items-center justify-center rounded-[15px]  transition duration-150 ease-in-out hover:shadow-[10px_10px_4px_0px_rgba(0,0,0,0.25)]"
+					className="absolute top-0 flex h-full w-full items-center justify-center rounded-[15px] transition duration-150 ease-in-out hover:shadow-[10px_10px_4px_0px_rgba(0,0,0,0.25)]"
 					style={state}
-					onClick={() => {
-						setState({ boxShadow: '10px 10px 4px 0 rgba(0, 0, 0, 0.25) inset' })
-
-						// After 1 second, reset the box shadow to none
-						setTimeout(() => {
-							setState({ boxShadow: '' })
-						}, 200)
-					}}
+					onClick={handleClick}
 				>
-					{/* content  */}
+					{/* content */}
 					<div className="w-[12.75rem]">
 						{/* btn + */}
 						<div className="mx-auto flex h-full items-center justify-center">
@@ -162,6 +171,9 @@ const NeedHelps = () => {
 					</div>
 				</NavLink>
 			</div>
+			<dialog ref={dialogRef} className="rounded-lg p-6 shadow-lg">
+				<ErrorReport handleClose={handleClose}/>
+			</dialog>
 		</div>
 	)
 }

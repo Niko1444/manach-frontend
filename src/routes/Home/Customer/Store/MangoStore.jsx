@@ -3,7 +3,7 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import Review from '../../../../components/Review/Review'
+import Review from '../../../../components/Review/ReviewBanana'
 
 
 const MangoStore = () => {
