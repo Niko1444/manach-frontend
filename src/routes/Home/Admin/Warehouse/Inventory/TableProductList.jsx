@@ -1,213 +1,206 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-export const baseURL = 'http://localhost:8080';
-export const BASE_URL_IMG = 'http://localhost:8080/public/imgs';
+export const baseURL = 'http://localhost:8080'
+export const BASE_URL_IMG = 'http://localhost:8080/public/imgs'
 
 export const http = axios.create({
-  baseURL: baseURL,
-});
+	baseURL: baseURL,
+})
 
-export const convertGoogleDriveLink = (url) => {
-  if (!url) {
-    return '';
-  }
-
-  if (url.startsWith('https://drive.google.com/file/d/')) {
-    const fileIdMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-    if (fileIdMatch) {
-      return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`;
-    }
-  }
-
-  return url;
-};
+const defaultImageUrl =
+	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzAujBL24JokIK0OASxaL0VhvKjOIQjWeZ_aN8nDJYHw&s'
 
 const TableProductList = () => {
-  const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState([])
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await http.get('/warehouse');
-        const shuffledProducts = shuffleArray(response.data.content.getProducts);
-        setProducts(shuffledProducts);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const response = await http.get('/warehouse')
+				const shuffledProducts = shuffleArray(response.data.content.getProducts)
+				setProducts(shuffledProducts)
+			} catch (error) {
+				console.error('Error fetching products:', error)
+			}
+		}
 
-    fetchProducts();
-  }, []);
+		fetchProducts()
+	}, [])
 
-  const shuffleArray = (array) => {
-    let currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-    return array;
-  };
+	const shuffleArray = (array) => {
+		let currentIndex = array.length,
+			temporaryValue,
+			randomIndex
+		while (0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex)
+			currentIndex -= 1
+			temporaryValue = array[currentIndex]
+			array[currentIndex] = array[randomIndex]
+			array[randomIndex] = temporaryValue
+		}
+		return array
+	}
 
-  const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
-    const warehouseQuantity = warehouseProducts.reduce((acc, item) => acc + item.quantity, 0);
-    const shelfQuantity = shelfProducts.reduce((acc, item) => acc + item.quantity, 0);
-    return warehouseQuantity + shelfQuantity;
-  };
+	const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
+		const warehouseQuantity = warehouseProducts.reduce(
+			(acc, item) => acc + item.quantity,
+			0,
+		)
+		const shelfQuantity = shelfProducts.reduce(
+			(acc, item) => acc + item.quantity,
+			0,
+		)
+		return warehouseQuantity + shelfQuantity
+	}
 
-  const determineStatus = (quantity) => {
-    if (quantity === 0) {
-      return { status: 'Out of stock', color: '#F07167' };
-    } else if (quantity < 6) {
-      return { status: 'Low stock', color: '#FFD600' };
-    } else if (quantity < 11) {
-      return { status: 'Near-low stock', color: '#A0D900' };
-    } else {
-      return { status: 'High stock', color: '#485935' };
-    }
-  };
+	const determineStatus = (quantity) => {
+		if (quantity === 0) {
+			return { status: 'Out of stock', color: '#F07167' }
+		} else if (quantity < 6) {
+			return { status: 'Low stock', color: '#FFD600' }
+		} else if (quantity < 11) {
+			return { status: 'Near-low stock', color: '#A0D900' }
+		} else {
+			return { status: 'High stock', color: '#485935' }
+		}
+	}
 
-  return (
-    <div style={{ padding: '1rem' }}>
-      <table
-        style={{
-          minWidth: '100%',
-          borderCollapse: 'collapse',
-          border: '1px solid #485935',
-        }}
-      >
-        <thead>
-          <tr>
-            <th
-              style={{
-                border: '1px solid #485935',
-                padding: '8px',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                width: '85px',
-              }}
-            ></th>
-            <th
-              style={{
-                border: '1px solid #485935',
-                color: '#485935',
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: '500',
-                wordWrap: 'break-word',
-                textAlign: 'center',
-                fontWeight: 'bold',
-              }}
-            >
-              Name
-            </th>
-            <th
-              style={{
-                border: '1px solid #485935',
-                color: '#485935',
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: '500',
-                wordWrap: 'break-word',
-                textAlign: 'center',
-                fontWeight: 'bold',
-              }}
-            >
-              Quantity in stock
-            </th>
-            <th
-              style={{
-                border: '1px solid #485935',
-                color: '#485935',
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: '500',
-                wordWrap: 'break-word',
-                textAlign: 'center',
-                fontWeight: 'bold',
-              }}
-            >
-              Status
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => {
-            const totalQuantity = calculateTotalQuantity(product.warehouse_products, product.shelf_products);
-            const { status, color } = determineStatus(totalQuantity);
-            const imageUrl = convertGoogleDriveLink(product.product_img) || 'https://via.placeholder.com/70';
-            return (
-              <tr key={product.product_id}>
-                <td
-                  style={{
-                    padding: '8px',
-                    textAlign: 'center',
-                    borderLeft: '1px solid #485935',
-                    borderRight: '1px solid #485935',
-                  }}
-                >
-                  <img
-                    src={imageUrl}
-                    alt={product.product_name}
-                    style={{ height: '70px' }}
-                    onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/70'; // Placeholder image if main image fails to load
-                    }}
-                  />
-                </td>
-                <td
-                  style={{
-                    color: '#485935',
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                    fontWeight: '400',
-                    wordWrap: 'break-word',
-                    textAlign: 'center',
-                    borderLeft: '1px solid #485935',
-                    borderRight: '1px solid #485935',
-                  }}
-                >
-                  {product.product_name}
-                </td>
-                <td
-                  style={{
-                    color: '#485935',
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                    fontWeight: '400',
-                    wordWrap: 'break-word',
-                    textAlign: 'center',
-                    borderLeft: '1px solid #485935',
-                    borderRight: '1px solid #485935',
-                  }}
-                >
-                  {totalQuantity}
-                </td>
-                <td
-                  style={{
-                    color: color,
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                    fontStyle: 'italic',
-                    fontWeight: '900',
-                    wordWrap: 'break-word',
-                    textAlign: 'center',
-                  }}
-                >
-                  {status}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+	return (
+		<div style={{ padding: '1rem' }}>
+			<table
+				style={{
+					minWidth: '100%',
+					borderCollapse: 'collapse',
+					border: '1px solid #485935',
+				}}
+			>
+				<thead>
+					<tr>
+						<th
+							style={{
+								border: '1px solid #485935',
+								padding: '8px',
+								textAlign: 'center',
+								fontWeight: 'bold',
+								width: '85px',
+							}}
+						></th>
+						<th
+							style={{
+								border: '1px solid #485935',
+								color: '#485935',
+								fontSize: 20,
+								fontFamily: 'Poppins',
+								fontWeight: '500',
+								wordWrap: 'break-word',
+								textAlign: 'center',
+								fontWeight: 'bold',
+							}}
+						>
+							Name
+						</th>
+						<th
+							style={{
+								border: '1px solid #485935',
+								color: '#485935',
+								fontSize: 20,
+								fontFamily: 'Poppins',
+								fontWeight: '500',
+								wordWrap: 'break-word',
+								textAlign: 'center',
+								fontWeight: 'bold',
+							}}
+						>
+							Quantity in stock
+						</th>
+						<th
+							style={{
+								border: '1px solid #485935',
+								color: '#485935',
+								fontSize: 20,
+								fontFamily: 'Poppins',
+								fontWeight: '500',
+								wordWrap: 'break-word',
+								textAlign: 'center',
+								fontWeight: 'bold',
+							}}
+						>
+							Status
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{products.map((product) => {
+						const totalQuantity = calculateTotalQuantity(
+							product.warehouse_products,
+							product.shelf_products,
+						)
+						const { status, color } = determineStatus(totalQuantity)
+						return (
+							<tr key={product.product_id}>
+								<td
+									style={{
+										padding: '8px',
+										textAlign: 'center',
+										borderLeft: '1px solid #485935',
+										borderRight: '1px solid #485935',
+									}}
+								>
+									<img
+										src={defaultImageUrl}
+										alt={product.product_name}
+										style={{ height: '70px' }}
+									/>
+								</td>
+								<td
+									style={{
+										color: '#485935',
+										fontSize: 20,
+										fontFamily: 'Poppins',
+										fontWeight: '400',
+										wordWrap: 'break-word',
+										textAlign: 'center',
+										borderLeft: '1px solid #485935',
+										borderRight: '1px solid #485935',
+									}}
+								>
+									{product.product_name}
+								</td>
+								<td
+									style={{
+										color: '#485935',
+										fontSize: 20,
+										fontFamily: 'Poppins',
+										fontWeight: '400',
+										wordWrap: 'break-word',
+										textAlign: 'center',
+										borderLeft: '1px solid #485935',
+										borderRight: '1px solid #485935',
+									}}
+								>
+									{totalQuantity}
+								</td>
+								<td
+									style={{
+										color: color,
+										fontSize: 20,
+										fontFamily: 'Poppins',
+										fontStyle: 'italic',
+										fontWeight: '900',
+										wordWrap: 'break-word',
+										textAlign: 'center',
+									}}
+								>
+									{status}
+								</td>
+							</tr>
+						)
+					})}
+				</tbody>
+			</table>
+		</div>
+	)
+}
 
-export default TableProductList;
+export default TableProductList

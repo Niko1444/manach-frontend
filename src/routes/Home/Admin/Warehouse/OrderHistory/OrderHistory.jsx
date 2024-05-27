@@ -62,15 +62,15 @@ const OrderHistory = () => {
 	const renderOrderBox = (order) => (
 		<div style={boxStyle} key={order.import_id}>
 			<div style={titleStyle}>Order no. {order.import_id}</div>
-				<div className='flex' style={contentStyle}>
-					Product ID: {order.product_id} <br />					
-					Quantity: {order.quantity} <br />
-					Import Date: {new Date(order.import_date).toLocaleDateString()}
-        <div className='ml-[100px]'>
+			<div style={{ display: 'flex' }}>
+				<div style={contentStyle}>
+					Product ID: {order.product_id} <br />
 					Supplier ID: {order.supplier_id} <br />
-          Supplier name: {order.supplier.supplier_name}
-        </div>
+					Quantity: {order.quantity} <br />
+					Import Date: {new Date(order.import_date).toLocaleDateString()} <br />
+					Supplier: {order.supplier.supplier_name}
 				</div>
+			</div>
 		</div>
 	)
 
