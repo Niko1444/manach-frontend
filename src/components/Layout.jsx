@@ -7,6 +7,8 @@ const notMenu = [
 	'/auth',
 	'/auth/welcome',
 	'/about-us',
+	'/',
+	' ',
 ]
 
 function Layout({ children }) {
