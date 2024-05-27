@@ -346,8 +346,8 @@ const Coupon = ({ onClose }) => {
 					<div
 						style={{
 							position: 'relative',
-                            marginLeft:'60%',
-                            marginTop:'20%',
+							marginLeft: '60%',
+							marginTop: '20%',
 							cursor: 'pointer',
 						}}
 						onClick={onClose}
@@ -362,9 +362,9 @@ const Coupon = ({ onClose }) => {
 								justifyContent: 'center',
 								alignItems: 'center',
 								cursor: 'pointer',
-                                color:'white',
-                                fontSize:21,
-                                fontFamily: 'Poppins',
+								color: 'white',
+								fontSize: 21,
+								fontFamily: 'Poppins',
 								cursor: 'pointer',
 							}}
 							onClick={onClose}
