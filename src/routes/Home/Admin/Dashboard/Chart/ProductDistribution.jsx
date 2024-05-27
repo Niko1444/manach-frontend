@@ -3,7 +3,12 @@ import { Pie } from 'react-chartjs-2'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
-const ProductDistribution = () => {
+const ProductDistribution = ({ productDistribution }) => {
+	const productInWarehouse = productDistribution?.productInWarehouse
+	const productOnShelf = productDistribution?.productOnShelf
+	const productSold = productDistribution?.productSold
+
+	// const [product, setProduct] = useState(ProductDistribution)
 	return (
 		<div className="relative rounded-xl border p-2">
 			<div className="absolute leading-3">
@@ -16,13 +21,13 @@ const ProductDistribution = () => {
 					</span>
 					<div className="space-y-4">
 						<div className="flex space-x-2">
-							<div className="bg-yellow_dark1 h-8 rounded-full text-transparent">
+							<div className="h-8 rounded-full bg-yellow_dark1 text-transparent">
 								check
 							</div>
 							<span className="text-[0.875rem]">Product in warehouse</span>
 						</div>
 						<div className="flex items-center space-x-2">
-							<div className="bg-green_bright1 h-8 items-center rounded-full text-transparent">
+							<div className="h-8 items-center rounded-full bg-green_bright1 text-transparent">
 								check
 							</div>
 							<span className="text-[0.875rem]">Product on shelf</span>
@@ -43,7 +48,7 @@ const ProductDistribution = () => {
 							datasets: [
 								{
 									label: '',
-									data: [300, 50, 100],
+									data: [productInWarehouse, productOnShelf, productSold],
 									backgroundColor: ['#FFD600', '#A0D900', '#D9D9D9'],
 								},
 							],

@@ -20,12 +20,15 @@ const Dashboard = () => {
 		dispatch(dashboardThunk())
 	}, [dispatch])
 
+	// Default values
+	const defaultWarehouseActivities = { incoming: [], outgoing: [] }
+
 	return (
 		<div className="space-y-8 p-8">
 			{/* Title */}
 			<div className="text-green_dark1">
 				<div className="text-[1.635rem] font-extrabold">Dashboard</div>
-				<span className="text-[1.25rem] font-medium ">Logistics Overview</span>
+				<span className="text-[1.25rem] font-medium">Logistics Overview</span>
 			</div>
 
 			<div className="flex space-x-4">
@@ -59,7 +62,16 @@ const Dashboard = () => {
 
 			<div className="flex space-x-8">
 				<div className="w-[35%]">
-					<WarehouseAct warehouseActivities={data?.warehouseActivities} />
+					<WarehouseAct
+						incoming={
+							data?.warehouseActivities?.incoming ??
+							defaultWarehouseActivities.incoming
+						}
+						outgoing={
+							data?.warehouseActivities?.outgoing ??
+							defaultWarehouseActivities.outgoing
+						}
+					/>
 				</div>
 				<div className="w-[65%]">
 					<WeeklyRevenue weeklyRevenue={data?.weeklyRevenue} />
@@ -67,10 +79,10 @@ const Dashboard = () => {
 			</div>
 			<div className="flex space-x-8">
 				<div className="w-[25%]">
-					<NewCus />
+					<NewCus customers={data?.customers} />
 				</div>
 				<div className="w-[75%]">
-					<Cupon customers={data?.customers} />
+					<Cupon />
 				</div>
 			</div>
 		</div>

@@ -36,7 +36,7 @@ const NavItemCustomer = [
 	},
 	{
 		name: 'Logout',
-		link: '/about-us',
+		link: '/',
 		icon: 'sign-out-alt',
 	},
 ]
@@ -68,7 +68,7 @@ const NavItemAdminn = [
 	},
 	{
 		name: 'Logout',
-		link: '/about-us',
+		link: '/',
 		icon: 'sign-out-alt',
 	},
 ]
@@ -83,15 +83,12 @@ const Menu = () => {
 	useEffect(() => {
 		if (roleName === 'admin') {
 			setMenu(NavItemAdminn)
-		} else {
+		} else if (roleName == 'customer') {
 			setMenu(NavItemCustomer)
 		}
 	}, [])
 
 	const handleLogoutClick = () => {
-		// Perform logout operations here
-		// For example: dispatch(logoutAction())
-
 		// Navigate to "About Us" page after logout
 		dispatch(logOutAction())
 		navigate('/about-us')

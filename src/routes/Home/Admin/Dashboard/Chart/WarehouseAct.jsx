@@ -1,6 +1,7 @@
 import { Doughnut } from 'react-chartjs-2'
+import PropTypes from 'prop-types'
 
-const WarehouseAct = () => {
+const WarehouseAct = ({ incoming, outgoing }) => {
 	return (
 		<div className="relative rounded-xl border p-2">
 			<div className="absolute leading-3">
@@ -20,9 +21,8 @@ const WarehouseAct = () => {
 							datasets: [
 								{
 									label: '',
-									data: [72, 28],
+									data: [incoming, outgoing],
 									backgroundColor: ['#A0D900', '#F07167'],
-									weight: 22,
 								},
 							],
 						}}
@@ -41,7 +41,7 @@ const WarehouseAct = () => {
 					<div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform text-center">
 						<p className="text-[1rem] text-green_dark1">Space used</p>
 						<span className="text-[2.5rem] font-bold text-green_dark2">
-							75%
+							{((incoming / (incoming + outgoing)) * 100).toFixed(2)}%
 						</span>
 					</div>
 				</div>
@@ -71,7 +71,7 @@ const WarehouseAct = () => {
 							fill="#A0D900"
 						/>
 					</svg>
-					<div className="text-[0.875rem]">Incoming: 15</div>
+					<div className="text-[0.875rem]">Incoming: {incoming}</div>
 				</div>
 				<div className="flex space-x-1 align-middle text-green_dark1">
 					<svg
@@ -97,7 +97,7 @@ const WarehouseAct = () => {
 						/>
 					</svg>
 
-					<div className="text-[0.875rem]">Export: 15</div>
+					<div className="text-[0.875rem]">Outgoing: {outgoing}</div>
 				</div>
 			</div>
 
@@ -108,7 +108,7 @@ const WarehouseAct = () => {
 						<span>Inventory</span>
 						<div className="font-bold">1,200 products</div>
 					</div>
-					<div className="text-redpink_dark1 flex justify-between text-[0.875rem]">
+					<div className="flex justify-between text-[0.875rem] text-redpink_dark1">
 						<span>Low stock alert</span>
 						<div className="font-bold">Honey Mango</div>
 					</div>
@@ -116,6 +116,10 @@ const WarehouseAct = () => {
 			</div>
 		</div>
 	)
+}
+WarehouseAct.propTypes = {
+	incoming: PropTypes.number.isRequired,
+	outgoing: PropTypes.number.isRequired,
 }
 
 export default WarehouseAct
