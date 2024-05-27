@@ -1,6 +1,5 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
-import PropTypes from 'prop-types'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -59,13 +58,6 @@ const ProductDistribution = ({ productDistribution }) => {
 			</div>
 		</div>
 	)
-}
-ProductDistribution.propTypes = {
-	productDistribution: PropTypes.shape({
-		productInWarehouse: PropTypes.number.isRequired,
-		productOnShelf: PropTypes.number.isRequired,
-		productSold: PropTypes.number.isRequired,
-	}).isRequired,
 }
 
 export default ProductDistribution

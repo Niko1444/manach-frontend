@@ -12,7 +12,7 @@ const userReducer = createSlice({
 	name: 'userReducer',
 	initialState,
 	reducers: {
-		logOutAction: (state, action) => {
+		logOutAction: (state) => {
 			state.userId = null
 			state.roleName = null
 			state.roleId = null

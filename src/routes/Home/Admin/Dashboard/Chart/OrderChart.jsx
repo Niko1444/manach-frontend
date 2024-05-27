@@ -9,7 +9,6 @@ import {
 	LinearScale,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-import PropTypes from 'prop-types'
 
 ChartJS.register(
 	ArcElement,
@@ -99,12 +98,5 @@ const OrderChart = ({ weeklyOrders }) => {
 		</div>
 	)
 }
-OrderChart.propTypes = {
-	weeklyOrders: PropTypes.arrayOf(
-		PropTypes.shape({
-			date: PropTypes.string.isRequired,
-			totalOrders: PropTypes.number.isRequired,
-		}),
-	).isRequired,
-}
+
 export default OrderChart

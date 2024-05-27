@@ -36,7 +36,7 @@ const NavItemCustomer = [
 	},
 	{
 		name: 'Logout',
-		link: '/about-us',
+		link: '/',
 		icon: 'sign-out-alt',
 	},
 ]
@@ -68,7 +68,7 @@ const NavItemAdminn = [
 	},
 	{
 		name: 'Logout',
-		link: '/about-us',
+		link: '/',
 		icon: 'sign-out-alt',
 	},
 ]
