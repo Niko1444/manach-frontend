@@ -3,7 +3,7 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import Review from '../../../../components/Review/ReviewBanana'
+import ReviewMango from '../../../../components/Review/ReviewMango'
 
 
 const MangoStore = () => {
@@ -38,10 +38,7 @@ const MangoStore = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-                    <Review/>
-                    <Review/>
-					<Review/>
-					<Review/>
+                    <ReviewMango/>
                 
                 </div>
 
