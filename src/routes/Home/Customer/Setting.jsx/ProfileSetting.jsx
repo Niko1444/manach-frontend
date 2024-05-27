@@ -1,8 +1,7 @@
-import React from 'react'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
 const ProfileSetting = () => {
 	return (
-		<div style={{margin:'0 0 25px 0'}}>
+		<div style={{ margin: '0 0 25px 0' }}>
 			<div className="flex">
 				<div className="w-full justify-between p-16">
 					<div
@@ -19,7 +18,14 @@ const ProfileSetting = () => {
 				</div>
 				<SearchBar />
 			</div>
-			<div style={{ border: '1px solid #485935', width: '95%' ,borderRadius:'15px',margin:'0 0 0 2%'}}>
+			<div
+				style={{
+					border: '1px solid #485935',
+					width: '95%',
+					borderRadius: '15px',
+					margin: '0 0 0 2%',
+				}}
+			>
 				<div
 					className="flex"
 					style={{

@@ -15,3 +15,26 @@ export const userThunk = createAsyncThunk(
 		}
 	},
 )
+export const getInfor = createAsyncThunk(
+	'userReducer/getInfor',
+	async (payload) => {
+		try {
+			const data = await userService.getInfor(payload)
+			return data
+		} catch (error) {
+			console.log('error:', error)
+		}
+	},
+)
+export const editProfile = createAsyncThunk(
+	'userReducer/editProfile',
+	async (payload) => {
+		try {
+			const data = await userService.editProfile(payload.id, payload.infor)
+			message.success('Change success')
+			return data
+		} catch (error) {
+			console.log('error:', error)
+		}
+	},
+)
