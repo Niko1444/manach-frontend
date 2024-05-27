@@ -21,9 +21,8 @@ import CusOrder from './routes/Home/Customer/Order/CusOrder'
 import CustomerTemplate from './routes/Home/Customer/CustomerTemplate'
 import CusCheckOut from './routes/Home/Customer/CheckOut/CusCheckOut'
 import CusSetting from './routes/Home/Customer/Setting.jsx/CusSetting'
-import BananaStore from './routes/Home/Customer/Store/BananaStore';
-import MangoStore from './routes/Home/Customer/Store/MangoStore';
-
+import BananaStore from './routes/Home/Customer/Store/BananaStore'
+import MangoStore from './routes/Home/Customer/Store/MangoStore'
 
 // Import Admin Pages
 import AdminTemplate from './routes/Home/Admin/AdminTemplate'
@@ -32,53 +31,55 @@ import Dashboard from './routes/Home/Admin/Dashboard/Dashboard'
 import ASetting from './routes/Home/Admin/Setting/ASetting'
 import Warehouse from './routes/Home/Admin/Warehouse/Warehouse'
 import AStore from './routes/Home/Admin/Store/AStore'
+// import Loading from './components/Loading'
 
 function App() {
 	// eslint-disable-next-line no-unused-vars
 	const [count, setCount] = useState(0)
 
 	return (
-		<Layout>
-			<Routes>
-				<Route index path="about-us" element={<AboutUs />} />
+		<>
+			{/* <Loading /> */}
+			<Layout>
+				<Routes>
+					<Route index path="" element={<AboutUs />} />
 
-				{/* All main pages */}
-				<Route path="customer" element={<CustomerTemplate />}>
-					<Route path="home" element={<Home />} />
-					<Route path="store" element={<CusStore />}/>
-					<Route path="order" element={<CusOrder />} />
-					<Route path="check-out" element={<CusCheckOut />} />
-					<Route path="setting" element={<CusSetting />} />
-					<Route path="logout" element={<></>} />
-				</Route>
+					{/* All main pages */}
+					<Route path="customer" element={<CustomerTemplate />}>
+						<Route path="home" element={<Home />} />
+						<Route path="store" element={<CusStore />} />
+						<Route path="order" element={<CusOrder />} />
+						<Route path="check-out" element={<CusCheckOut />} />
+						<Route path="setting" element={<CusSetting />} />
+						<Route path="logout" element={<></>} />
+					</Route>
 
-				<Route path="admin" element={<AdminTemplate />}>
-					<Route path="home" element={<AHome />} />
-					<Route path="store" element={<AStore />} />
-					<Route path="warehouse" element={<Warehouse />} />
-					<Route path="dashboard" element={<Dashboard />} />
-					<Route path="setting" element={<ASetting />} />
-					<Route path="logout" element={<></>} />
-				</Route>
+					<Route path="admin" element={<AdminTemplate />}>
+						<Route path="home" element={<AHome />} />
+						<Route path="store" element={<AStore />} />
+						<Route path="warehouse" element={<Warehouse />} />
+						<Route path="dashboard" element={<Dashboard />} />
+						<Route path="setting" element={<ASetting />} />
+						<Route path="logout" element={<></>} />
+					</Route>
 
-				{/* Auth */}
-				<Route path="auth" element={<AuthTemplate />}>
-					<Route path="welcome" element={<Welcome />} />
-					<Route path="login" element={<Login />} />
-					<Route path="signup" element={<Signup />} />
-				</Route>
+					{/* Auth */}
+					<Route path="auth" element={<AuthTemplate />}>
+						<Route path="welcome" element={<Welcome />} />
+						<Route path="login" element={<Login />} />
+						<Route path="signup" element={<Signup />} />
+					</Route>
 
-				{/* About */}
-				<Route path="/setting" element={<Setting />} />
-				<Route path="/banana-store" element={<BananaStore />} />
-				<Route path="/mango-store" element={<MangoStore />} />
+					{/* About */}
+					<Route path="/setting" element={<Setting />} />
+					<Route path="/banana-store" element={<BananaStore />} />
+					<Route path="/mango-store" element={<MangoStore />} />
 
-				{/* Error pages */}
-				<Route path="*" element={<NotFound />} />
-			
-
-			</Routes>
-		</Layout>
+					{/* Error pages */}
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</Layout>
+		</>
 	)
 }
 

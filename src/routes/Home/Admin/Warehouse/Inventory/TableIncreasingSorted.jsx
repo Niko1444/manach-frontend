@@ -1,9 +1,87 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const TableIncreasingSorted = () => {
+	const [products, setProducts] = useState([])
+
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const response = await fetch('http://localhost:8080/warehouse')
+				const result = await response.json()
+				// Sort products by total quantity in ascending order
+				const sortedProducts = result.content.getProducts.sort((a, b) => {
+					const totalQuantityA = calculateTotalQuantity(
+						a.warehouse_products,
+						a.shelf_products,
+					)
+					const totalQuantityB = calculateTotalQuantity(
+						b.warehouse_products,
+						b.shelf_products,
+					)
+					return totalQuantityA - totalQuantityB
+				})
+				setProducts(sortedProducts)
+			} catch (error) {
+				console.error('Error fetching products:', error)
+			}
+		}
+
+		fetchProducts()
+	}, [])
+
+	const convertGoogleDriveLink = (url) => {
+		if (!url) {
+			return ''
+		}
+
+		// Check if the URL is a direct link to the image file
+		if (url.startsWith('https://drive.google.com/uc?export=view&id=')) {
+			return url
+		}
+
+		// Extract the file ID from the Google Drive link
+		const fileIdMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)
+		if (fileIdMatch) {
+			// Construct a direct image URL using the file ID
+			return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`
+		}
+
+		return url
+	}
+
+	const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
+		const warehouseQuantity = warehouseProducts.reduce(
+			(acc, item) => acc + item.quantity,
+			0,
+		)
+		const shelfQuantity = shelfProducts.reduce(
+			(acc, item) => acc + item.quantity,
+			0,
+		)
+		return warehouseQuantity + shelfQuantity
+	}
+
+	const determineStatus = (quantity) => {
+		if (quantity === 0) {
+			return { status: 'Out of stock', color: '#F07167' }
+		} else if (quantity < 6) {
+			return { status: 'Low stock', color: '#FFD600' }
+		} else if (quantity < 11) {
+			return { status: 'Near-low stock', color: '#A0D900' }
+		} else {
+			return { status: 'High stock', color: '#485935' }
+		}
+	}
+
 	return (
 		<div style={{ padding: '1rem' }}>
-			<table style={{ minWidth: '100%', borderCollapse: 'collapse', border: '1px solid #485935', }}>
+			<table
+				style={{
+					minWidth: '100%',
+					borderCollapse: 'collapse',
+					border: '1px solid #485935',
+				}}
+			>
 				<thead>
 					<tr>
 						<th
@@ -60,218 +138,75 @@ const TableIncreasingSorted = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td
-							style={{
-								padding: '8px',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							<img src="https://s3-alpha-sig.figma.com/img/5a42/264f/cd89439c5d689fc2c6fea71734c58257?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EOx-DEZCEogXY64gCszfL-U14ljAYp3OzO~0MT5Eg~XYU1ehHUQL1BNZrC3WOSIZ-Iq~QkYgeG0dfHl0GvOATaFm~fGZKWNBgOV4A--qeRc3HGfB3~ki0BImKdMPn2FLwqq9SHfa1-ZDciEgZLdqHAuOrQ-bx-3RQW0yadmuO1qIWeJOcICHrcffRS90uoboHXqHGWtFyL5276IIJjDKqyrOikValFib--Riauzuv5GkHfigOUCH6x1~-yR0curMBQgu7BhqKT7b5r~ecVOO97QXbvluwkHs2LksZ5ifcxUmoqHyT4O0aIhflPR3QjKJfpqKJpGAdYBsnTGsOWJLNQ__" />
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							Vietnamese Durian
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							0
-						</td>
-						<td
-							style={{
-								color: '#F07167',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontStyle: 'italic',
-								fontWeight: '900',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-							}}
-						>
-							Out of stock
-						</td>
-					</tr>
-					<tr>
-						<td
-							style={{
-								padding: '8px',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							<img src="https://s3-alpha-sig.figma.com/img/d705/f58f/52b8efb8273691ea0f4aeee9a65cb99f?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pIPgSWuyZYG6xMiUOULKx9ASVDXzcoeqd8QVx0jf7wgsGKuDLnrjiqmQRXaH7plQOrLdJWAoj~HmHN82dPMJseJZF4GLMNTGvmsDDSc0Wm8GFzdZzXq~QBRsrPwqI4Urvayg5H50m90u8RrAd8kV5fsKGA7Yq9T647EEjA0hBGQkP2Tw7fpMeWo-p0v2ycFImWmYier64tR4VwBQjuKu~dJX8i6cgCA2KRT21TyqcQGfux9cL~RuHYvSvG4wCtwUbkEZye7BN1HZjjVKQ6GPXCQR3JS8baqslcN~BUUTunN25RlUrWF-INNaRGoKFUO1sSPT~zwo9IauS8jds7-JJQ__" />
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							Strawberry
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							0
-						</td>
-						<td
-							style={{
-								color: '#F07167',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontStyle: 'italic',
-								fontWeight: '900',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-							}}
-						>
-							Out of stock
-						</td>
-					</tr>
-					<tr>
-						<td
-							style={{
-								padding: '8px',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							<img src="https://s3-alpha-sig.figma.com/img/0344/dab4/e81db1a6ba3df1b3353c6e99ecdc70dd?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jPBQ30Pdab4NGr4oE1kW3KVZNmdsCodAauLIBXuAHhEUZiCsn7lOnf2AIyuQvppdTcI~8BixhlyINwZk07NutZQEqnXhlNArY~TY-3kDbZwNG-gZ98avzYFfaHjaEYr~L-h5DwK3Zah05CO0IyhLd0uFuanX499H~RG~2OQghtGkg6ESNCJOYeanbJVloMM-smSV7xZVYXPg9hPgtYwN9-6IxJSzd2lXg8bMiK8RsVGvnaMgyTYlGGKDcJuyq41JWT66uedOUF9WzN21~tZ38jyFup-IOFcVpqzkXi7qoJqVmk6s1pA5oh-qCPg4jW9RQpKicsQvj~tAKa4P6CghRg__" />
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							Raspberry
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							0
-						</td>
-						<td
-							style={{
-								color: '#F07167',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontStyle: 'italic',
-								fontWeight: '900',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-							}}
-						>
-							Out of stock
-						</td>
-					</tr>
-					<tr>
-						<td
-							style={{
-								padding: '8px',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							<img src="https://s3-alpha-sig.figma.com/img/0476/a9f6/300d2b08a4072759ac98588af1f87908?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XWbAcxGjMJT8uTY-xwYVnX1gVSldsi-c8J~8nbqEcvxYPclZrsDDnYG3L12v-~xwUz4RTMhz1IudYDwWblZMTPBP2L~KVr2o45WPtl0b7mBtQLfZ319SlUjR-ed~j8JaKP5wLIrpRXDyFT4C35y2WyPN7dcHaBGGh8Y8PwPiINhFcjoYTdMYP9YMvW1G5P~O~dFljZjBC9B2z5X3~A3wajn6IwR6Mql1NQ~b0knRILIzbNzYMC9s1hZhNEU8N~S7eR2AV1C5ANmF37zD4OYkLHWyR2Dit~f2dqmlbv3rhhf9gy3uJyCwZNSdaCEn2ir~UJDb8GAvUFeoxbZiOZEmlQ__" />
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							Green Siamese Coconut
-						</td>
-						<td
-							style={{
-								color: '#485935',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontWeight: '400',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-								borderLeft: '1px solid #485935',
-								borderRight: '1px solid #485935',
-							}}
-						>
-							0
-						</td>
-						<td
-							style={{
-								color: '#F07167',
-								fontSize: 20,
-								fontFamily: 'Poppins',
-								fontStyle: 'italic',
-								fontWeight: '900',
-								wordWrap: 'break-word',
-								textAlign: 'center',
-							}}
-						>
-							Out of stock
-						</td>
-					</tr>
+					{products.map((product) => {
+						const totalQuantity = calculateTotalQuantity(
+							product.warehouse_products,
+							product.shelf_products,
+						)
+						const { status, color } = determineStatus(totalQuantity)
+						const imageUrl =
+							convertGoogleDriveLink(product.product_img) ||
+							'https://via.placeholder.com/70'
+						return (
+							<tr key={product.product_id}>
+								<td
+									style={{
+										padding: '8px',
+										textAlign: 'center',
+										borderLeft: '1px solid #485935',
+										borderRight: '1px solid #485935',
+									}}
+								>
+									<img
+										src={imageUrl}
+										alt={product.product_name}
+										style={{ height: '70px' }}
+									/>
+								</td>
+								<td
+									style={{
+										color: '#485935',
+										fontSize: 20,
+										fontFamily: 'Poppins',
+										fontWeight: '400',
+										wordWrap: 'break-word',
+										textAlign: 'center',
+										borderLeft: '1px solid #485935',
+										borderRight: '1px solid #485935',
+									}}
+								>
+									{product.product_name}
+								</td>
+								<td
+									style={{
+										color: '#485935',
+										fontSize: 20,
+										fontFamily: 'Poppins',
+										fontWeight: '400',
+										wordWrap: 'break-word',
+										textAlign: 'center',
+										borderLeft: '1px solid #485935',
+										borderRight: '1px solid #485935',
+									}}
+								>
+									{totalQuantity}
+								</td>
+								<td
+									style={{
+										color: color,
+										fontSize: 20,
+										fontFamily: 'Poppins',
+										fontStyle: 'italic',
+										fontWeight: '900',
+										wordWrap: 'break-word',
+										textAlign: 'center',
+									}}
+								>
+									{status}
+								</td>
+							</tr>
+						)
+					})}
 				</tbody>
 			</table>
 		</div>

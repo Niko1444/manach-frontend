@@ -1,13 +1,29 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { userThunk } from '../../redux/userReducer/userThunk'
 
 const Login = () => {
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
 
 	const handleLogin = () => {
-		console.log('Username:', username)
-		console.log('Password:', password)
+		const data = {
+			user_name: username,
+			user_password: password,
+		}
+		dispatch(userThunk(data))
+			.then((res) => {
+				console.log(res.payload)
+				if (res.payload.role_id == 2) {
+					navigate('/customer/home')
+				} else navigate('/admin/home')
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}
 
 	return (
