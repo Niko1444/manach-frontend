@@ -1,5 +1,5 @@
 import React from 'react'
-import banana from '/D/IU/SE/Project/manach-frontend/src/assets/banana.png'
+import banana from '../../assets/banana.png'
 import AddToCart from '../AddToCart/AddToCart.jsx'
 import Exit from '../Exit/Exit.jsx'
 
