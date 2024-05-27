@@ -3,16 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import TopFruit from './TopFruit';
 
 const CusStore = () => {
-    const navigate = useNavigate();
-
-    const handleTopFruitClick = () => {
-        navigate('/banana-store');
-    };
+    
 
     return (
         <div>
             <div>
-                <TopFruit onClick={handleTopFruitClick} />
+                <TopFruit  />
             </div>
         </div>
     );

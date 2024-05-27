@@ -3,10 +3,10 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import ReviewBanana from '../../../../components/Review/ReviewBanana'
+import Review from '../../../../components/Review/ReviewBanana'
 
 
-const BananaStore = () => {
+const CoconutStore = () => {
 	return (
 		<div>
 			<div className="flex">
@@ -20,7 +20,7 @@ const BananaStore = () => {
 							wordWrap: 'break-word',
 						}}
 					>
-						Banana
+						Coconut
 					</div>
 					<div
 						style={{
@@ -38,8 +38,10 @@ const BananaStore = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-					<ReviewBanana/>
-                    
+                    <Review/>
+                    <Review/>
+					<Review/>
+					<Review/>
                 
                 </div>
 
@@ -57,4 +59,4 @@ const BananaStore = () => {
 	)
 }
 
-export default BananaStore
+export default CoconutStore
