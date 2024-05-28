@@ -73,7 +73,7 @@ const Inventory = () => {
                                 margin: '0 0 0 15px',
                             }}
                         >
-                            High Stock Product ( 10kg )
+                            High Stock Product ( over 25kg )
                         </div>
                     </div>
                     <div style={{ display: 'flex' }}>
@@ -96,7 +96,7 @@ const Inventory = () => {
                                 margin: '0 0 0 15px',
                             }}
                         >
-                            Near-Low Stock Product ( 5kg )
+                            Near-Low Stock Product ( 15-25kg )
                         </div>
                     </div>
                     <div style={{ display: 'flex' }}>
@@ -119,7 +119,7 @@ const Inventory = () => {
                                 margin: '0 0 0 15px',
                             }}
                         >
-                            Low Stock Product ( 5kg )
+                            Low Stock Product ( under 15kg )
                         </div>
                     </div>
                     <div style={{ display: 'flex' }}>

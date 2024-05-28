@@ -77,7 +77,7 @@ const Warehouse = () => {
 			case 'Order history':
 				return (<div style={contentStyle}><OrderHistory /></div>)
 			default:
-				return null
+				return <Inventory/>
 		}
 	}
 

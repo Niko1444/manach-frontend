@@ -66,9 +66,9 @@ const TableDecreasingSorted = () => {
 	const determineStatus = (quantity) => {
 		if (quantity === 0) {
 			return { status: 'Out of stock', color: '#F07167' }
-		} else if (quantity < 6) {
+		} else if (quantity < 15) {
 			return { status: 'Low stock', color: '#FFD600' }
-		} else if (quantity < 11) {
+		} else if (quantity < 25) {
 			return { status: 'Near-low stock', color: '#A0D900' }
 		} else {
 			return { status: 'High stock', color: '#485935' }
