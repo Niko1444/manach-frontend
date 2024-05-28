@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Table from './Table'
 import { useDispatch } from 'react-redux'
+import { addProduct } from '../../../../redux/storeAReducer/storeAThunk'
 
 const AStore = () => {
 	const [addPro, setAddPro] = useState(false)
@@ -17,27 +18,29 @@ const AStore = () => {
 
 	const dispatch = useDispatch()
 
-	const addProduct = () => {
-		const newPro = {
-			product_name: proName,
-			selling_price: Number(proPrice),
-			description: desc,
-			product_condition: condit,
-			category_id: catId,
-			product_img: file,
-		}
-		console.log(newPro)
-		dispatch(addProduct(newPro))
-	}
+	const addProductOnShelf = () => {
+		// const newPro = {
+		// 	product_name: proName,
+		// 	selling_price: Number(proPrice),
+		// 	description: desc,
+		// 	product_condition: condit,
+		// 	category_id: catId,
+		// 	product_img: file,
+		// }
+		// dispatch(addProduct(newPro)) // Assuming addProductAction is the action creator
 
-	const handleFileChange = (e) => {
-		const selectedFile = e.target.files[0]
-		if (selectedFile) {
-			const newFile = new File([selectedFile], 'name.png', {
-				type: selectedFile.type,
-			})
-			setFile(newFile)
-		}
+		const formData = new FormData()
+		formData.append('product_name', proName)
+		formData.append('selling_price', proPrice)
+		formData.append('description', desc)
+		formData.append('product_condition', condit)
+		formData.append('category_id', catId)
+		formData.append('product_img', file)
+
+		dispatch(addProduct(formData))
+	}
+	const handleImage = (e) => {
+		setFile(e.target.files[0])
 	}
 
 	return (
@@ -117,7 +120,7 @@ const AStore = () => {
 								</div>
 								<div className="flex items-center space-x-4 text-green_dark1">
 									<button
-										onClick={() => addProduct()}
+										onClick={() => addProductOnShelf()}
 										className={`${addPro ? 'block' : 'hidden'} rounded-xl border border-green_dark1 bg-green_dark1 px-4 py-2 text-offwhite hover:bg-offwhite hover:text-green_dark1`}
 									>
 										+ Add Product
@@ -136,8 +139,10 @@ const AStore = () => {
 										/>
 										<input
 											type="file"
-											className="file-input file-input-bordered w-full"
-											onChange={handleFileChange}
+											className="file-input file-input-bordered file w-full"
+											onChange={(e) => {
+												handleImage(e)
+											}}
 										/>
 									</div>
 								</div>

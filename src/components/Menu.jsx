@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import NeedHelps from './needHelps/needHelps'
 import { useDispatch, useSelector } from 'react-redux'
 import { logOutAction } from '../redux/userReducer/userReducer'
+import { getInfor } from '../redux/userReducer/userThunk'
 
 // NavItem
 const NavItemCustomer = [
@@ -78,14 +79,16 @@ const Menu = () => {
 	const location = useLocation()
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const inforUser = 1
-	const { roleName } = useSelector((state) => state.userReducer)
+	const { roleName, userId, inforUser } = useSelector(
+		(state) => state.userReducer,
+	)
 	useEffect(() => {
 		if (roleName === 'admin') {
 			setMenu(NavItemAdminn)
 		} else if (roleName == 'customer') {
 			setMenu(NavItemCustomer)
 		}
+		dispatch(getInfor(userId))
 	}, [])
 
 	const handleLogoutClick = () => {
@@ -116,7 +119,7 @@ const Menu = () => {
 						alt=""
 					/>
 					<div className="h-fit text-offwhite opacity-70">
-						<div className="text-[1.25rem]">Nhat Minh</div>
+						<div className="text-[1.25rem]">{inforUser.full_name}</div>
 						<span className="text-[0.7rem]">{roleName}</span>
 					</div>
 				</div>

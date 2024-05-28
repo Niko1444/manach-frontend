@@ -224,7 +224,7 @@ const ReviewDurian = () => {
 									</div>
 								</div>
 								<div>
-									<AddToCart />
+									<AddToCart product={product} />
 								</div>
 							</div>
 						</div>

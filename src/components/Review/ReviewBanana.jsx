@@ -102,7 +102,7 @@ const ReviewBanana = () => {
 							}}
 						>
 							<div className="m-auto">
-								<img src={product.product_img} alt={product.product_name} />
+								<img src={product.product_img} alt="" />
 							</div>
 							<div className="mt-[56px]">
 								<div
@@ -224,7 +224,7 @@ const ReviewBanana = () => {
 									</div>
 								</div>
 								<div>
-									<AddToCart />
+									<AddToCart product={product} />
 								</div>
 							</div>
 						</div>
