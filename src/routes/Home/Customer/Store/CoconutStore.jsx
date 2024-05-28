@@ -3,7 +3,7 @@ import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
-import Review from '../../../../components/Review/ReviewBanana'
+import ReviewCoconut from '../../../../components/Review/ReviewCoconut'
 
 
 const CoconutStore = () => {
@@ -38,11 +38,7 @@ const CoconutStore = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-                    <Review/>
-                    <Review/>
-					<Review/>
-					<Review/>
-                
+                    <ReviewCoconut/>
                 </div>
 
 				<div className='ml-[80px]'>

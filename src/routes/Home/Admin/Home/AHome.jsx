@@ -1,7 +1,18 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getInfor } from '../../../../redux/userReducer/userThunk'
 
 const AHome = () => {
 	const navigate = useNavigate()
+	const dispatch = useDispatch()
+
+	const { userId } = useSelector((state) => state.userReducer)
+
+	useEffect(() => {
+		dispatch(getInfor(userId))
+	}, [])
+
 	return (
 		<div className="h-sreen m-8">
 			<div>

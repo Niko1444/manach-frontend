@@ -1,15 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-
-export const baseURL = 'http://localhost:8080'
-export const BASE_URL_IMG = 'http://localhost:8080/public/imgs'
-
-export const http = axios.create({
-	baseURL: baseURL,
-})
-
-const defaultImageUrl =
-	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzAujBL24JokIK0OASxaL0VhvKjOIQjWeZ_aN8nDJYHw&s'
 
 const TableProductList = () => {
 	const [products, setProducts] = useState([])
@@ -17,9 +6,11 @@ const TableProductList = () => {
 	useEffect(() => {
 		const fetchProducts = async () => {
 			try {
-				const response = await http.get('/warehouse')
-				const shuffledProducts = shuffleArray(response.data.content.getProducts)
-				setProducts(shuffledProducts)
+				const response = await fetch('http://localhost:8080/warehouse')
+				const result = await response.json()
+				const productsList = result.content.getProducts
+				shuffle(productsList) // Shuffle the products array
+				setProducts(productsList)
 			} catch (error) {
 				console.error('Error fetching products:', error)
 			}
@@ -28,18 +19,29 @@ const TableProductList = () => {
 		fetchProducts()
 	}, [])
 
-	const shuffleArray = (array) => {
-		let currentIndex = array.length,
-			temporaryValue,
-			randomIndex
-		while (0 !== currentIndex) {
-			randomIndex = Math.floor(Math.random() * currentIndex)
-			currentIndex -= 1
-			temporaryValue = array[currentIndex]
-			array[currentIndex] = array[randomIndex]
-			array[randomIndex] = temporaryValue
+	// Function to shuffle array elements
+	const shuffle = (array) => {
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1))
+			;[array[i], array[j]] = [array[j], array[i]]
 		}
-		return array
+	}
+
+	const convertGoogleDriveLink = (url) => {
+		if (!url) {
+			return ''
+		}
+
+		if (url.startsWith('https://drive.google.com/uc?export=view&id=')) {
+			return url
+		}
+
+		const fileIdMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)
+		if (fileIdMatch) {
+			return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`
+		}
+
+		return url
 	}
 
 	const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
@@ -137,6 +139,9 @@ const TableProductList = () => {
 							product.shelf_products,
 						)
 						const { status, color } = determineStatus(totalQuantity)
+						const imageUrl =
+							convertGoogleDriveLink(product.product_img) ||
+							'https://via.placeholder.com/70'
 						return (
 							<tr key={product.product_id}>
 								<td
@@ -148,7 +153,7 @@ const TableProductList = () => {
 									}}
 								>
 									<img
-										src={defaultImageUrl}
+										src={imageUrl}
 										alt={product.product_name}
 										style={{ height: '70px' }}
 									/>

@@ -1,89 +1,101 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { cartLocal } from '../../service/cartLocal'
+import axios from 'axios'
 
-const AddToCart = ({ productId }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isPressed, setIsPressed] = useState(false)
-  const [isDisabled, setIsDisabled] = useState(false)
-  const [cart, setCart] = useState([]) // State to manage cart items
+const AddToCart = ({ product }) => {
+	const [isHovered, setIsHovered] = useState(false)
+	const [isPressed, setIsPressed] = useState(false)
+	const [isDisabled, setIsDisabled] = useState(false)
+	const [detailPro, setDetailPro] = useState(null)
 
-  const handleMouseEnter = () => {
-    if (!isPressed && !isDisabled) {
-      setIsHovered(true)
-    }
-  }
+	useEffect(() => {
+		axios({
+			method: 'GET',
+			url: `http://localhost:8080/store/category/${product?.category_id}/${product?.product_id}`,
+		})
+			.then((res) => {
+				console.log('useEffect ~ res:', res.data.content)
+				setDetailPro(res.data.content)
+			})
+			.catch((error) => {
+				console.error('Error fetching product details:', error)
+			})
+	}, [product?.category_id, product?.product_id])
 
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-  }
+	const handleMouseEnter = () => {
+		if (!isPressed && !isDisabled) {
+			setIsHovered(true)
+		}
+	}
 
-  const handleMouseDown = () => {
-    if (!isDisabled) {
-      setIsHovered(false)
-      setIsPressed(true)
-      fetchProductData(productId)
-        .then(product => {
-          // Add the product to the cart
-          setCart(prevCart => [...prevCart, product])
-          setIsPressed(false)
-        })
-        .catch(error => {
-          console.error('Error adding product to cart:', error)
-          setIsPressed(false)
-        })
-    }
-  }
+	const handleMouseLeave = () => {
+		setIsHovered(false)
+	}
 
-  const handleDisable = (disabled) => {
-    setIsDisabled(disabled)
-  }
+	const handleMouseDown = () => {
+		if (
+			!isDisabled &&
+			detailPro &&
+			detailPro.shelf_id_shelves &&
+			detailPro.shelf_id_shelves[0]
+		) {
+			setIsHovered(false)
+			setIsPressed(true)
 
-  const fetchProductData = async (id) => {
-    // Simulate fetching product data from an API
-    const response = await fetch(`/api/products/${id}`)
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    const product = await response.json()
-    return product
-  }
+			const data = {
+				category_id: product?.category_id,
+				product_id: product?.product_id,
+				product_name: product?.product_name,
+				product_img: product?.product_img,
+				product_condition: product?.product_condition,
+				import_price: product?.import_price,
+				selling_price: product?.selling_price,
+				description: product?.description,
+				instockquantity:
+					detailPro.shelf_id_shelves[0]?.shelf_products?.quantity || 0,
+				quantity: 1,
+			}
 
-  return (
-    <div
-      className={`relative h-[108px] w-[135px] ${isDisabled ? 'opacity-50' : ''}`}
-      onClick={handleMouseDown}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        borderRadius: '10px',
-        overflow: 'visible',
-        backgroundColor: isHovered && !isDisabled ? '#CADBB7' : '#485935',
-        boxShadow:
-          isPressed && !isDisabled
-            ? '4px 4px 4px rgba(0, 0, 0, 0.25)'
-            : 'none',
-      }}
-    >
-      <div
-        className="text-center absolute left-0 top-0 flex h-full w-full items-center justify-center"
-        style={{
-          color: isHovered && !isDisabled ? '#FFFFFF' : '#FFFFF',
-          fontWeight: '800',
-          fontSize: '18px',
-        }}
-      >
-        Add to cart
-      </div>
+			cartLocal.addToCart(data)
+		} else {
+			console.error('Product details are incomplete or missing.')
+		}
+	}
 
-      {/* Disabled overlay (if disabled) */}
-      {isDisabled && (
-        <div
-          className="bg-gray-300 absolute left-0 top-0 h-full w-full rounded-[10px] opacity-50"
-          style={{ pointerEvents: 'none' }}
-        />
-      )}
-    </div>
-  )
+	return (
+		<button
+			className={`relative h-[40px] w-[135px] ${isDisabled ? 'opacity-50' : ''}`}
+			onClick={handleMouseDown}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			style={{
+				borderRadius: '10px',
+				overflow: 'visible',
+				backgroundColor: isHovered && !isDisabled ? '#CADBB7' : '#485935',
+				boxShadow:
+					isPressed && !isDisabled ? '4px 4px 4px rgba(0, 0, 0, 0.25)' : 'none',
+			}}
+			disabled={isDisabled}
+		>
+			<div
+				className="absolute left-0 top-0 flex h-full w-full items-center justify-center text-center"
+				style={{
+					color: isHovered && !isDisabled ? '#FFFFFF' : '#FFFFF',
+					fontWeight: '800',
+					fontSize: '18px',
+				}}
+			>
+				Add to cart
+			</div>
+
+			{isDisabled && (
+				<div
+					className="bg-gray-300 absolute left-0 top-0 h-full w-full rounded-[10px] opacity-50"
+					style={{ pointerEvents: 'none' }}
+				/>
+			)}
+		</button>
+	)
 }
 
 export default AddToCart

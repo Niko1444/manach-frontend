@@ -1,18 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { cartLocal } from '../../../../service/cartLocal'
+import { message } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { postOrder } from '../../../../redux/cartReducer/cartThunk'
+import { userLocal } from '../../../../service/userLocal'
 
 const CusCheckOut = () => {
-	const [act, setAct] = useState(false)
+	const [list, setList] = useState(cartLocal.get('cart'))
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
+	const { userId } = useSelector((state) => state.userReducer)
+	useEffect(() => {
+		cartLocal.get('cart')
+		setList(list)
+	}, [list])
 
-	const handleChangeQuantity = () => {
-		return (
-			<div role="alert" className="alert alert-error">
-				<span>Error! Task failed successfully.</span>
-			</div>
-		)
+	const handleChangeQuantity = (id, instock, quantity, quantityChange) => {
+		if (quantityChange < 0) {
+			setList(cartLocal.changeQuantity(id, quantityChange))
+		} else {
+			if (quantity + quantityChange <= instock) {
+				setList(cartLocal.changeQuantity(id, quantityChange))
+			} else {
+				message.error('item instock is not enough')
+			}
+		}
 	}
 
 	const fetchData = () => {
-		if (!data || data.length === 0) {
+		if (!list || list.length === 0) {
 			return (
 				<tr>
 					<td colSpan="4" className="py-4 text-center">
@@ -22,15 +39,19 @@ const CusCheckOut = () => {
 			)
 		}
 
-		return data?.map((item, index) => {
+		return list?.map((item, index) => {
 			return (
 				<tr key={index} className="border-b-[1px] border-green">
 					<td className="py-4 pl-4 text-left">
 						<div className="flex space-x-4">
-							<img src={`${item.img}`} className="h-[3rem] w-[3rem]" alt="" />
+							<img
+								src={`${item.product_img}`}
+								className="h-[3rem] w-[3rem]"
+								alt=""
+							/>
 							<div>
-								<div>{item.name}</div>
-								<span>({item.status})</span>
+								<div>{item.product_name}</div>
+								<span>({item.product_condition})</span>
 							</div>
 						</div>
 					</td>
@@ -39,38 +60,75 @@ const CusCheckOut = () => {
 							<button
 								className="rounded-full border px-2"
 								onClick={() => {
-									handleChangeQuantity()
+									handleChangeQuantity(
+										item.product_id,
+										item.instockquantity,
+										item.quantity,
+										-1,
+									)
 								}}
 							>
 								-
 							</button>
 							<div>{item.quantity}</div>
-							<button className="rounded-full border px-1.5">+</button>
+							<button
+								className="rounded-full border px-2"
+								onClick={() => {
+									handleChangeQuantity(
+										item.product_id,
+										item.instockquantity,
+										item.quantity,
+										1,
+									)
+								}}
+							>
+								+
+							</button>
 						</div>
 					</td>
-					<td>$ {item.price}</td>
-					<td>${item.quantity * item.price}</td>
+					<td>$ {item.selling_price}</td>
+					<td>${item.quantity * item.selling_price}</td>
 				</tr>
 			)
 		})
 	}
 	const calTotalCost = () => {
 		let sum = 0
-		for (let i = 0; i < data.length; i++) {
-			sum += data[i].price * data[i].quantity
+		for (let i = 0; i < list.length; i++) {
+			sum += list[i].selling_price * list[i].quantity
 		}
 		return sum
 	}
 	const showListCart = () => {
-		return data.map((item) => {
+		return list.map((item) => {
 			return (
-				<div key={item.id} className="my-8 flex justify-between">
-					<div>Item {item.id}</div>
-					<div>${item.price}</div>
-					<div>{item.quantity}</div>
-				</div>
+				<tr key={item.id} className="my-4">
+					<td className="text-left">Item {item.product_id}</td>
+					<td>${item.selling_price}</td>
+					<td>{item.quantity}</td>
+				</tr>
 			)
 		})
+	}
+	const orderProduct = () => {
+		let orderList = []
+		list.map((item) => {
+			orderList.push({
+				product_id: item.product_id,
+				quantity: item.quantity,
+			})
+		})
+		const data = {
+			products: orderList,
+		}
+		const order = {
+			data: data,
+			user_id: userId,
+		}
+
+		dispatch(postOrder(order))
+		navigate('/customer/home')
+		cartLocal.delete()
 	}
 
 	return (
@@ -140,14 +198,16 @@ const CusCheckOut = () => {
 					<div className="m-4 text-green_dark1">
 						<div className="text-[1.5rem] font-semibold">Order Summary</div>
 						<hr />
-						<div>
-							<div className="my-8 flex justify-between">
-								<div>Item</div>
-								<div>Price</div>
-								<div>Quantity</div>
-							</div>
-							{showListCart()}
-						</div>
+						<table className="table w-full text-center">
+							<thead>
+								<tr className="my-8">
+									<th className="text-left">Item</th>
+									<th>Price</th>
+									<th>Quantity</th>
+								</tr>
+							</thead>
+							<tbody>{showListCart()}</tbody>
+						</table>
 
 						<hr className="my-4" />
 
@@ -157,7 +217,12 @@ const CusCheckOut = () => {
 						</div>
 
 						<div className="mt-4 text-center">
-							<button className="rounded-lg bg-green_dark1 px-4 py-2 text-offwhite">
+							<button
+								onClick={() => {
+									orderProduct()
+								}}
+								className="rounded-lg bg-green_dark1 px-4 py-2 text-offwhite"
+							>
 								Checkout
 							</button>
 						</div>
@@ -168,53 +233,53 @@ const CusCheckOut = () => {
 	)
 }
 
-const data = [
-	{
-		id: 1123,
-		img: '/src/assets/banana.png',
-		name: 'banana',
-		status: 'unfirm',
-		quantity: 4,
-		price: 5,
-		instock: 12,
-	},
-	{
-		id: 1423,
-		img: '/src/assets/coconut.png',
-		name: 'coconut',
-		status: 'firm',
-		quantity: 7,
-		price: 7,
-		instock: 15,
-	},
-	{
-		id: 1231,
-		img: '/src/assets/strawberry.png',
-		name: 'strawberry',
-		status: 'firm',
-		quantity: 12,
-		price: 9,
-		instock: 27,
-	},
-	{
-		id: 4122,
-		img: '/src/assets/raspberry.png',
-		name: 'raspberry',
-		status: 'firm',
-		quantity: 4,
-		price: 11,
-		instock: 12,
-	},
-	{
-		id: 3123,
-		img: '/src/assets/saurieng.png',
-		name: 'durian',
-		status: 'firm',
-		quantity: 1,
-		price: 3,
-		instock: 11,
-	},
-]
+// const data = [
+// 	{
+// 		id: 1123,
+// 		img: '/src/assets/banana.png',
+// 		name: 'banana',
+// 		status: 'unfirm',
+// 		quantity: 4,
+// 		price: 5,
+// 		instock: 12,
+// 	},
+// 	{
+// 		id: 1423,
+// 		img: '/src/assets/coconut.png',
+// 		name: 'coconut',
+// 		status: 'firm',
+// 		quantity: 7,
+// 		price: 7,
+// 		instock: 15,
+// 	},
+// 	{
+// 		id: 1231,
+// 		img: '/src/assets/strawberry.png',
+// 		name: 'strawberry',
+// 		status: 'firm',
+// 		quantity: 12,
+// 		price: 9,
+// 		instock: 27,
+// 	},
+// 	{
+// 		id: 4122,
+// 		img: '/src/assets/raspberry.png',
+// 		name: 'raspberry',
+// 		status: 'firm',
+// 		quantity: 4,
+// 		price: 11,
+// 		instock: 12,
+// 	},
+// 	{
+// 		id: 3123,
+// 		img: '/src/assets/saurieng.png',
+// 		name: 'durian',
+// 		status: 'firm',
+// 		quantity: 1,
+// 		price: 3,
+// 		instock: 11,
+// 	},
+// ]
 // const data = []
 
 export default CusCheckOut

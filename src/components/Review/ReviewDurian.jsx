@@ -5,14 +5,14 @@ import Firm from '../StateRipe/Firm.jsx'
 import UnRipe from '../StateRipe/UnRipe.jsx'
 import AddToCart from '../AddToCart/AddToCart.jsx'
 
-const ReviewBanana = () => {
+const ReviewDurian = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [products, setProducts] = useState([])
 	const [selectedCondition, setSelectedCondition] = useState(null)
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:8080/store/category/2')
+			.get('http://localhost:8080/store/category/8')
 			.then((response) => {
 				const data = response.data.content.map((product) => ({
 					...product,
@@ -102,7 +102,7 @@ const ReviewBanana = () => {
 							}}
 						>
 							<div className="m-auto">
-								<img src={product.product_img} alt="" />
+								<img src={product.product_img} alt={product.product_name} />
 							</div>
 							<div className="mt-[56px]">
 								<div
@@ -235,4 +235,4 @@ const ReviewBanana = () => {
 	)
 }
 
-export default ReviewBanana
+export default ReviewDurian
