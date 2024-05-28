@@ -5,21 +5,33 @@ import Firm from '../StateRipe/Firm.jsx'
 import UnRipe from '../StateRipe/UnRipe.jsx'
 import AddToCart from '../AddToCart/AddToCart.jsx'
 
-const ReviewBanana = () => {
+const ReviewBerries = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [products, setProducts] = useState([])
 	const [selectedCondition, setSelectedCondition] = useState(null)
 
 	useEffect(() => {
+		const urls = [
+			'http://localhost:8080/store/category/5',
+			'http://localhost:8080/store/category/6',
+			'http://localhost:8080/store/category/7',
+			'http://localhost:8080/store/category/9',
+		]
+
 		axios
-			.get('http://localhost:8080/store/category/2')
-			.then((response) => {
-				const data = response.data.content.map((product) => ({
-					...product,
-					color: getProductConditionColor(product.product_condition),
-				}))
-				setProducts(data)
-			})
+			.all(urls.map((url) => axios.get(url)))
+			.then(
+				axios.spread((...responses) => {
+					const combinedData = responses
+						.map((response) => response.data.content)
+						.flat()
+						.map((product) => ({
+							...product,
+							color: getProductConditionColor(product.product_condition),
+						}))
+					setProducts(combinedData)
+				}),
+			)
 			.catch((error) => {
 				console.error('Error fetching product data:', error)
 			})
@@ -50,14 +62,12 @@ const ReviewBanana = () => {
 		return <div>Loading...</div>
 	}
 
-	// Filter products based on selected condition
 	const filteredProducts = selectedCondition
 		? products.filter(
 				(product) => product.product_condition === selectedCondition,
 			)
 		: products
 
-	// Function to get condition word
 	const getConditionWord = (condition) => {
 		switch (condition) {
 			case 'ripe':
@@ -102,7 +112,7 @@ const ReviewBanana = () => {
 							}}
 						>
 							<div className="m-auto">
-								<img src={product.product_img} alt="" />
+								<img src={product.product_img} alt={product.product_name} />
 							</div>
 							<div className="mt-[56px]">
 								<div
@@ -235,4 +245,4 @@ const ReviewBanana = () => {
 	)
 }
 
-export default ReviewBanana
+export default ReviewBerries
