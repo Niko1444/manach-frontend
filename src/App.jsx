@@ -23,6 +23,11 @@ import CusCheckOut from './routes/Home/Customer/CheckOut/CusCheckOut'
 import CusSetting from './routes/Home/Customer/Setting.jsx/CusSetting'
 import BananaStore from './routes/Home/Customer/Store/BananaStore'
 import MangoStore from './routes/Home/Customer/Store/MangoStore'
+import DurianStore from './routes/Home/Customer/Store/DurianStore'
+import BerriesStore from './routes/Home/Customer/Store/BerriesStore'
+import CoconutStore from './routes/Home/Customer/Store/CoconutStore'
+import PapayaStore from './routes/Home/Customer/Store/PapayaStore'
+import PineappleStore from './routes/Home/Customer/Store/PineappleStore'
 
 // Import Admin Pages
 import AdminTemplate from './routes/Home/Admin/AdminTemplate'
@@ -31,6 +36,7 @@ import Dashboard from './routes/Home/Admin/Dashboard/Dashboard'
 import ASetting from './routes/Home/Admin/Setting/ASetting'
 import Warehouse from './routes/Home/Admin/Warehouse/Warehouse'
 import AStore from './routes/Home/Admin/Store/AStore'
+
 // import Loading from './components/Loading'
 
 function App() {
@@ -73,6 +79,11 @@ function App() {
 					{/* About */}
 					<Route path="/setting" element={<Setting />} />
 					<Route path="/banana-store" element={<BananaStore />} />
+					<Route path="/durian-store" element={<DurianStore />} />
+					<Route path="/berries-store" element={<BerriesStore />} />
+					<Route path="/coconut-store" element={<CoconutStore />} />
+					<Route path="/papaya-store" element={<PapayaStore/>} />
+					<Route path="/pineapple-store" element={<PineappleStore />} />
 					<Route path="/mango-store" element={<MangoStore />} />
 
 					{/* Error pages */}
