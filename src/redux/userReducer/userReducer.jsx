@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { editProfile, getInfor, userThunk } from './userThunk'
+import { editProfile, getInfor, postSignUp, userThunk } from './userThunk'
 import { userLocal } from '../../service/userLocal'
 
 const initialState = {
@@ -26,8 +26,9 @@ const userReducer = createSlice({
 		builder
 			.addCase(userThunk.fulfilled, (state, action) => {
 				userLocal.setId(action.payload.user_id)
-				state.userId = action.payload.user_id
 				userLocal.setRoleName(action.payload.role_id)
+				state.userId = action.payload.user_id
+				state.roleId = action.payload.role_id
 				state.roleName = userLocal.getRoleName()
 			})
 			.addCase(getInfor.fulfilled, (state, action) => {
@@ -39,6 +40,9 @@ const userReducer = createSlice({
 				console.log('.addCase ~ action:', action.payload.data.content)
 				const data = action.payload.data.content
 				state.inforUser = data
+			})
+			.addCase(postSignUp.fulfilled, (state, action) => {
+				console.log(action.payload)
 			})
 	},
 })

@@ -38,3 +38,15 @@ export const editProfile = createAsyncThunk(
 		}
 	},
 )
+export const postSignUp = createAsyncThunk(
+	'userReducer/signup',
+	async (payload) => {
+		try {
+			const data = await userService.postSignUp(payload)
+			message.success('Create Account Success')
+			return data
+		} catch (error) {
+			console.log('error:', error)
+		}
+	},
+)

@@ -20,7 +20,7 @@ const ASetting = () => {
 	const dispatchDetail = () => {
 		const newInfor = {
 			phone: phone,
-			bank_account: bank,
+			bank_account: inforUser?.bank_account,
 			email: email,
 			full_name: name,
 		}
@@ -99,13 +99,13 @@ const ASetting = () => {
 							<i className="fa fa-user-shield text-[2rem]"></i>
 
 							<div>
-								<div className="text-[1.5rem]">Payment</div>
-								<span className="italic">Your current bank account :</span>
+								<div className="text-[1.5rem]">Admin ID</div>
+								<span className="italic">Your current Admin Id :</span>
 							</div>
 						</div>
 
 						<div className="my-4 text-center text-[1.2rem] font-light text-green_dark1">
-							{inforUser?.bank_account}
+							AD-203-079-21-{inforUser?.user_id}
 						</div>
 					</div>
 
@@ -127,15 +127,13 @@ const ASetting = () => {
 						<div className="flex items-center space-x-4 text-green_dark1">
 							<i className="fa fa-users-cog text-[2rem]"></i>
 							<div>
-								<div className="text-[1.5rem]">Account</div>
-								<span className="italic">
-									Your current account: user name - password
-								</span>
+								<div className="text-[1.5rem]">Role</div>
+								<span className="italic">Your Role</span>
 							</div>
 						</div>
 
 						<div className="my-4 text-center text-[1.2rem] font-light text-green_dark1">
-							{inforUser?.user_name} - *********
+							Manager
 						</div>
 					</div>
 				</div>
@@ -167,14 +165,14 @@ const ASetting = () => {
 								X
 							</button>
 						</div>
-						<div className="flex w-full space-x-4">
-							<div className="w-1/2 space-y-4">
+						<div className="w-full space-x-4">
+							<div className="space-y-4">
 								<div>
 									<div className="text-offwhite">Full name</div>
 									<input
 										type="text"
 										placeholder={`${inforUser?.full_name}`}
-										className="input input-bordered input-md bg-white w-full max-w-xs"
+										className="input input-bordered input-md bg-white w-full "
 										onChange={(e) => {
 											setName(e.target.value)
 										}}
@@ -186,37 +184,25 @@ const ASetting = () => {
 									<input
 										type="text"
 										placeholder={`${inforUser?.phone}`}
-										className="input input-bordered input-md bg-white w-full max-w-xs"
+										className="input input-bordered input-md bg-white w-full "
 										onChange={(e) => {
 											setPhone(e.target.value)
 										}}
 									/>
 								</div>
-							</div>
-
-							<div className="w-1/2 space-y-4">
-								<div>
-									<div className="text-offwhite">Email</div>
-									<input
-										type="text"
-										placeholder={`${inforUser?.email}`}
-										className="input input-bordered input-md bg-white w-full max-w-xs"
-										onChange={(e) => {
-											setEmail(e.target.value)
-										}}
-									/>
-								</div>
 
 								<div>
-									<div className="text-offwhite">Bank Account</div>
-									<input
-										type="text"
-										placeholder={`${inforUser?.bank_account}`}
-										className="input input-bordered input-md bg-white w-full max-w-xs"
-										onChange={(e) => {
-											setBank(e.target.value)
-										}}
-									/>
+									<div>
+										<div className="text-offwhite">Email</div>
+										<input
+											type="text"
+											placeholder={`${inforUser?.email}`}
+											className="input input-bordered input-md bg-white w-full "
+											onChange={(e) => {
+												setEmail(e.target.value)
+											}}
+										/>
+									</div>
 								</div>
 							</div>
 						</div>

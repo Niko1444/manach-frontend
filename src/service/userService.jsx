@@ -5,6 +5,10 @@ export const userService = {
 		let url = '/auth/login'
 		return http.post(url, data)
 	},
+	postSignUp: (data) => {
+		let url = '/auth/signup'
+		return http.post(url, data)
+	},
 
 	getInfor: (data) => {
 		let url = `/user/${data}`

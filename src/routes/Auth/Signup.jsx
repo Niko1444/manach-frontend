@@ -1,21 +1,31 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { postSignUp } from '../../redux/userReducer/userThunk'
 
 const Signup = () => {
 	const [name, setName] = useState('')
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
-	const [address, setAddress] = useState('')
+	const [email, setEmail] = useState('')
 	const [payment, setPayment] = useState('')
 	const [phone, setPhone] = useState('')
 
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
+
 	const handleLogin = () => {
-		console.log('Name:', name)
-		console.log('Username:', username)
-		console.log('Password:', password)
-		console.log('Address:', address)
-		console.log('Payment:', payment)
-		console.log('Phone:', phone)
+		const data = {
+			full_name: name,
+			address: '123 Govap',
+			user_name: username,
+			bank_account: payment,
+			user_password: password,
+			phone: phone,
+			email: email,
+		}
+		dispatch(postSignUp(data))
+		navigate('/auth/welcome')
 	}
 
 	return (
@@ -165,15 +175,15 @@ const Signup = () => {
 											fontWeight: 600,
 										}}
 									>
-										Address
+										Email
 									</span>
 									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
 										<input
 											type="text"
 											className="h-[2.5rem] grow text-center text-[1.5rem]"
-											placeholder="Enter your address"
+											placeholder="Enter your email"
 											onChange={(e) => {
-												setAddress(e.target.value)
+												setEmail(e.target.value)
 											}}
 										/>
 									</label>
@@ -225,9 +235,9 @@ const Signup = () => {
 					</div>
 
 					<div className="mt-10 space-y-10 px-44" onClick={handleLogin}>
-						<NavLink className="rounded-xl bg-green_light1 px-12 py-3 text-[1.5rem] font-bold text-green_dark1">
+						<button className="rounded-xl bg-green_light1 px-12 py-3 text-[1.5rem] font-bold text-green_dark1">
 							Create
-						</NavLink>
+						</button>
 					</div>
 				</div>
 			</div>
