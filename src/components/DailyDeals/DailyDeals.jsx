@@ -1,8 +1,6 @@
-// import React from 'react'
-// https://svcy3.myclass.vn/images/adidas-prophere.png
-
 import { useState } from 'react'
 import Coupon from './Coupon';
+import DailyDeals from '../../assets/DailyDeals.png'
 
 const Daily = () => {
 	const [state, setState] = useState({})
@@ -118,7 +116,7 @@ const Daily = () => {
 								>
 									<div className="my-auto h-fit w-full">
 										<img
-											src="https://s3-alpha-sig.figma.com/img/ea3a/fa62/5d1a314c814b04efc68b4e7ae2dc9f50?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=F99gUonSGb3uI6eHWAponq4kogM7464TXHbvKrVLWynx1cJ1WTPn7wI-uVp2~OlQCWhGVxKvAV511JrQHgaica0SHuYKmWD9ildgruHPHxqalkpWHIGwYaQY9Rn8IF6sVPjNZ30Q2~4moMawbQRQJsYRfOiGkWgaOx6K0~SiJNLVioCi87NvJ7WJx56eVveaE8N9IhCWMQW-fDhfXOB72BcpMpzZq8mWiBkq-fPUnDIJXipUTG01Ajko93j3agvqauasGbdINYBR8zDpRTPYAzXkjIUAVHx~Q71j9MI2ePK-Wg1qqfBM3CHHlEUtcAf6yV~EEO4SLNwsuISShXb2qQ__"
+											src={DailyDeals}
 											alt=""
 											style={{
 												background: 'lightgray 50% / cover no-repeat',

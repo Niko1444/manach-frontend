@@ -5,6 +5,7 @@ import Vector from '../../../../../assets/Vector.svg'
 import Vector2 from '../../../../../assets/Vector2.svg'
 import Group3 from '../../../../../assets/Group3.svg'
 import Modal from 'react-modal'
+import { message } from 'antd'
 
 Modal.setAppElement('#root')
 
@@ -12,14 +13,20 @@ const ReOrder = () => {
 	const [showProductList, setShowProductList] = useState(true)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [products, setProducts] = useState([])
+	const [selectedProduct, setSelectedProduct] = useState(null)
+	const [orderQuantity, setOrderQuantity] = useState('')
 
-	useEffect(() => {
+	const fetchProducts = () => {
 		fetch('http://localhost:8080/warehouse/reorder')
 			.then((response) => response.json())
 			.then((data) => {
 				setProducts(data.content)
 			})
 			.catch((error) => console.error('Error fetching product data:', error))
+	}
+
+	useEffect(() => {
+		fetchProducts()
 	}, [])
 
 	const productListStyle = {
@@ -57,12 +64,55 @@ const ReOrder = () => {
 		borderLeft: '1.5px solid #CADBB7',
 	}
 
-	const openModal = () => {
+	const outOfStockStyle = {
+		color: '#F07167',
+		textAlign: 'center',
+		fontSize: '20px',
+		fontStyle: 'italic',
+		fontWeight: 900,
+		border: '1px solid #485935',
+	}
+
+	const openModal = (product) => {
+		setSelectedProduct(product)
 		setIsModalOpen(true)
 	}
 
 	const closeModal = () => {
 		setIsModalOpen(false)
+		setOrderQuantity('')
+	}
+
+	const handleOrderQuantityChange = (e) => {
+		setOrderQuantity(e.target.value)
+	}
+
+	const handleConfirmOrder = () => {
+		if (!selectedProduct || !orderQuantity) {
+			alert('Please enter a valid quantity')
+			return
+		}
+
+		const data = {
+			warehouse_id: selectedProduct.warehouse_id,
+			product_id: selectedProduct.product.product_id,
+			quantity: parseInt(orderQuantity),
+		}
+
+		fetch(`http://localhost:8080/warehouse/reorder/${selectedProduct.product.product_id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				message.success('Order confirmed successfully')
+				closeModal()
+				fetchProducts() // Refresh the product list
+			})
+			.catch((error) => console.error('Error updating order:', error))
 	}
 
 	return (
@@ -103,13 +153,13 @@ const ReOrder = () => {
 								<td style={{ ...tdStyle, ...innerBorderStyle }}>
 									{product.quantity}
 								</td>
-								<td style={{ ...tdStyle, ...innerBorderStyle }}>
+								<td style={{ ...outOfStockStyle, ...innerBorderStyle }}>
 									{product.quantity === 0 ? 'Out of stock' : 'In stock'}
 								</td>
 								<td style={{ ...tdStyle, ...innerBorderStyle }}>
 									<button 
 										className="h-[40px] w-[135px] rounded-[20px] bg-green"
-										onClick={openModal}
+										onClick={() => openModal(product)}
 									>
 										Re-order
 									</button>
@@ -167,11 +217,13 @@ const ReOrder = () => {
 					type="text"
 					className="bg-white my-10 h-[4.5rem] w-[8.5rem] rounded-[15px] text-center"
 					placeholder="kilogram"
+					value={orderQuantity}
+					onChange={handleOrderQuantityChange}
 				/>
 				<button
-					className="rounded-2xl border border-offwhite bg-offwhite px-4 py-3 text-[1rem] font-semibold text-green_dark1 "
+					className="rounded-2xl border border-offwhite bg-offwhite px-4 py-3 text-[1rem] font-semibold text-green_dark1"
 					style={{ display: 'flex', marginLeft: 'auto', marginTop: '6%' }}
-					onClick={closeModal}
+					onClick={handleConfirmOrder}
 				>
 					Confirm order
 				</button>

@@ -1,4 +1,6 @@
 import React from 'react';
+import banana from '../../assets/banana.png'
+import bigstraw from '../../assets/bigstraw.png'
 
 const TopFruitExplore = ({ onClose }) => {
   return (
@@ -18,8 +20,8 @@ const TopFruitExplore = ({ onClose }) => {
     >
       <div
         style={{
-          width: '600px',
-          height: '700px',
+          width: '590px',
+          height: '680px',
           background: 'white',
           borderRadius: 15,
           display: 'flex',
@@ -31,7 +33,7 @@ const TopFruitExplore = ({ onClose }) => {
         <div
           style={{
             color: '#485935',
-            fontSize: 26,
+            fontSize: 24,
             fontFamily: 'Poppins',
             fontWeight: '600',
             wordWrap: 'break-word',
@@ -49,12 +51,12 @@ const TopFruitExplore = ({ onClose }) => {
         </div>
         <div>
           <div className="flex">
-            <img
+            <img className='my-auto'
               style={{
                 width: '20%',
                 height: '20%',
               }}
-              src="https://s3-alpha-sig.figma.com/img/d705/f58f/52b8efb8273691ea0f4aeee9a65cb99f?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PfCiQPEW4yjHYLNAtu2oM77Yo66rG753s4rbpdccTrm74H6hN4CvUhiKswOPnRwVa~WC0tSKTP9-euTy6Z8TZVk7ZHnOVgcS-G9vtDULaB2YYcmSSsM-I-fEGwUUcdYX55K23rzAbYydl8E7CoaLQvc6rwgIKwuSyJLk6DGRDtBj0kOgZg9MIiD9UrF-h6h~sIWJwGxtKmhiU3jp5nhfTWHudpFaK0bvv1UNtp34FQpgOfYR2-YtzoheRW0WgG04JIigQ-DBLfpxKNY~Ozdb-QEK44bI8Xim2JL5V0oXVb49TO1J~~aAs-uP-6el8nHWRLb42HJiSCRA803-Ix8iYA__"
+              src={bigstraw}
             />
             <div
               style={{
@@ -66,7 +68,7 @@ const TopFruitExplore = ({ onClose }) => {
               <div
                 style={{
                   color: '#485935',
-                  fontSize: 24,
+                  fontSize: 22,
                   fontFamily: 'Poppins',
                   fontWeight: '300',
                   wordWrap: 'break-word',
@@ -83,7 +85,7 @@ const TopFruitExplore = ({ onClose }) => {
           <div
             style={{
               color: '#485935',
-              fontSize: 26,
+              fontSize: 24,
               fontFamily: 'Poppins',
               fontWeight: '600',
               wordWrap: 'break-word',
@@ -100,12 +102,12 @@ const TopFruitExplore = ({ onClose }) => {
             />
           </div>
           <div className="flex">
-            <img
+            <img className='my-auto'
               style={{
                 width: '20%',
                 height: '20%',
               }}
-              src="https://s3-alpha-sig.figma.com/img/8cd4/44d8/a838557fc46d2939e1930c5b020da021?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VbohRbU~0aBEG3mdg6QxhgxzZl2T60FfhSUnkqJfpPb418-bquXktu8ruvYjJmQpExjHVgtCI2ie0oH67IeEpJBp8uY99AoNKJcxOF~kb53gt-7XU0jXszA7QJgbCZ2-XOB8e57llSSlIaua8VAVdUolpbLSpoERAXmq~HN5iW03Itl~BQsbi9~uEEqhs2iW4qUIBGk~vKjqi~oqbfQjeQ8nM-y4abWNAMj7U9nAwVTJuF6ijFs9xE0cLtvXP6tJ2RoR1HYSGBQXI0w-QMynCvPsVLTaPzGhSbQCPngvSes0QlretHstGWMDmGsjBi5aQCfGk6kIDowALtcWBzx82w__"
+              src={banana}
             />
             <div
               style={{
@@ -117,7 +119,7 @@ const TopFruitExplore = ({ onClose }) => {
               <div
                 style={{
                   color: '#485935',
-                  fontSize: 24,
+                  fontSize: 22,
                   fontFamily: 'Poppins',
                   fontWeight: '300',
                   wordWrap: 'break-word',
@@ -134,7 +136,7 @@ const TopFruitExplore = ({ onClose }) => {
           <div
             style={{
               color: '#485935',
-              fontSize: 26,
+              fontSize: 24,
               fontFamily: 'Poppins',
               fontWeight: '600',
               wordWrap: 'break-word',
@@ -151,12 +153,12 @@ const TopFruitExplore = ({ onClose }) => {
             />
           </div>
           <div className="flex">
-            <img
+            <img className='my-auto'
               style={{
                 width: '20%',
                 height: '20%',
               }}
-              src="https://s3-alpha-sig.figma.com/img/8cd4/44d8/a838557fc46d2939e1930c5b020da021?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VbohRbU~0aBEG3mdg6QxhgxzZl2T60FfhSUnkqJfpPb418-bquXktu8ruvYjJmQpExjHVgtCI2ie0oH67IeEpJBp8uY99AoNKJcxOF~kb53gt-7XU0jXszA7QJgbCZ2-XOB8e57llSSlIaua8VAVdUolpbLSpoERAXmq~HN5iW03Itl~BQsbi9~uEEqhs2iW4qUIBGk~vKjqi~oqbfQjeQ8nM-y4abWNAMj7U9nAwVTJuF6ijFs9xE0cLtvXP6tJ2RoR1HYSGBQXI0w-QMynCvPsVLTaPzGhSbQCPngvSes0QlretHstGWMDmGsjBi5aQCfGk6kIDowALtcWBzx82w__"
+              src={banana}
             />
             <div
               style={{
@@ -168,7 +170,7 @@ const TopFruitExplore = ({ onClose }) => {
               <div
                 style={{
                   color: '#485935',
-                  fontSize: 24,
+                  fontSize: 22,
                   fontFamily: 'Poppins',
                   fontWeight: '300',
                   wordWrap: 'break-word',
