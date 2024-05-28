@@ -36,6 +36,7 @@ import Dashboard from './routes/Home/Admin/Dashboard/Dashboard'
 import ASetting from './routes/Home/Admin/Setting/ASetting'
 import Warehouse from './routes/Home/Admin/Warehouse/Warehouse'
 import AStore from './routes/Home/Admin/Store/AStore'
+
 // import Loading from './components/Loading'
 
 function App() {
