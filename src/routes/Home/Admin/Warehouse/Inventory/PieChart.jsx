@@ -55,19 +55,14 @@ const DoughnutChart = () => {
 					(acc, item) => acc + item.quantity,
 					0,
 				)
-				const shelfQuantity = product.shelf_products.reduce(
-					(acc, item) => acc + item.quantity,
-					0,
-				)
-				const totalQuantity = warehouseQuantity + shelfQuantity
 
 				uniqueProducts.add(product.product_id)
 
-				if (totalQuantity === 0) {
+				if (warehouseQuantity === 0) {
 					counts.zero++
-				} else if (totalQuantity < 15) {
+				} else if (warehouseQuantity < 15) {
 					counts.lessThan15++
-				} else if (totalQuantity < 25) {
+				} else if (warehouseQuantity < 25) {
 					counts.lessThan25++
 				} else {
 					counts.moreThan25++

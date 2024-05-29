@@ -44,16 +44,8 @@ const TableProductList = () => {
 		return url
 	}
 
-	const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
-		const warehouseQuantity = warehouseProducts.reduce(
-			(acc, item) => acc + item.quantity,
-			0,
-		)
-		const shelfQuantity = shelfProducts.reduce(
-			(acc, item) => acc + item.quantity,
-			0,
-		)
-		return warehouseQuantity + shelfQuantity
+	const calculateTotalQuantity = (warehouseProducts) => {
+		return warehouseProducts.reduce((acc, item) => acc + item.quantity, 0)
 	}
 
 	const determineStatus = (quantity) => {
@@ -136,7 +128,6 @@ const TableProductList = () => {
 					{products.map((product) => {
 						const totalQuantity = calculateTotalQuantity(
 							product.warehouse_products,
-							product.shelf_products,
 						)
 						const { status, color } = determineStatus(totalQuantity)
 						const imageUrl =

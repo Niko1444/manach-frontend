@@ -8,16 +8,10 @@ const TableIncreasingSorted = () => {
 			try {
 				const response = await fetch('http://localhost:8080/warehouse')
 				const result = await response.json()
-				// Sort products by total quantity in ascending order
+				// Sort products by total quantity in warehouse in ascending order
 				const sortedProducts = result.content.getProducts.sort((a, b) => {
-					const totalQuantityA = calculateTotalQuantity(
-						a.warehouse_products,
-						a.shelf_products,
-					)
-					const totalQuantityB = calculateTotalQuantity(
-						b.warehouse_products,
-						b.shelf_products,
-					)
+					const totalQuantityA = calculateTotalQuantity(a.warehouse_products)
+					const totalQuantityB = calculateTotalQuantity(b.warehouse_products)
 					return totalQuantityA - totalQuantityB
 				})
 				setProducts(sortedProducts)
@@ -34,31 +28,20 @@ const TableIncreasingSorted = () => {
 			return ''
 		}
 
-		// Check if the URL is a direct link to the image file
 		if (url.startsWith('https://drive.google.com/uc?export=view&id=')) {
 			return url
 		}
 
-		// Extract the file ID from the Google Drive link
 		const fileIdMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)
 		if (fileIdMatch) {
-			// Construct a direct image URL using the file ID
 			return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`
 		}
 
 		return url
 	}
 
-	const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
-		const warehouseQuantity = warehouseProducts.reduce(
-			(acc, item) => acc + item.quantity,
-			0,
-		)
-		const shelfQuantity = shelfProducts.reduce(
-			(acc, item) => acc + item.quantity,
-			0,
-		)
-		return warehouseQuantity + shelfQuantity
+	const calculateTotalQuantity = (warehouseProducts) => {
+		return warehouseProducts.reduce((acc, item) => acc + item.quantity, 0)
 	}
 
 	const determineStatus = (quantity) => {
@@ -141,7 +124,6 @@ const TableIncreasingSorted = () => {
 					{products.map((product) => {
 						const totalQuantity = calculateTotalQuantity(
 							product.warehouse_products,
-							product.shelf_products,
 						)
 						const { status, color } = determineStatus(totalQuantity)
 						const imageUrl =
