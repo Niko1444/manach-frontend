@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../../../../components/SearchBar/SearchBar';
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit';
@@ -42,6 +42,10 @@ const TopFruit = () => {
     const handleBerriesClick = () => {
         navigate('/customer/store/berries-store')
     };
+
+    useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
     return (
         <div>

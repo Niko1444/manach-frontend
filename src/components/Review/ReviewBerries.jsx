@@ -17,7 +17,7 @@ const ReviewBerries = () => {
 			'http://localhost:8080/store/category/7',
 			'http://localhost:8080/store/category/9',
 		]
-
+		window.scrollTo(0, 0);
 		axios
 			.all(urls.map((url) => axios.get(url)))
 			.then(

@@ -173,7 +173,7 @@ const ReOrder = () => {
 			<Modal
 				isOpen={isModalOpen}
 				onRequestClose={closeModal}
-				contentLabel="Add Items to Shelf"
+				contentLabel="Re-order"
 				style={{
 					overlay: {
 						backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -189,8 +189,8 @@ const ReOrder = () => {
 						padding: '20px',
 						borderRadius: '20px',
 						border: '0px',
-						width: '70%',
-						height: '70%',
+						width: '60%',
+						height: 'full',
 						textAlign: 'center',
 					},
 				}}
@@ -227,16 +227,16 @@ const ReOrder = () => {
 				>
 					Confirm order
 				</button>
-				<div className="fixed left-[0rem] top-[21.5rem] w-[11rem]">
+				<div className="fixed top-[21.5rem] w-[11rem]">
 					<img src={Group} alt="" />
 				</div>
 				<div className="fixed left-[10rem] top-[18rem] w-[5rem]">
 					<img src={Group2} alt="" />
 				</div>
-				<div className="fixed left-[50rem] top-[2rem] w-[4.5rem]">
+				<div className="fixed left-[50rem] top-[2rem]">
 					<img src={Vector} alt="" />
 				</div>
-				<div className="fixed left-[51.5rem] top-[5rem] w-[2rem]">
+				<div className="fixed left-[51.5rem] top-[5rem]">
 					<img src={Vector2} alt="" />
 				</div>
 				<div className="fixed left-[46rem] top-[10rem] w-[5rem]">
