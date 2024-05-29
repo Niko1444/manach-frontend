@@ -18,7 +18,7 @@ const Welcome = () => {
 			</div>
 			<div>
 				<NavLink
-					to={'/about-us'}
+					to={'/'}
 					className={'rounded-xl border border-green_dark1 px-4 py-2'}
 				>
 					<span className="text-green_dark1">Back</span>

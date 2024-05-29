@@ -170,7 +170,7 @@ const CusCheckOut = () => {
 				<div className="mx-12 my-8 w-[70%]">
 					<div className="flex justify-between text-[1.625rem] text-green_dark1">
 						<div className="font-semibold">Your Cart</div>
-						<div>10 item</div>
+						<div>{list.length} item</div>
 					</div>
 					<hr />
 					<div className="mt-8">

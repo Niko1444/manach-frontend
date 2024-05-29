@@ -1,7 +1,29 @@
-
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const CusOrder = () => {
+	const [orderData, setOrderData] = useState(null) // Initialize as null to check for loading state
+
+	const { userId, inforUser } = useSelector((state) => state.userReducer)
+
+	useEffect(() => {
+		const fetchOrderData = async () => {
+			try {
+				const response = await fetch(
+					`http://localhost:8080/user/${userId}/order`,
+				)
+				const data = await response.json()
+				setOrderData(data.content) // Assuming data.content is the actual order data
+			} catch (error) {
+				console.error('Error fetching order data:', error)
+			}
+		}
+
+		if (userId) {
+			fetchOrderData()
+		}
+	}, [userId])
+
 	const containerStyle = {
 		display: 'flex',
 		flexDirection: 'column',
@@ -31,17 +53,16 @@ const CusOrder = () => {
 		color: '#485935',
 		fontSize: '20px',
 		fontWeight: 'bold',
-		textAlign: 'left',
 	}
 
 	const titleStyle = {
-		fontSize: '22',
+		fontSize: '22px',
 		marginBottom: '5px',
 	}
 
 	const contentStyle = {
 		fontSize: '16px',
-		paddingLeft: '40px'
+		paddingLeft: '40px',
 	}
 
 	const tableStyle = {
@@ -71,6 +92,10 @@ const CusOrder = () => {
 		borderLeft: '1.5px solid #CADBB7',
 	}
 
+	if (!orderData) {
+		return <div>Loading...</div>
+	}
+
 	return (
 		<div style={containerStyle}>
 			<div style={headerContainerStyle}>
@@ -85,8 +110,8 @@ const CusOrder = () => {
 				<div style={infoBoxStyle}>
 					<div style={titleStyle}>Customer</div>
 					<div style={contentStyle}>
-						Name : Banh Thi Phuong Nam <br /> Email : Banhthinoi@haha.com <br />{' '}
-						Phone : 097622789
+						Name : {inforUser?.full_name} <br /> Email : {inforUser?.email}{' '}
+						<br /> Phone : {inforUser?.phone}
 					</div>
 				</div>
 				<div style={infoBoxStyle}>
@@ -96,7 +121,8 @@ const CusOrder = () => {
 				<div style={infoBoxStyle}>
 					<div style={titleStyle}>Payment</div>
 					<div style={contentStyle}>
-						Bank Account : EMIUBANK <br /> Card number : 010203040506
+						Bank Account : {orderData?.user?.bank_account} <br /> Card number :
+						010203040506
 					</div>
 				</div>
 			</div>
@@ -124,50 +150,31 @@ const CusOrder = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td style={tdStyle}>#Bc1001</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Vietnamese with flat seed Durian
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>26 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>23</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$250</td>
-					</tr>
-					<tr>
-						<td style={tdStyle}>#Dg2789</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Strawberry <br /> Blackberry
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>26 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							15 <br /> 22
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$420</td>
-					</tr>
-					<tr>
-						<td style={tdStyle}>#Ae4586</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Sunrise Papaya <br /> Strawberry <br /> Apple Banana <br /> Honey
-							Mango <br /> Vietnamese with flat seed Durian
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>25 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							3 <br /> 10 <br /> 10 <br /> 6 <br /> 22
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$1450</td>
-					</tr>
-					<tr>
-						<td style={tdStyle}>#Bc1077</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Strawberry Coconut
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>30 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>23</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$250</td>
-					</tr>
+					{orderData.map((order) => (
+						<tr key={order.order_id}>
+							<td style={tdStyle}>#{order.order_id}</td>
+							<td style={{ ...tdStyle, ...innerBorderStyle }}>
+								{order?.product_id_products_order_products?.map((product) => (
+									<div key={product.product_id}>{product.product_name}</div>
+								))}
+							</td>
+							<td style={{ ...tdStyle, ...innerBorderStyle }}>
+								{new Date(order.order_date).toLocaleDateString()}
+							</td>
+							<td style={{ ...tdStyle, ...innerBorderStyle }}>
+								{order?.product_id_products_order_products?.map((product) => (
+									<div key={product.product_id}>
+										{product.order_products.order_product_quantity}
+									</div>
+								))}
+							</td>
+							<td style={{ ...tdStyle, ...innerBorderStyle }}>
+								${order.total_price}
+							</td>
+						</tr>
+					))}
 				</tbody>
 			</table>
- d5abed3366619d745b571c5cca0f76f8e9f91623
 		</div>
 	)
 }

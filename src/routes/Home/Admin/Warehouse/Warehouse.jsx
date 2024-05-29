@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ReOrder from './ReOrder/ReOrder'
 import OrderHistory from './OrderHistory/OrderHistory'
 
@@ -7,9 +7,8 @@ import StockAdjustment from './StockAdjustment/StockAdjustment'
 import Inventory from './Inventory/Inventory'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
 
-
 const Warehouse = () => {
-	const [activeTab, setActiveTab] = useState('')
+	const [activeTab, setActiveTab] = useState('Inventory')
 
 	const headerContainerStyle = {
 		color: '#485935',
@@ -56,8 +55,6 @@ const Warehouse = () => {
 		width: 'calc(100% - 50px)',
 	}
 
-
-
 	const renderContent = () => {
 		switch (activeTab) {
 			case 'Inventory':
@@ -73,20 +70,27 @@ const Warehouse = () => {
 					</div>
 				)
 			case 'Stock adjustment':
-				return <div style={contentStyle}><StockAdjustment/></div>
+				return (
+					<div style={contentStyle}>
+						<StockAdjustment />
+					</div>
+				)
 			case 'Order history':
-				return (<div style={contentStyle}><OrderHistory /></div>)
+				return (
+					<div style={contentStyle}>
+						<OrderHistory />
+					</div>
+				)
 			default:
-				return <Inventory/>
+				return <Inventory />
 		}
 	}
-
 
 	return (
 		<div style={{ overflowX: 'hidden' }}>
 			<div style={headerContainerStyle}>
 				<div style={{ display: 'flex' }}>
-					<div style={{ width: '80%'}}>
+					<div style={{ width: '80%' }}>
 						<div>Warehouse Management</div>
 					</div>
 					<SearchBar />
