@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
@@ -7,6 +8,12 @@ import ReviewMango from '../../../../components/Review/ReviewMango'
 
 
 const MangoStore = () => {
+	const navigate = useNavigate()
+
+	const handleBackClick = () => {
+		navigate('/customer/store')
+	}
+	
 	return (
 		<div>
 			<div className="flex">
@@ -38,8 +45,23 @@ const MangoStore = () => {
 			</div>
 			<div className='flex'>
                 <div className='ml-[55px]'>
-                    <ReviewMango/>
-                
+					<div
+						className="flex h-full w-full items-center justify-center mb-[10px]"
+						onClick={handleBackClick}
+						style={{
+							color:'white',
+							cursor: 'pointer',
+							width: '100px',
+							height: '35px',
+							fontSize: '1.25rem',
+							padding: '10px 20px',
+							borderRadius: '15px',
+							background: '#7C7C7C'
+						}}
+					>
+						Back
+					</div>
+                    <ReviewMango/>                
                 </div>
 
 				<div className='ml-[80px]'>

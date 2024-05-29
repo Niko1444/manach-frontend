@@ -1,12 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import SearchBar from '../../../../components/SearchBar/SearchBar'
 import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
 import ReviewBanana from '../../../../components/Review/ReviewBanana'
 
-
 const BananaStore = () => {
+	const navigate = useNavigate()
+
+	const handleBackClick = () => {
+		navigate('/customer/store')
+	}
+
 	return (
 		<div>
 			<div className="flex">
@@ -36,19 +42,33 @@ const BananaStore = () => {
 				</div>
 				<SearchBar />
 			</div>
-			<div className='flex'>
-                <div className='ml-[55px]'>
-					<ReviewBanana/>
-                    
-                
-                </div>
+			<div className="flex">
+				<div className="ml-[55px]">
+					<div
+						className="flex h-full w-full items-center justify-center mb-[10px]"
+						onClick={handleBackClick}
+						style={{
+							color:'white',
+							cursor: 'pointer',
+							width: '100px',
+							height: '35px',
+							fontSize: '1.25rem',
+							padding: '10px 20px',
+							borderRadius: '15px',
+							background: '#7C7C7C'
+						}}
+					>
+						Back
+					</div>
+					<ReviewBanana />
+				</div>
 
-				<div className='ml-[80px]'>
+				<div className="ml-[80px]">
 					<div className="mt-4 flex justify-end">
 						<div className="w-full max-w-64 space-y-4">
 							<ExploreFruit />
 							<ExploreSupplier />
-							<Daily/>
+							<Daily />
 						</div>
 					</div>
 				</div>
