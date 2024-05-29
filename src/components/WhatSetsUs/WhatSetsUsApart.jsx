@@ -142,13 +142,15 @@ const WhatSetsUsApart = () => {
 							paddingTop: '60px',
 						}}
 					>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						Discover a world of flavors and delights at our store. Whether you
+						have a sweet tooth or a savory craving, we have something to satisfy
+						every taste bud. From freshly baked goods to gourmet treats, our
+						selection is sure to please. Experience the finest quality products
+						and exceptional service. Indulge in your cravings and find your
+						favorites today. Visit us and treat yourself to a delightful
+						shopping experience. Your cravings deserve the best, and that's
+						exactly what we offer. Come see us and explore the delicious
+						possibilities!
 					</div>
 					<div style={{ marginLeft: '12rem', paddingTop: '120px' }}>
 						<button
