@@ -8,18 +8,12 @@ const TableDecreasingSorted = () => {
 			try {
 				const response = await fetch('http://localhost:8080/warehouse')
 				const result = await response.json()
-				// Sort products by total quantity in descending order
+				// Sort products by warehouse quantity in descending order
 				const sortedProducts = result.content.getProducts
 					.slice()
 					.sort((a, b) => {
-						const totalQuantityA = calculateTotalQuantity(
-							a.warehouse_products,
-							a.shelf_products,
-						)
-						const totalQuantityB = calculateTotalQuantity(
-							b.warehouse_products,
-							b.shelf_products,
-						)
+						const totalQuantityA = calculateTotalQuantity(a.warehouse_products)
+						const totalQuantityB = calculateTotalQuantity(b.warehouse_products)
 						return totalQuantityB - totalQuantityA // Sort in decreasing order
 					})
 				setProducts(sortedProducts)
@@ -51,16 +45,8 @@ const TableDecreasingSorted = () => {
 		return url
 	}
 
-	const calculateTotalQuantity = (warehouseProducts, shelfProducts) => {
-		const warehouseQuantity = warehouseProducts.reduce(
-			(acc, item) => acc + item.quantity,
-			0,
-		)
-		const shelfQuantity = shelfProducts.reduce(
-			(acc, item) => acc + item.quantity,
-			0,
-		)
-		return warehouseQuantity + shelfQuantity
+	const calculateTotalQuantity = (warehouseProducts) => {
+		return warehouseProducts.reduce((acc, item) => acc + item.quantity, 0)
 	}
 
 	const determineStatus = (quantity) => {
@@ -143,7 +129,6 @@ const TableDecreasingSorted = () => {
 					{products.map((product) => {
 						const totalQuantity = calculateTotalQuantity(
 							product.warehouse_products,
-							product.shelf_products,
 						)
 						const { status, color } = determineStatus(totalQuantity)
 						const imageUrl =
