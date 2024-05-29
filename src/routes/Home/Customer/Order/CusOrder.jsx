@@ -1,24 +1,39 @@
-
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 const CusOrder = () => {
+	const [orderData, setOrderData] = useState(null);
+
+	useEffect(() => {
+		const fetchOrderData = async () => {
+			try {
+				const response = await fetch('http://localhost:8080/user/2/order');
+				const data = await response.json();
+				setOrderData(data.content);
+			} catch (error) {
+				console.error('Error fetching order data:', error);
+			}
+		};
+
+		fetchOrderData();
+	}, []);
+
 	const containerStyle = {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
 		margin: '0px',
-	}
+	};
 	const headerContainerStyle = {
 		width: '95%',
 		marginBottom: '20px',
 		textAlign: 'left',
-	}
+	};
 	const infoBoxContainerStyle = {
 		display: 'flex',
 		justifyContent: 'space-between',
 		width: '95%',
 		marginBottom: '20px',
-	}
+	};
 
 	const infoBoxStyle = {
 		flex: '1',
@@ -32,23 +47,23 @@ const CusOrder = () => {
 		fontSize: '20px',
 		fontWeight: 'bold',
 		textAlign: 'left',
-	}
+	};
 
 	const titleStyle = {
-		fontSize: '22',
+		fontSize: '22px',
 		marginBottom: '5px',
-	}
+	};
 
 	const contentStyle = {
 		fontSize: '16px',
-		paddingLeft: '40px'
-	}
+		paddingLeft: '40px',
+	};
 
 	const tableStyle = {
 		width: '95%',
 		borderCollapse: 'collapse',
 		textAlign: 'center',
-	}
+	};
 
 	const thStyle = {
 		color: '#CADBB7',
@@ -57,7 +72,7 @@ const CusOrder = () => {
 		border: '1px solid #485935',
 		backgroundColor: '#485935',
 		height: '124px',
-	}
+	};
 
 	const tdStyle = {
 		color: '#485935',
@@ -65,10 +80,14 @@ const CusOrder = () => {
 		border: '1px solid #485935',
 		height: '124px',
 		padding: '20px',
-	}
+	};
 
 	const innerBorderStyle = {
 		borderLeft: '1.5px solid #CADBB7',
+	};
+
+	if (!orderData) {
+		return <div>Loading...</div>;
 	}
 
 	return (
@@ -85,8 +104,7 @@ const CusOrder = () => {
 				<div style={infoBoxStyle}>
 					<div style={titleStyle}>Customer</div>
 					<div style={contentStyle}>
-						Name : Banh Thi Phuong Nam <br /> Email : Banhthinoi@haha.com <br />{' '}
-						Phone : 097622789
+						Name : {orderData.user.full_name} <br /> Email : {orderData.user.email} <br /> Phone : {orderData.user.phone}
 					</div>
 				</div>
 				<div style={infoBoxStyle}>
@@ -96,7 +114,7 @@ const CusOrder = () => {
 				<div style={infoBoxStyle}>
 					<div style={titleStyle}>Payment</div>
 					<div style={contentStyle}>
-						Bank Account : EMIUBANK <br /> Card number : 010203040506
+						Bank Account : {orderData.user.bank_account} <br /> Card number : 010203040506
 					</div>
 				</div>
 			</div>
@@ -109,67 +127,32 @@ const CusOrder = () => {
 				<thead>
 					<tr>
 						<th style={{ ...thStyle, width: '14%' }}>Order ID</th>
-						<th style={{ ...thStyle, ...innerBorderStyle, width: '45%' }}>
-							Product
-						</th>
-						<th style={{ ...thStyle, ...innerBorderStyle, width: '16%' }}>
-							Date
-						</th>
-						<th style={{ ...thStyle, ...innerBorderStyle, width: '13%' }}>
-							Total Amount
-						</th>
-						<th style={{ ...thStyle, ...innerBorderStyle, width: '12%' }}>
-							Price
-						</th>
+						<th style={{ ...thStyle, ...innerBorderStyle, width: '45%' }}>Product</th>
+						<th style={{ ...thStyle, ...innerBorderStyle, width: '16%' }}>Date</th>
+						<th style={{ ...thStyle, ...innerBorderStyle, width: '13%' }}>Total Amount</th>
+						<th style={{ ...thStyle, ...innerBorderStyle, width: '12%' }}>Price</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td style={tdStyle}>#Bc1001</td>
+						<td style={tdStyle}>#{orderData.order_id}</td>
 						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Vietnamese with flat seed Durian
+							{orderData.product_id_products_order_products.map((product) => (
+								<div key={product.product_id}>{product.product_name}</div>
+							))}
 						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>26 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>23</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$250</td>
-					</tr>
-					<tr>
-						<td style={tdStyle}>#Dg2789</td>
+						<td style={{ ...tdStyle, ...innerBorderStyle }}>{new Date(orderData.order_date).toLocaleDateString()}</td>
 						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Strawberry <br /> Blackberry
+							{orderData.product_id_products_order_products.map((product) => (
+								<div key={product.product_id}>{product.order_products.order_product_quantity}</div>
+							))}
 						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>26 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							15 <br /> 22
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$420</td>
-					</tr>
-					<tr>
-						<td style={tdStyle}>#Ae4586</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Sunrise Papaya <br /> Strawberry <br /> Apple Banana <br /> Honey
-							Mango <br /> Vietnamese with flat seed Durian
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>25 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							3 <br /> 10 <br /> 10 <br /> 6 <br /> 22
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$1450</td>
-					</tr>
-					<tr>
-						<td style={tdStyle}>#Bc1077</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>
-							Strawberry Coconut
-						</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>30 April 2024</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>23</td>
-						<td style={{ ...tdStyle, ...innerBorderStyle }}>$250</td>
+						<td style={{ ...tdStyle, ...innerBorderStyle }}>${orderData.total_price}</td>
 					</tr>
 				</tbody>
 			</table>
- d5abed3366619d745b571c5cca0f76f8e9f91623
 		</div>
-	)
-}
+	);
+};
 
-export default CusOrder
+export default CusOrder;
