@@ -189,8 +189,8 @@ const ReOrder = () => {
 						padding: '20px',
 						borderRadius: '20px',
 						border: '0px',
-						width: '70%',
-						height: '70%',
+						width: '59%',
+						height: '67%',
 						textAlign: 'center',
 					},
 				}}

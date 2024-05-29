@@ -71,7 +71,11 @@ const AddToCart = ({ product }) => {
 			style={{
 				borderRadius: '10px',
 				overflow: 'visible',
-				backgroundColor: isHovered && !isDisabled ? '#CADBB7' : '#485935',
+				backgroundColor: isPressed
+					? '#CADBB7' // Light green when pressed
+					: isHovered && !isDisabled
+						? '#CADBB7' // Light green on hover
+						: '#485935', // Dark green by default
 				boxShadow:
 					isPressed && !isDisabled ? '4px 4px 4px rgba(0, 0, 0, 0.25)' : 'none',
 			}}
@@ -80,7 +84,7 @@ const AddToCart = ({ product }) => {
 			<div
 				className="absolute left-0 top-0 flex h-full w-full items-center justify-center text-center"
 				style={{
-					color: isHovered && !isDisabled ? '#FFFFFF' : '#FFFFF',
+					color: isHovered && !isDisabled ? '#FFFFFF' : '#FFFFFF',
 					fontWeight: '800',
 					fontSize: '18px',
 				}}
